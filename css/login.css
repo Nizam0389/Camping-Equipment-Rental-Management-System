@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #556b2f;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.logo {
+    height: 50px;
+}
+
+.profile-btn {
+    background: url('images/profile-icon.png') no-repeat center center;
+    background-size: cover;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.login-container {
+    background-color: #d2b48c;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 30%; /* Adjusted width */
+}
+
+.login-container h2 {
+    margin-top: 0;
+}
+
+.login-container label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 5px; /* Adjust as needed */
+    transform: translateY(-50%);
+    width: 20px; /* Set width */
+    height: 20px; /* Set height */
+    background: url('./image/eyeToggle.png') no-repeat center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+}
+
+/* Style for when button is clicked */
+.toggle-password.clicked {
+    background: url('./image/eyeToggle.png') no-repeat center;
+    background-size: contain;
+    transform: scaleX(-1); /* Flip the image horizontally */
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.remember-me input {
+    margin-right: 5px;
+}
+
+.login-btn {
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #006400;
+}
+
+.error {
+    color: red;
+    margin-bottom: 10px;
+}
