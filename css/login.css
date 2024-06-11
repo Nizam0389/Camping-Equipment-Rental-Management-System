@@ -10,6 +10,7 @@ header {
     padding: 10px 0;
 }
 
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -33,8 +34,20 @@ nav ul li a {
     text-decoration: none;
 }
 
+.logo-container {
+    width: 60px; /* Adjust size as needed */
+    height: 60px; /* Adjust size as needed */
+    border-radius: 50%; /* Make it a circle */
+    overflow: hidden; /* Hide overflowing parts */
+    background-color: #fff; /* Background color to match the header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo {
-    height: 50px;
+    max-width: 100%; /* Ensure the logo doesn't exceed the container */
+    max-height: 100%; /* Ensure the logo doesn't exceed the container */
 }
 
 .profile-btn {
