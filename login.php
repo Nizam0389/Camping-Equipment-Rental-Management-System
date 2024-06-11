@@ -57,13 +57,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li><a href="homepage.php">HOMEPAGE</a></li>
                 <li><a href="rental.php">RENTAL</a></li>
             </ul>
-            <img src="images/logo.png" alt="Logo" class="logo">
+            <div class="logo-container">
+                <img src="../image/logo.png" alt="Logo" class="logo">
+            </div>
             <ul>
                 <li><a href="contactus.php">CONTACT US</a></li>
                 <li><button class="profile-btn"></button></li>
             </ul>
         </nav>
     </header>
+
     <main>
         <div class="login-container">
             <h2>LOGIN</h2>
