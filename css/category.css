@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Adjust this value to change the height of the navigation bar */
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px; /* Adjust the font size to fit the reduced height */
+    position: relative;
+}
+
+.navbar li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar li a:hover::after {
+    background-color: white;
+    transform: scaleX(1);
+}
+
+.navbar li.logo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar li.logo img {
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #fff;
+    height: 30px; /* Adjust the logo height to fit the reduced navigation bar height */
+}
+
+.navbar li.cart img {
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px; /* Adjust the cart icon height to fit the reduced navigation bar height */
+}
+
+.navbar li.right {
+    float: right;
+}
+
+.navbar li.right img {
+    height: 30px; /* Adjust this value to change the height of the image */
+    width: auto; /* Maintain aspect ratio by setting width to auto */
+}
+
+.main-content {
+    background-image: url('../image/bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+
+.category-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.category-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease-in-out;
+}
+
+.category-item:hover {
+    transform: scale(1.1);
+}
+
+.category-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 10px;
+}
+
+.category-item p {
+    margin-top: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}

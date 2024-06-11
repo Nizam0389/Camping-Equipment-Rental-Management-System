@@ -22,6 +22,10 @@ body {
     padding: 5px;
     background-color: #fff;
 }
+.navbar li.cart img {
+    border-radius: 50%;
+    padding: 5px;
+}
 .navbar li {
     float: left;
 }
