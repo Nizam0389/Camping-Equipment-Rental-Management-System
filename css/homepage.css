@@ -51,33 +51,36 @@ body {
 
 .navbar li.logo {
     flex-grow: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar li.logo img {
     border-radius: 50%;
-    padding: 5px;
-    background-color: #fff;
-    height: 30px; /* Adjust the logo height to fit the reduced navigation bar height */
-}
-
-.navbar li.cart img {
-    border-radius: 50%;
-    padding: 5px;
-    height: 30px; /* Adjust the cart icon height to fit the reduced navigation bar height */
+    height: 50px; /* Adjust the logo height */
+    width: 50px; /* Adjust the logo width */
 }
 
 .navbar li.right {
-    float: right;
+    float: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li.right a {
+    margin-left: 10px; /* Adjust spacing between Contact Us and profile logo */
 }
 
 .navbar li.right img {
-    height: 30px; /* Adjust this value to change the height of the image */
-    width: auto; /* Maintain aspect ratio by setting width to auto */
+    height: 24px; /* Adjust this value to change the height of the profile image */
+    width: 24px; /* Adjust this value to change the width of the profile image */
+    margin-left: 5px; /* Add a small margin for better alignment */
 }
+
 .main-content {
-    background-image: url('../image/bg.png');
-    height: 500px;
+    background-image: url('../image/bg HOMEPAGE.png');
+    min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -85,7 +88,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
+
 .main-content .info-box {
     background-color: rgba(0, 128, 0, 0.5);
     color: white;
@@ -95,13 +101,32 @@ body {
     border-radius: 10px;
     margin-right: 20px;
 }
+
 .main-content .biglogo {
     border-radius: 50%;
     padding: 10px;
     background-color: #fff;
 }
+
 .main-content .biglogo img {
     max-width: 200px;
     max-height: 200px;
     border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-content .info-box {
+        width: 80%;
+        margin: 10px 0;
+    }
+
+    .main-content .biglogo img {
+        max-width: 150px;
+        max-height: 150px;
+    }
 }
