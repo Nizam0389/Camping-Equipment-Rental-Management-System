@@ -79,108 +79,72 @@ body {
 }
 
 main {
-    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80vh;
 }
 
-.login-container {
-    background-color: #BBAB8C;
-    padding: 40px 30px;
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.register-form {
+    background-color: #a67c52;
+    padding: 30px;
+    border-radius: 20px;
     text-align: center;
-    width: 400px; /* Fixed width for the container */
-    margin: 20px;
+    width: 400px;
 }
 
-.login-container h2 {
-    margin-top: 0;
-    color: #090909;
-    font-size: 24px;
-}
-
-.login-container label {
-    display: block;
-    margin: 10px 0 5px;
-    font-weight: bold;
-    color: #333;
-    text-align: left; /* Align labels to the left */
-}
-
-.login-container input[type="text"],
-.login-container input[type="password"] {
-    width: 100%;
-    padding: 10px;
+.register-form h2 {
     margin-bottom: 20px;
+    color: black;
+}
+
+.register-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding doesn't affect total width */
 }
 
-.password-container {
-    position: relative;
+.register-form input::placeholder {
+    color: #999;
 }
 
-.toggle-password {
-    position: absolute;
-    top: 50%;
-    right: 10px; /* Adjust as needed */
-    transform: translateY(-50%);
-    width: 20px; /* Set width */
-    height: 20px; /* Set height */
-    background: url('./images/eyeToggle.png') no-repeat center;
-    background-size: contain;
-    border: none;
-    cursor: pointer;
-}
-
-/* Style for when button is clicked */
-.toggle-password.clicked {
-    background: url('./images/eyeToggle.png') no-repeat center;
-    background-size: contain;
-    transform: scaleX(-1); /* Flip the image horizontally */
-}
-
-.remember-me {
-    display: flex;
-    align-items: center;
+.register-form p {
+    font-size: 12px;
+    color: white;
     margin-bottom: 20px;
+
 }
 
-.remember-me input {
-    margin-right: 5px;
+.register-form p a {
+    color: black;
 }
 
-.login-btn {
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
+.register-btn, .login-btn {
+    padding: 10px;
     font-size: 16px;
-    font-weight: bold;
-    width: 100%;
-}
-
-.login-btn:hover {
-    background-color: #45a049;
-}
-
-.error {
-    color: red;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     margin-bottom: 10px;
 }
 
-.login-container p {
-    margin: 20px 0 0;
-    font-size: 14px;
+.register-btn {
+    background-color: black;
+    color: white;
 }
 
-.login-container p a {
-    color: #020202;
-    text-decoration: none;
-    font-weight: bold;
+.login-btn {
+    background-color: white;
+    color: black;
+}
+
+.login-btn:hover {
+    background-color: #ccc;
 }
