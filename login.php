@@ -48,19 +48,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <header>
-        <div class="navbar">
+        <nav>
             <ul>
+                <div class="search-container">
+                    <img src="../image/search.png" alt="search" class="search">
+                </div>
                 <li><a href="homepage.html">HOMEPAGE</a></li>
                 <li><a href="category.html">RENTAL</a></li>
-                <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.html">CONTACT US</a></li>
-                <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
             </ul>
-        </div>
+            <div class="logo-container">
+                <img src="../image/logo.png" alt="Logo" class="logo">
+            </div>
+            <ul>
+                <li><a href="contactus.html">CONTACT US</a></li>
+                <li><button class="profile-btn"></button></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
@@ -83,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 <button type="submit" class="login-btn">LOG IN</button>
             </form>
-            <p>Don't have an account? <a href="register.html">Register</a></p>
+            <p>Don't have an account? <a href="register.php">Register</a></p>
         </div>
     </main>
     <script>
