@@ -79,6 +79,11 @@ body {
 .main-content {
     background-color: #F5EFE6;
     min-height: 100vh;
+    margin-top: -2%;
+}
+
+.main-content h2{
+    padding-top: 2%;
 }
 
 .title-page {
