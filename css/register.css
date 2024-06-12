@@ -119,7 +119,7 @@ main {
     font-size: 12px;
     color: white;
     margin-bottom: 20px;
-
+    text-align: left;
 }
 
 .register-form p a {
@@ -130,19 +130,22 @@ main {
     padding: 10px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
     margin-bottom: 10px;
+    width: 280px;
 }
 
 .register-btn {
     background-color: black;
     color: white;
+    font-weight: bold;
 }
 
 .login-btn {
     background-color: white;
     color: black;
+    font-weight: bold;
 }
 
 .login-btn:hover {
