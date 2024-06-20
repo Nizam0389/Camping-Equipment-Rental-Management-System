@@ -48,26 +48,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <header>
-        <nav>
+        <div class="navbar">
             <ul>
-                <div class="search-container">
-                    <img src="../image/search.png" alt="search" class="search">
-                </div>
-                <li><a href="homepage.html">HOMEPAGE</a></li>
+                <li><a href="index.html">HOMEPAGE</a></li>
                 <li><a href="category.html">RENTAL</a></li>
+                <li class="logo"><img src="image/logo.png" alt="logo"></li>
+                <li class="right"><a href="contactus.html">CONTACT US</a></li>
+                <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
             </ul>
-            <div class="logo-container">
-                <img src="../image/logo.png" alt="Logo" class="logo">
-            </div>
-            <ul>
-                <li><a href="contactus.html">CONTACT US</a></li>
-                <li><button class="profile-btn"></button></li>
-            </ul>
-        </nav>
+        </div>
     </header>
 
     <main>
@@ -80,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <label for="password">Password</label>
                 <div class="password-container">
                     <input type="password" id="password" name="password" required>
-                    <button type="button" class="toggle-password"></button> <!-- Eye toggle icon -->
+                    <button type="button" class="toggle-password"></button>
                 </div>
 
                 <div class="remember-me">

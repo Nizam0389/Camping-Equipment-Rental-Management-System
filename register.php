@@ -1,3 +1,32 @@
+<?php
+// Database connection
+$conn = new mysqli("localhost", "root", "", "campingrentaldb");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Initialize variables
+$username = $password = $email = $phone_no = "";
+$error = $success = "";
+
+// Form submission handling
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Encrypt the password
+    $email = $_POST["email"];
+    $phone_no = $_POST["phone_no"];
+
+    // Insert into database
+    $sql = "INSERT INTO customer (username, password, email, phone_no) VALUES ('$username', '$password', '$email', '$phone_no')";
+    if ($conn->query($sql) === TRUE) {
+        $success = "Registration successful!";
+    } else {
+        $error = "Error: " . $sql . "<br>" . $conn->error;
+    }
+    $conn->close();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
