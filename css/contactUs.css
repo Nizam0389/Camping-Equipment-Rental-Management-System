@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #d1c1a7;
+    background-color: #F5EFE6;
 }
 .navbar {
     background-color: #4F6F52;
@@ -64,7 +64,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d1c1a7;
+    background-color: #D9D9D9;
     padding: 30px;
     border-radius: 15px;
     gap: 20px; /* Increase gap for larger screens */
