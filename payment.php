@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="css/payment.css">
+</head>
+<body>
+    <div class="navbar">
+        <ul>
+            <li><a href="index.php">HOMEPAGE</a></li>
+            <li><a href="category.php">RENTAL</a></li>
+            <li class="logo"><img src="image/logo.png" alt="logo"></li>
+            <li class="right"><a href="contactus.php">CONTACT US</a></li>
+            <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <h2 class="title-page">- CART -</h2>
+        <div class="cart-container">
+            <div class="cart-details">
+                <h3>YOUR RENTING</h3>
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>PRODUCT</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Compact 2 Person Pop-up Tent</td>
+                            <td>RM 55.00</td>
+                            <td>1</td>
+                            <td>RM 55.00</td>
+                        </tr>
+                        <tr>
+                            <td>Torch Light</td>
+                            <td>RM 5.00</td>
+                            <td>1</td>
+                            <td>RM 5.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="payment-details">
+                <h3>Payment</h3>
+                <div class="total">
+                    <span>Total</span>
+                    <span>RM 60.00</span>
+                </div>
+                <h4>Online Banking</h4>
+                <form action="process-payment.php" method="post">
+                    <label class="radio-container"><input type="radio" name="bank" value="maybank" required><img src="image/bank/maybank.png" alt="Maybank"></label><br>
+                    <label class="radio-container"><input type="radio" name="bank" value="bank-islam" required><img src="image/bank/bank-islam.png" alt="Bank Islam"></label><br>
+                    <label class="radio-container"><input type="radio" name="bank" value="cimb" required><img src="image/bank/cimb.png" alt="CIMB"></label><br>
+                    <label class="radio-container"><input type="radio" name="bank" value="rhb" required><img src="image/bank/rhb.png" alt="RHB"></label><br>
+                    <label class="radio-container"><input type="radio" name="bank" value="public-bank" required><img src="image/bank/public-bank.png" alt="Public Bank"></label><br>
+                    <label class="radio-container"><input type="radio" name="bank" value="ambank" required><img src="image/bank/ambank.png" alt="AmBank"></label><br>
+                    <button type="submit" class="pay-button">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
