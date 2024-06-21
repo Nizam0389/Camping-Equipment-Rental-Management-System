@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Admin</title>
+    <link rel="stylesheet" type="text/css" href="css/contactUsAdmin.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <ul>
+                <li><a href="index.php">HOMEPAGE</a></li>
+                <li><a href="category.php">RENTAL</a></li>
+                <li class="logo"><img src="image/logo.png" alt="logo"></li>
+                <li class="right"><a href="contactus.php">CONTACT US</a></li>
+                <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
+                <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div class="contact-section">
+            <h2>- GET IN TOUCH WITH US -</h2>
+            <div class="contact-container">
+                <div class="contact-image">
+                    <img src="image/contactUs.jpg" alt="Tent">
+                </div>
+                <form action="process-contact.php" method="post">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <img src="image/phone.png" alt="phone">
+                            <input type="text" name="phone" value="+60 9 7341155">
+                        </div>
+                        <div class="contact-item">
+                            <img src="image/email.png" alt="email">
+                            <input type="text" name="email" value="sakiricamping@gmail.com">
+                        </div>
+                        <div class="contact-item">
+                            <img src="image/location.png" alt="location">
+                            <textarea name="address" rows="3">45 Jalan Pantai Batu Buruk, 21300 Kuala Terengganu, Terengganu, Malaysia</textarea>
+                        </div>
+                        <div class="contact-item">
+                            <img src="image/website.png" alt="website">
+                            <input type="text" name="website" value="www.sakiricamping.com">
+                        </div>
+                        <div class="confirm-button">
+                            <button type="submit">Confirm Edit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
