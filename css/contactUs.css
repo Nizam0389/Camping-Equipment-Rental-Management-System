@@ -1,13 +1,12 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
+    background-color: #d1c1a7;
 }
-
 .navbar {
     background-color: #4F6F52;
     overflow: hidden;
 }
-
 .navbar ul {
     list-style-type: none;
     margin: 0;
@@ -15,23 +14,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px; /* Adjust this value to change the height of the navigation bar */
+    height: 60px;
 }
-
-.navbar li {
-    float: left;
-}
-
 .navbar li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 18px; /* Adjust the font size to fit the reduced height */
+    font-size: 18px;
     position: relative;
 }
-
 .navbar li a::after {
     content: '';
     position: absolute;
@@ -43,72 +36,64 @@ body {
     transform: scaleX(0);
     transition: transform 0.3s ease-in-out;
 }
-
 .navbar li a:hover::after {
     background-color: white;
     transform: scaleX(1);
 }
-
 .navbar li.logo {
     flex-grow: 1;
     text-align: center;
 }
-
 .navbar li.logo img {
     border-radius: 50%;
     padding: 5px;
     background-color: #fff;
-    height: 30px; /* Adjust the logo height to fit the reduced navigation bar height */
+    height: 30px;
 }
-
-.navbar li.cart img {
+.navbar li.cart img, .navbar li.right img {
     border-radius: 50%;
     padding: 5px;
-    height: 30px; /* Adjust the cart icon height to fit the reduced navigation bar height */
+    height: 30px;
+    width: auto;
 }
-
-.navbar li.right {
-    float: right;
-}
-
-.navbar li.right img {
-    height: 30px; /* Adjust this value to change the height of the image */
-    width: auto; /* Maintain aspect ratio by setting width to auto */
-}
-
 .contact-section {
     text-align: center;
-    margin: 20px;
+    margin: 40px 0;
 }
-
 .contact-container {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #d1c1a7;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 15px;
+    gap: 20px; /* Increase gap for larger screens */
+    max-width: 1000px; /* Set a max-width to center content */
+    margin: 0 auto; /* Center the container */
 }
-
 .contact-image img {
-    border-radius: 10px;
-    width: 300px;
+    border-radius: 15px;
+    width: 500px; /* Increase image size for larger screens */
     height: auto;
-    margin-right: 20px;
 }
-
 .contact-info {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 20px; /* Increase padding for larger screens */
+    border-radius: 15px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Increase gap for larger screens */
+    width: 500px;
+    height: 370px;
 }
-
-.contact-info p {
-    margin: 10px 0;
-    font-size: 18px;
-}
-
-.contact-info i {
+.contact-info img {
+    width: 30px; /* Increase icon size for larger screens */
+    height: auto;
+    vertical-align: middle;
     margin-right: 10px;
+}
+.contact-info p {
+    display: flex;
+    align-items: center;
 }
