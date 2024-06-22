@@ -62,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="name" placeholder="Name" required>
                 <input type="text" name="address" placeholder="Address" required>
                 <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
+                <button type="submit" class="register-btn">REGISTER</button>
             </form>
-            <button type="submit" class="register-btn">REGISTER</button>
             <br>
             <button class="login-btn" onclick="window.location.href='login.php'">LOG IN</button>
         </div>
