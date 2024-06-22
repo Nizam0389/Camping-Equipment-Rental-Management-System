@@ -6,7 +6,7 @@ if ($conn->connect_error) {
 }
 
 // Initialize variables
-$username = $password = $email = $phone_no = "";
+$username = $password = $email = $phone_no = $name = $address = "";
 $error = $success = "";
 
 // Form submission handling
@@ -15,9 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Encrypt the password
     $email = $_POST["email"];
     $phone_no = $_POST["phone_no"];
+    $name = $_POST["name"];
+    $address = $_POST["address"];
 
     // Insert into database
-    $sql = "INSERT INTO customer (username, password, email, phone_no) VALUES ('$username', '$password', '$email', '$phone_no')";
+    $sql = "INSERT INTO customer (username, password, email, phone_no, name, address) VALUES ('$username', '$password', '$email', '$phone_no', '$name', '$address')";
     if ($conn->query($sql) === TRUE) {
         $success = "Registration successful!";
     } else {
@@ -25,8 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $conn->close();
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,18 +52,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main>
         <div class="register-form">
             <h2>Register</h2>
-            <form>
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <input type="email" placeholder="Email" required>
-                <input type="tel" placeholder="Phone No." required>
+            <?php if ($success) { echo "<p class='success'>$success</p>"; } ?>
+            <?php if ($error) { echo "<p class='error'>$error</p>"; } ?>
+            <form action="register.php" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone_no" placeholder="Phone No." required>
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="text" name="address" placeholder="Address" required>
                 <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
             </form>
             <button type="submit" class="register-btn">REGISTER</button>
             <br>
-            <button class="login-btn">LOG IN</button>
+            <button class="login-btn" onclick="window.location.href='login.php'">LOG IN</button>
         </div>
     </main>
-
 </body>
 </html>
