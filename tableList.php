@@ -1,3 +1,16 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$username = $_SESSION['username'];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +20,37 @@
         function confirmLogout() {
             var result = confirm("Do you want to log out?");
             if (result) {
-                window.location.href = 'login.php';
+                window.location.href = 'logout.php';
             }
+        }
+
+        function addToCart(tentId, tentName, tentPrice) {
+            var cartItems = document.querySelector('.cart-items');
+            var item = document.createElement('div');
+            item.classList.add('cart-item');
+            item.innerHTML = `
+                <img src="image/tent image/${tentId}.png" alt="${tentName}">
+                <span>${tentName}</span>
+                <span>RM${tentPrice}</span>
+                <input type="number" value="1" min="1" onchange="updateTotal()">
+            `;
+            cartItems.appendChild(item);
+            document.querySelector('.shopping-cart').style.display = 'flex';
+            updateTotal();
+        }
+
+        function updateTotal() {
+            var total = 0;
+            document.querySelectorAll('.cart-item').forEach(function(item) {
+                var price = parseFloat(item.children[2].innerText.replace('RM', ''));
+                var quantity = item.children[3].value;
+                total += price * quantity;
+            });
+            document.getElementById('total').innerText = 'RM' + total.toFixed(2);
+        }
+
+        function closeCart() {
+            document.querySelector('.shopping-cart').style.display = 'none';
         }
     </script>
 </head>
