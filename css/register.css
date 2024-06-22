@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #F5EFE6;
+}
+
+.navbar {
+    background-color: #4F6F52;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px; /* Adjust this value to change the height of the navigation bar */
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px; /* Adjust the font size to fit the reduced height */
+    position: relative;
+}
+
+.navbar li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar li a:hover::after {
+    background-color: white;
+    transform: scaleX(1);
+}
+
+.navbar li.logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar li.logo img {
+    border-radius: 50%;
+    height: 50px; /* Adjust the logo height */
+    width: 50px; /* Adjust the logo width */
+}
+
+.navbar li.right {
+    float: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li.right a {
+    margin-left: 10px; /* Adjust spacing between Contact Us and profile logo */
+}
+
+.navbar li.right img {
+    height: 24px; /* Adjust this value to change the height of the profile image */
+    width: 24px; /* Adjust this value to change the width of the profile image */
+    margin-left: 5px; /* Add a small margin for better alignment */
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.register-form {
+    background-color: #a67c52;
+    padding: 30px;
+    border-radius: 45px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-form h2 {
+    margin-bottom: 20px;
+    color: black;
+}
+
+.register-form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.register-form input::placeholder {
+    color: #999;
+}
+
+.register-form p {
+    font-size: 12px;
+    color: white;
+    margin-bottom: 20px;
+    text-align: left;
+    max-width: 350px;
+}
+
+.register-form p a {
+    color: black;
+}
+
+.register-btn, .login-btn {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.register-btn {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
+
+.login-btn {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: #ccc;
+}
