@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+}
+
+.navbar1{
+    height: 80px;
+    background-color: #1A4D2E;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar li a:hover {
+    background-color: #111;
+}
+
+.navbar .logo img {
+    height: 40px;
+    width: auto;
+}
+
+.navbar .logo {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.navbar .right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.container {
+    width: 900px;
+    margin: auto;
+    max-width: 90vw;
+    text-align: center;
+    padding-top: 10px;
+    transition: transform .5s;
+}
+
+.item-card {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.item-card img {
+    width: 100%;
+}
+
+.item-card button {
+    background-color: #353432;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cartTab {
+    width: 400px;
+    background-color: #353432;
+    color: #eee;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    bottom: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: .5s;
+}
+
+.cartTab h1 {
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.cartTab .btn {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cartTab button {
+    padding: 20px;
+    background-color: #E8BC0E;
+    border: none;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.cartTab .close {
+    background-color: #eee;
+}
+
+.listCart .item img {
+    width: 100%;
+}
+
+.listCart .item {
+    display: grid;
+    grid-template-columns: 70px 150px 50px 1fr;
+    gap: 10px;
+    text-align: center;
+    align-items: center;
+}
+
+.listCart .quantity span {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+    color: #555;
+    cursor: pointer;
+}
+
+.listCart .quantity span:nth-child(2) {
+    background-color: transparent;
+    color: #eee;
+    cursor: auto;
+}
+
+.listCart .item:nth-child(even) {
+    background-color: #eee1;
+}
+
+.listCart {
+    overflow: auto;
+}
+
+.listCart::-webkit-scrollbar {
+    width: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    .listProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .listProduct {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
