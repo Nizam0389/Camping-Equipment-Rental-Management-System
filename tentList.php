@@ -17,7 +17,7 @@ $username = $_SESSION['username'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYAKIRI CAMPING</title>
-    <link rel="stylesheet" type="text/css" href="css/tentList.css">
+    <link rel="stylesheet" type="text/css" href="css/ItemList.css">
     <script>
         function confirmLogout() {
             var result = confirm("Do you want to log out?");
@@ -72,93 +72,6 @@ $username = $_SESSION['username'];
         }
     </script>
     <style>
-    body {
-        margin: 0;
-        font-family: Poppins, sans-serif;
-    }
-
-    .navbar1{
-        height: 80px;
-        background-color: #1A4D2E;
-    }
-
-    .navbar ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-    }
-
-    .navbar li {
-        float: left;
-    }
-
-    .navbar li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    .navbar li a:hover {
-        background-color: #111;
-    }
-
-    .navbar .logo img {
-        height: 40px;
-        width: auto;
-    }
-
-    .navbar .logo {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .navbar .right {
-        margin-left: auto;
-        display: flex;
-        align-items: center;
-    }
-
-    .main-content {
-        padding: 20px;
-    }
-
-    .container {
-        width: 900px;
-        margin: auto;
-        max-width: 90vw;
-        text-align: center;
-        padding-top: 10px;
-        transition: transform .5s;
-    }
-
-    .item-card {
-        display: inline-block;
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        width: 200px;
-    }
-
-    .item-card img {
-        width: 100%;
-    }
-
-    .item-card button {
-        background-color: #353432;
-        color: #eee;
-        border: none;
-        padding: 5px 10px;
-        margin-top: 10px;
-        border-radius: 20px;
-        cursor: pointer;
-    }
-
     .cartTab {
         width: 400px;
         background-color: #353432;
@@ -247,6 +160,24 @@ $username = $_SESSION['username'];
             grid-template-columns: repeat(2, 1fr);
         }
     }
+
+    .btn {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    button {
+        padding: 10px;
+        border: none;
+        background-color: #DBFFBF;
+        cursor: pointer;
+        border-radius: 10%;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+    </s
 
     </style>
 </head>

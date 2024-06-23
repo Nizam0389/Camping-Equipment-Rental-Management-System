@@ -1,9 +1,13 @@
 body {
     margin: 0;
     font-family: Poppins, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.navbar1{
+.navbar1 {
     height: 80px;
     background-color: #1A4D2E;
 }
@@ -15,6 +19,8 @@ body {
     overflow: hidden;
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background-color: #333;
 }
 
 .navbar li {
@@ -39,6 +45,8 @@ body {
 }
 
 .navbar .logo {
+    display: flex;
+    align-items: center;
     margin-left: auto;
     margin-right: auto;
 }
@@ -51,6 +59,9 @@ body {
 
 .main-content {
     padding: 20px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .container {
@@ -60,6 +71,9 @@ body {
     text-align: center;
     padding-top: 10px;
     transition: transform .5s;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .item-card {
@@ -69,20 +83,36 @@ body {
     border: 1px solid #ccc;
     border-radius: 10px;
     width: 200px;
+    text-align: center;
 }
 
 .item-card img {
     width: 100%;
+    height: auto;
+}
+
+.item-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.item-card p {
+    font-size: 16px;
+    margin: 5px 0;
 }
 
 .item-card button {
     background-color: #353432;
     color: #eee;
     border: none;
-    padding: 5px 10px;
+    padding: 10px;
     margin-top: 10px;
     border-radius: 20px;
     cursor: pointer;
+}
+
+.item-card button:hover {
+    background-color: #45a049;
 }
 
 .cartTab {
@@ -96,6 +126,14 @@ body {
     display: grid;
     grid-template-rows: 70px 1fr 70px;
     transition: .5s;
+}
+
+body.showCart .cartTab {
+    right: 0;
+}
+
+body.showCart .container {
+    transform: translateX(-250px);
 }
 
 .cartTab h1 {
@@ -160,6 +198,29 @@ body {
 
 .listCart::-webkit-scrollbar {
     width: 0;
+}
+
+.totalAmount {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
 }
 
 @media only screen and (max-width: 992px) {
