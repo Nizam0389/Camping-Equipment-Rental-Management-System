@@ -11,7 +11,7 @@
         <div class="navbar">
             <ul>
                 <li><a href="index.html">HOMEPAGE</a></li>
-                <li><a href="category.html">RENTAL</a></li>
+                <li><a href="category.php">RENTAL</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
                 <li class="right"><a href="contactus.html">CONTACT US</a></li>
                 <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
