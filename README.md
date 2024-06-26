@@ -76,3 +76,11 @@ CREATE TABLE `Payment` (
   FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`),
   FOREIGN KEY (`rent_id`) REFERENCES `Rent`(`rent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    userpassword VARCHAR(255) NOT NULL,
+    userlevel INT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
