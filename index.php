@@ -1,10 +1,10 @@
 <?php
-    session_start();
-    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-        header("location: index.php");
-        exit;
-    }
-    $username = $_SESSION["username"];
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit;
+}
+$username = $_SESSION["username"];
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="navbar">
-        <ul>
+        <ul class="navbar-links">
             <li><a href="category.php">RENTAL</a></li>
             <li><a href="contactUs.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
@@ -35,26 +35,11 @@
     <div class="main-content">
         <div class="info-box">
             <h1>SYAKIRI CAMPING</h1>
-            <p>"SYAKIRI CAMPING" is your one-stop destination for all your camping equipment rental needs. 
-                We offer a wide range of high-quality camping gear, including tents, sleeping bags, cooking equipment, 
-                hiking gear, and more. Whether you're planning a weekend getaway or a longer outdoor adventure, 
-                our company ensures that you have everything you need to make your camping experience comfortable and enjoyable. 
-                With affordable rental rates and convenient pickup/delivery options, "SYAKIRI CAMPING" is committed 
-                to helping you make the most of your outdoor adventures without the hassle of buying and storing equipment.</p>
+            <p>"SYAKIRI CAMPING" is your one-stop destination for all your camping equipment rental needs. We offer a wide range of high-quality camping gear, including tents, sleeping bags, cooking equipment, hiking gear, and more. Whether you're planning a weekend getaway or a longer outdoor adventure, our company ensures that you have everything you need to make your camping experience comfortable and enjoyable. With affordable rental rates and convenient pickup/delivery options, "SYAKIRI CAMPING" is committed to helping you make the most of your outdoor adventures without the hassle of buying and storing equipment.</p>
         </div>
         <div class="biglogo">
             <img src="image/logo.png" alt="Big Logo">
         </div>
     </div>
 </body>
-<?php
-    switch($username) {
-        case 1:
-            include('adminDashboard.php');
-            break;
-        case 2:
-            include('homepage.php');
-            break;
-    }
-?>
 </html>
