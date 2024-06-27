@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $row['username'];
             $_SESSION['loggedin'] = true;
             $_SESSION['user_type'] = 'staff';
-            echo "Redirecting to adminDashboard.php<br>";
             header("Location: adminDashboard.php");
             exit();
         } else {
@@ -51,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['username'] = $row['username'];
             $_SESSION['loggedin'] = true;
             $_SESSION['user_type'] = 'customer';
-            echo "Redirecting to homepage.php<br>";
             header("Location: homepage.php");
             exit();
         } else {
