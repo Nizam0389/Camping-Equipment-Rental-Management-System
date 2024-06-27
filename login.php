@@ -2,42 +2,63 @@
 session_start();
 require_once 'dbConnect.php';
 
+$username = $password = "";
+$message = "";
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = mysqli_real_escape_string($dbCon, $_POST['username']);
     $password = md5(mysqli_real_escape_string($dbCon, $_POST['password']));
 
+    // Debugging statements
+    echo "Username: $username<br>";
+    echo "Password (hashed): $password<br>";
+
+    // Query for staff
     $sql_staff = "SELECT username, password FROM staff WHERE username = '$username'";
     $result_staff = mysqli_query($dbCon, $sql_staff);
     if (!$result_staff) {
         echo "Staff query failed: " . mysqli_error($dbCon) . "<br>";
+    } else {
+        echo "Staff query succeeded.<br>";
     }
 
+    // Query for customer
     $sql_customer = "SELECT username, password FROM customer WHERE username = '$username'";
     $result_customer = mysqli_query($dbCon, $sql_customer);
     if (!$result_customer) {
         echo "Customer query failed: " . mysqli_error($dbCon) . "<br>";
+    } else {
+        echo "Customer query succeeded.<br>";
     }
 
     if ($result_staff && mysqli_num_rows($result_staff) == 1) {
         $row = mysqli_fetch_assoc($result_staff);
+        echo "Found staff user<br>";
         if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user_type'] = 'staff';
+            echo "Redirecting to adminDashboard.php<br>";
             header("Location: adminDashboard.php");
             exit();
         } else {
-            $login_error = "Invalid password.";
+            $message = "Invalid password.";
         }
     } elseif ($result_customer && mysqli_num_rows($result_customer) == 1) {
         $row = mysqli_fetch_assoc($result_customer);
+        echo "Found customer user<br>";
         if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user_type'] = 'customer';
+            echo "Redirecting to homepage.php<br>";
             header("Location: homepage.php");
             exit();
         } else {
-            $login_error = "Invalid password.";
+            $message = "Invalid password.";
         }
     } else {
-        $login_error = "No account found with that username.";
+        $message = "No account found with that username.";
     }
 }
 ?>
@@ -57,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li><a href="index.html">HOMEPAGE</a></li>
                 <li><a href="category.html">RENTAL</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.html">CONTACT US</a></li>
+                <li class="right"><a href="contactus.php">CONTACT US</a></li>
                 <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
             </ul>
         </div>
@@ -65,8 +86,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main>
         <div class="login-container">
             <h2>LOGIN</h2>
-            <?php if (!empty($login_error)): ?>
-                <div class="message"><?php echo $login_error; ?></div>
+            <?php if (!empty($message)): ?>
+                <div class="message"><?php echo $message; ?></div>
             <?php endif; ?>
             <form action="login.php" method="POST">
                 <label for="username">Username</label>

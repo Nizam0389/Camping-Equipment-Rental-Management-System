@@ -1,21 +1,19 @@
 <?php
-// Start the session
 session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION['user_type'] !== 'customer') {
+    header("location: login.php");
+    exit;
 }
-
-$username = $_SESSION['username'];
+$username = $_SESSION["username"];
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYAKIRI CAMPING</title>
-    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+    <link rel="stylesheet" href="css/homepage.css">
     <script>
         function confirmLogout() {
             var result = confirm("Do you want to log out?");
