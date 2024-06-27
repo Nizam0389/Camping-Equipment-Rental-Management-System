@@ -46,6 +46,7 @@ CREATE TABLE `Rent` (
   `return_date` date NOT NULL,
   `rent_status` boolean NOT NULL,
   `cust_id` int NOT NULL,
+  `payment_image_url` varchar(255) NOT NULL,
   PRIMARY KEY (`rent_id`),
   FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
