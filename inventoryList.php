@@ -8,7 +8,7 @@
     <div class="navbar">
         <ul>
             <li><a href="index.php">CUSTOMER</a></li>
-            <li><a href="category.php">RENTAL</a></li>
+            <li><a href="inventoryList.php">ITEM</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
             <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>

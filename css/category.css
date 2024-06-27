@@ -69,6 +69,7 @@ body {
 
 .navbar li.right {
     float: right;
+    color: white;
 }
 
 .navbar li.right img {
