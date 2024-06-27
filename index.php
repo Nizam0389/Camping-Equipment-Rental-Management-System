@@ -1,10 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit;
-}
-$username = $_SESSION["username"];
+$loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
+$username = $loggedin ? $_SESSION["username"] : "";
 ?>
 
 <!DOCTYPE html>
@@ -20,15 +17,22 @@ $username = $_SESSION["username"];
                 window.location.href = 'logout.php';
             }
         }
+
+        function checkLogin() {
+            <?php if (!$loggedin): ?>
+            alert("You need to login first.");
+            return false;
+            <?php endif; ?>
+        }
     </script>
 </head>
 <body>
     <div class="navbar">
         <ul class="navbar-links">
-            <li><a href="category.php">RENTAL</a></li>
+            <li><a href="category.php" onclick="return checkLogin();">RENTAL</a></li>
             <li><a href="contactUs.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><span class="username"><?php echo $username; ?></span></li>
+            <li class="right"><span class="username"><?php echo htmlspecialchars($username); ?></span></li>
             <li class="right"><a href="javascript:void(0);" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;"></a></li>
         </ul>
     </div>

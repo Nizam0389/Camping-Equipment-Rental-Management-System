@@ -1,3 +1,12 @@
+<?php
+require_once 'dbConnect.php';
+
+// Fetch current contact information from the database
+$sql = "SELECT comp_phoneNo, comp_email, comp_address, comp_webAdd FROM contactUS";
+$result = mysqli_query($dbCon, $sql);
+$contact = mysqli_fetch_assoc($result);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +22,7 @@
                 <li><a href="homepage.php">HOMEPAGE</a></li>
                 <li><a href="category.php">RENTAL</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.html">CONTACT US</a></li>
+                <li class="right"><a href="contactus.php">CONTACT US</a></li>
                 <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
                 <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login"></a></li>
             </ul>
@@ -27,10 +36,10 @@
                     <img src="image/contactUs.jpg" alt="Tent">
                 </div>
                 <div class="contact-info">
-                    <p><img src="image/phone.png" alt="phone"> +60 9 7341155</p>
-                    <p><img src="image/email.png" alt="email"> sakiricamping@gmail.com</p>
-                    <p><img src="image/location.png" alt="location"> 45 Jalan Pantai Batu Buruk, 21300 Kuala Terengganu, Terengganu, Malaysia</p>
-                    <p><img src="image/website.png" alt="website"> www.sakiricamping.com</p>
+                    <p><img src="image/phone.png" alt="phone"><?php echo htmlspecialchars($contact['comp_phoneNo']); ?></p>
+                    <p><img src="image/email.png" alt="email"><?php echo htmlspecialchars($contact['comp_email']); ?></p>
+                    <p><img src="image/location.png" alt="location"><?php echo htmlspecialchars($contact['comp_address']); ?></p>
+                    <p><img src="image/website.png" alt="website"><?php echo htmlspecialchars($contact['comp_webAdd']); ?></p>
                 </div>
             </div>
         </div>

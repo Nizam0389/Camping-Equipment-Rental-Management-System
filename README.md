@@ -6,10 +6,10 @@ USE `campingrentaldb`;
 CREATE TABLE `customer` (
   `cust_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `phone_no` varchar(10) NOT NULL,
+  `phone_no` varchar(20) NOT NULL,
   `address` varchar(255) NOT NULL,
   PRIMARY KEY (`cust_id`),
   UNIQUE KEY `username` (`username`)
@@ -19,10 +19,10 @@ CREATE TABLE `customer` (
 CREATE TABLE `staff` (
   `staff_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `phone_no` varchar(10) NOT NULL,
+  `phone_no` varchar(20) NOT NULL,
   `address` varchar(255) NOT NULL,
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `username` (`username`)
@@ -42,14 +42,13 @@ CREATE TABLE `Item` (
 -- Create Rent table
 CREATE TABLE `Rent` (
   `rent_id` int NOT NULL AUTO_INCREMENT,
-  `book_date` date NOT NULL,
+  `rent_date` date NOT NULL,
   `return_date` date NOT NULL,
   `rent_status` boolean NOT NULL,
   `cust_id` int NOT NULL,
-  `staff_id` int NOT NULL,
+  `payment_image_url` varchar(255) NOT NULL,
   PRIMARY KEY (`rent_id`),
   FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`),
-  FOREIGN KEY (`staff_id`) REFERENCES `staff`(`staff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Create RentalDetail table
