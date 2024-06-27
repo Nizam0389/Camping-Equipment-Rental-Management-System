@@ -6,21 +6,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = mysqli_real_escape_string($dbCon, $_POST['username']);
     $password = mysqli_real_escape_string($dbCon, $_POST['password']);
 
-    // Query for staff
-    $sql_staff = "SELECT staff_id AS id, username, password, 'staff' AS role FROM staff WHERE username = '$username'";
+    $sql_staff = "SELECT username, password, 'staff' AS role FROM staff WHERE username = '$username'";
     $result_staff = mysqli_query($dbCon, $sql_staff);
 
-    // Query for customer
-    $sql_customer = "SELECT cust_id AS id, username, password, 'customer' AS role FROM customer WHERE username = '$username'";
+    $sql_customer = "SELECT username, password, 'customer' AS role FROM customer WHERE username = '$username'";
     $result_customer = mysqli_query($dbCon, $sql_customer);
 
     if ($result_staff && mysqli_num_rows($result_staff) == 1) {
         $row = mysqli_fetch_assoc($result_staff);
         if (password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
-            $_SESSION['role'] = $row['role'];
-            header("Location: homepage.php");
+            header("Location: adminDashboard.php");
             exit();
         } else {
             $login_error = "Invalid password.";
@@ -28,9 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif ($result_customer && mysqli_num_rows($result_customer) == 1) {
         $row = mysqli_fetch_assoc($result_customer);
         if (password_verify($password, $row['password'])) {
-            $_SESSION['user_id'] = $row['id'];
             $_SESSION['username'] = $row['username'];
-            $_SESSION['role'] = $row['role'];
             header("Location: homepage.php");
             exit();
         } else {
@@ -90,12 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             const passwordField = document.querySelector('#password');
             const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordField.setAttribute('type', type);
-            this.classList.toggle('clicked'); // Toggle the 'clicked' class
+            this.classList.toggle('clicked');
         });
 
         document.querySelector('.search-container').addEventListener('click', function () {
             alert('Search button clicked!');
-            // Add your search functionality here
         });
     </script>
 </body>
