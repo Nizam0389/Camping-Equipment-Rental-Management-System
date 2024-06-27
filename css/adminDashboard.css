@@ -65,6 +65,10 @@ body {
     width: auto;
 }
 
+.hide {
+    display: none;
+}
+
 .main-content {
     padding: 20px;
     text-align: center;
