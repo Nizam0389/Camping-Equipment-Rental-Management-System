@@ -59,6 +59,7 @@
                     <th>Item Name</th>
                     <th>Item Type</th>
                     <th>Quantity</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,6 +80,7 @@
                                 <td>" . $row["item_name"] . "</td>
                                 <td>" . $row["item_type"] . "</td>
                                 <td>" . $row["RD_quantity"] . "</td>
+                                <td><button onclick=\"viewReceipt('" . $row["item_id"] . "')\">View Receipt</button></td>
                               </tr>";
                     }
                     mysqli_stmt_close($stmt);
@@ -92,6 +94,14 @@
                 <button onclick="confirmReturn()">Confirm Return</button>
             <?php endif; ?>
             <button onclick="printReport()">Print</button>
+        </div>
+    </div>
+
+    <!-- Modal for viewing receipt -->
+    <div id="receiptModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="receiptImage" src="" alt="Receipt Image">
         </div>
     </div>
 
@@ -114,6 +124,44 @@
 
         function printReport() {
             window.print();
+        }
+
+        function viewReceipt(itemId) {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "getReceipt.php?rent_id=<?php echo $rentId; ?>&item_id=" + itemId, true);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    if (data.status === 'success') {
+                        document.getElementById("receiptImage").src = data.payment_image_url;
+                        var modal = document.getElementById("receiptModal");
+                        modal.style.display = "block";
+                    } else {
+                        alert("Receipt not found.");
+                    }
+                } else {
+                    alert("Error retrieving receipt. Please try again.");
+                }
+            };
+            xhr.send();
+        }
+
+        // Get the modal
+        var modal = document.getElementById("receiptModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 </body>
