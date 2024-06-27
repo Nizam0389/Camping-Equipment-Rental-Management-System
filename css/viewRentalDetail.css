@@ -73,52 +73,47 @@ body {
     text-align: center;
 }
 
-.container {
-    margin-top: 20px;
-}
-
-.form-container {
+.header-info {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
+.header-info .left-info,
+.header-info .right-info {
+    width: 48%;
 }
 
-label {
-    margin-top: 10px;
+.rental-detail-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-input, select {
-    padding: 10px;
-    margin-top: 5px;
+.rental-detail-table th,
+.rental-detail-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
 }
 
-button {
+.rental-detail-table th {
+    background-color: #f2f2f2;
+}
+
+.actions {
     margin-top: 20px;
+    text-align: center;
+}
+
+.actions button {
     padding: 10px;
     background-color: #4CAF50;
     color: white;
     border: none;
     cursor: pointer;
+    margin-right: 10px;
 }
 
-button:hover {
+.actions button:hover {
     background-color: #45a049;
-}
-
-.image-preview {
-    /* margin-left: 20px; */
-    text-align: center;
-}
-
-.image-preview img {
-    max-width: 300px;
-    max-height: 300px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background-color: #f9f9f9;
 }

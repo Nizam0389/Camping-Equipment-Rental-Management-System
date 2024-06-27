@@ -7,7 +7,8 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="index.php">CUSTOMER</a></li>
+            <li><a href="adminDashboard.php">HOME</a></li>
+            <li><a href="customerList.php">CUSTOMER</a></li>
             <li><a href="itemList.php">ITEM</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
@@ -18,8 +19,8 @@
         <h2 class="title-page">- ITEM LIST -</h2>
         <div class="container">
             <div class="search-filter-bar">
-                <input type="text" id="search-bar" placeholder="Search">
-                <select id="filter-type">
+                <input type="text" id="search-bar" placeholder="Search" onkeyup="searchAndFilter()">
+                <select id="filter-type" onchange="searchAndFilter()">
                     <option value="">All Types</option>
                     <option value="tent">Tent</option>
                     <option value="accessory">Accessory</option>
@@ -27,7 +28,6 @@
                     <option value="bed">Bed</option>
                     <option value="table">Table</option>
                 </select>
-                <button onclick="searchAndFilter()">Search</button>
                 <button onclick="window.location.href='addItem.php'">Add Item</button>
             </div>
             <table class="item-table">

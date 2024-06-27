@@ -28,7 +28,8 @@ $username = $_SESSION["username"];
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="index.php">CUSTOMER</a></li>
+            <li><a href="adminDashboard.php">HOME</a></li>
+            <li><a href="customerList.php">CUSTOMER</a></li>
             <li><a href="itemList.php">ITEM</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
