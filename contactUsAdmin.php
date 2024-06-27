@@ -1,3 +1,39 @@
+<?php
+require_once 'dbConnect.php';
+
+// Fetch current contact information from the database
+$sql = "SELECT comp_phoneNo, comp_email, comp_address, comp_webAdd FROM contactUS";
+$result = mysqli_query($dbCon, $sql);
+$contact = mysqli_fetch_assoc($result);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $phone = mysqli_real_escape_string($dbCon, $_POST['phone']);
+    $email = mysqli_real_escape_string($dbCon, $_POST['email']);
+    $address = mysqli_real_escape_string($dbCon, $_POST['address']);
+    $website = mysqli_real_escape_string($dbCon, $_POST['website']);
+
+    $update_sql = "UPDATE contactUS SET comp_phoneNo = ?, comp_email = ?, comp_address = ?, comp_webAdd = ?";
+
+    if ($stmt = mysqli_prepare($dbCon, $update_sql)) {
+        mysqli_stmt_bind_param($stmt, "ssss", $phone, $email, $address, $website);
+
+        if (mysqli_stmt_execute($stmt)) {
+            echo "<script>
+                    alert('Contact information updated successfully!');
+                    window.location.href = 'contactUsAdmin.php?success=true';
+                  </script>";
+            exit();
+        } else {
+            echo "Something went wrong. Please try again later.";
+        }
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+mysqli_close($dbCon);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,23 +62,23 @@
                 <div class="contact-image">
                     <img src="image/contactUs.jpg" alt="Tent">
                 </div>
-                <form action="process-contact.php" method="post">
+                <form action="contactUsAdmin.php" method="post">
                     <div class="contact-info">
                         <div class="contact-item">
                             <img src="image/phone.png" alt="phone">
-                            <input type="text" name="phone" value="+60 9 7341155">
+                            <input type="text" name="phone" value="<?php echo htmlspecialchars($contact['comp_phoneNo']); ?>">
                         </div>
                         <div class="contact-item">
                             <img src="image/email.png" alt="email">
-                            <input type="text" name="email" value="sakiricamping@gmail.com">
+                            <input type="text" name="email" value="<?php echo htmlspecialchars($contact['comp_email']); ?>">
                         </div>
                         <div class="contact-item">
                             <img src="image/location.png" alt="location">
-                            <textarea name="address" rows="3">45 Jalan Pantai Batu Buruk, 21300 Kuala Terengganu, Terengganu, Malaysia</textarea>
+                            <textarea name="address" rows="3"><?php echo htmlspecialchars($contact['comp_address']); ?></textarea>
                         </div>
                         <div class="contact-item">
                             <img src="image/website.png" alt="website">
-                            <input type="text" name="website" value="www.sakiricamping.com">
+                            <input type="text" name="website" value="<?php echo htmlspecialchars($contact['comp_webAdd']); ?>">
                         </div>
                         <div class="confirm-button">
                             <button type="submit">Confirm Edit</button>
