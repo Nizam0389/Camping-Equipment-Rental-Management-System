@@ -33,12 +33,12 @@ $username = $_SESSION["username"];
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
             <li class="right">
-                <?php if ($username == 'S001') : ?>
-                    <button name="addStaff" onclick="window.location.href='addStaff.php'">
-                        <i class="fa fa-plus" aria-hidden="true"></i>
-                        Add Staff
-                    </button>
-                <?php endif; ?>
+            <?php if ($username == 'S001') : ?>
+                <a href="addStaff.php" class="add-staff-link">
+                    <i aria-hidden="true"></i>
+                    Add Staff
+                </a>
+            <?php endif; ?>
             </li>
             <li class="right"><a href="javascript:void(0);" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Logout" style="height:20%; width:30px;"></a></li>
         </ul>
