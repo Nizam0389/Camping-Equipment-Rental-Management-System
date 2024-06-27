@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar .right {
+    float: right;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-top: 5px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.title-page {
+    text-align: center;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    margin-top: 10px;
+}
+
+input, select {
+    padding: 10px;
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
