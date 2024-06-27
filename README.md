@@ -42,7 +42,7 @@ CREATE TABLE `Item` (
 -- Create Rent table
 CREATE TABLE `Rent` (
   `rent_id` int NOT NULL AUTO_INCREMENT,
-  `book_date` date NOT NULL,
+  `rent_date` date NOT NULL,
   `return_date` date NOT NULL,
   `rent_status` boolean NOT NULL,
   `cust_id` int NOT NULL,
