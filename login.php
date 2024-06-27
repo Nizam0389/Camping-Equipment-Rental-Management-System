@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </ul>
         </div>
     </header>
-
     <main>
         <div class="login-container">
             <h2>LOGIN</h2>
