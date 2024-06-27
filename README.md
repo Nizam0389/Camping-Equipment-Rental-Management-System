@@ -46,10 +46,8 @@ CREATE TABLE `Rent` (
   `return_date` date NOT NULL,
   `rent_status` boolean NOT NULL,
   `cust_id` int NOT NULL,
-  `staff_id` int NOT NULL,
   PRIMARY KEY (`rent_id`),
   FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`),
-  FOREIGN KEY (`staff_id`) REFERENCES `staff`(`staff_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Create RentalDetail table
