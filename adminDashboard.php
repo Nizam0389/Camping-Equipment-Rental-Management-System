@@ -1,8 +1,25 @@
+<?php
+    session_start();
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("location: index.php");
+        exit;
+    }
+    $username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" type="text/css" href="css/adminDashboard.css">
+    <script>
+        function confirmLogout() {
+            var result = confirm("Do you want to log out?");
+            if (result) {
+                window.location.href = 'logout.php';
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="navbar">
