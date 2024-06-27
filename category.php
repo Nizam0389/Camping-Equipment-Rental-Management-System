@@ -40,23 +40,23 @@ $username = $_SESSION['username'];
         <div class="category-container">
             <h2>- CATEGORY -</h2>
             <div class="category-items">
-                <a href="tentList.php" class="category-item">
+                <a href="ListTent.php" class="category-item">
                     <img src="image/tent icon.jpeg" alt="Tent">
                     <p>tent</p>
                 </a>
-                <a href="accessoryList.php" class="category-item">
+                <a href="ListAccessory.php" class="category-item">
                     <img src="image/accessoryIcon.jpeg" alt="Accessory">
                     <p>accessory</p>
                 </a>
-                <a href="cookingList.php" class="category-item">
+                <a href="ListCooking.php" class="category-item">
                     <img src="image/CookingSetIcon.jpeg" alt="Cooking Set">
                     <p>cooking set</p>
                 </a>
-                <a href="bedList.php" class="category-item">
+                <a href="ListBed.php" class="category-item">
                     <img src="image/bedIcon.png" alt="Bed">
                     <p>bed</p>
                 </a>
-                <a href="tableList.php" class="category-item">
+                <a href="ListTable.php" class="category-item">
                     <img src="image/tableIcon.png" alt="Table">
                     <p>table</p>
                 </a>

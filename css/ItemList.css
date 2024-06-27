@@ -1,190 +1,116 @@
-/* Add this to your css/ItemList.css file */
-
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
     font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.navbar {
+    background-color: #4F6F52;
+    overflow: hidden;
 }
 
 .navbar ul {
     list-style-type: none;
+    margin: 0;
     padding: 0;
     display: flex;
     justify-content: space-between;
-    background-color: #333;
-    overflow: hidden;
-    margin: 0;
+    align-items: center;
+    height: 60px; /* Adjust this value to change the height of the navigation bar */
 }
 
-.navbar ul li {
+.navbar li {
     float: left;
 }
 
-.navbar ul li a {
+.navbar li a {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-}
-
-.navbar ul li a:hover {
-    background-color: #111;
-}
-
-.navbar .logo {
-    display: flex;
-    align-items: center;
-}
-
-.navbar .logo img {
-    height: 50px;
-}
-
-.navbar .right {
-    float: right;
-}
-
-.navbar .cart {
+    font-size: 18px; /* Adjust the font size to fit the reduced height */
     position: relative;
 }
 
-/* cart */
-.cartTab{
-    width: 400px;
-    background-color: #353432;
-    color: #eee;
-    position: fixed;
-    inset: 0 0 0 auto;
-    display: grid;
-    grid-template-rows: 70px 1fr 70px;
-}
-body.showCart .cartTab{
-    right: 0;
-}
-body.showCart .container{
-    transform: translateX(-250px);
-}
-.cartTab h1{
-    padding: 20px;
-    margin: 0;
-    font-weight: 300;
-}
-.cartTab .btn{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-.cartTab button{
-    background-color: #E8BC0E;
-    border: none;
-    font-family: Poppins;
-    font-weight: 500;
-    cursor: pointer;
-}
-.cartTab .close{
-    background-color: #eee;
-}
-.listCart .item img{
+.navbar li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
-}
-.listCart .item{
-    display: grid;
-    grid-template-columns: 70px 150px 50px 1fr;
-    gap: 10px;
-    text-align: center;
-    align-items: center;
-}
-.listCart .quantity span{
-    display: inline-block;
-    width: 25px;
-    height: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-    color: #555;
-    cursor: pointer;
-}
-.listCart .quantity span:nth-child(2){
+    height: 2px;
     background-color: transparent;
-    color: #eee;
-    cursor: auto;
-}
-.listCart .item:nth-child(even){
-    background-color: #eee1;
-}
-.listCart{
-    overflow: auto;
-}
-.listCart::-webkit-scrollbar{
-    width: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
 }
 
-.total {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 20px;
+.navbar li a:hover::after {
+    background-color: white;
+    transform: scaleX(1);
 }
 
-.btn {
-    display: flex;
-    justify-content: space-between;
+.navbar li.logo {
+    flex-grow: 1;
+    text-align: center;
 }
 
-button {
-    padding: 10px;
-    border: none;
-    background-color: #4CAF50;
-    color: white;
-    cursor: pointer;
+.navbar li.logo img {
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #fff;
+    height: 30px; /* Adjust the logo height to fit the reduced navigation bar height */
 }
 
-button:hover {
-    background-color: #45a049;
+.navbar li.cart img {
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px; /* Adjust the cart icon height to fit the reduced navigation bar height */
+}
+
+.navbar li.right {
+    float: right;
+}
+
+.navbar li.right img {
+    height: 30px; /* Adjust this value to change the height of the image */
+    width: auto; /* Maintain aspect ratio by setting width to auto */
 }
 
 .main-content {
-    margin-top: 20px;
-    width: 100%;
-    max-width: 1200px;
+    background-color: #F5EFE6;
+    min-height: 100vh;
+    margin-top: -2%;
+}
+
+.main-content h2{
+    padding-top: 2%;
+}
+
+.title-page {
+    text-align: center;
 }
 
 .container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
 }
 
 .item-card {
-    width: 200px;
+    background-color: #1A4D2E;
+    color: #fff;
+    padding: 20px;
     margin: 10px;
     text-align: center;
+    border-radius: 10%;
+    width: 20%;
 }
-
 .item-card img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
-.item-card h3 {
-    font-size: 18px;
-    margin: 10px 0;
-}
-
-.item-card p {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-.item-card button {
-    padding: 10px;
-    border: none;
-    background-color: #4CAF50;
+.item-card a {
     color: white;
-    cursor: pointer;
-}
-
-.item-card button:hover {
-    background-color: #45a049;
 }

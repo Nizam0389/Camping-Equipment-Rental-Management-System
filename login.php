@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li><a href="index.html">HOMEPAGE</a></li>
                 <li><a href="category.html">RENTAL</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.html">CONTACT US</a></li>
+                <li class="right"><a href="contactus.php">CONTACT US</a></li>
                 <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
             </ul>
         </div>
