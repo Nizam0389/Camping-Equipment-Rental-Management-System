@@ -1,14 +1,10 @@
 <?php
-// Start the session
-session_start();
-
-// Check if the user is logged in
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-
-$username = $_SESSION['username'];
+    session_start();
+    if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+        header("location: index.php");
+        exit;
+    }
+    $username = $_SESSION["username"];
 ?>
 
 <!DOCTYPE html>

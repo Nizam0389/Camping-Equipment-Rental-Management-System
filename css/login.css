@@ -93,7 +93,8 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 400px; /* Fixed width for the container */
-    margin: 20px;
+    margin: auto;
+    margin-top: 8%;
 }
 
 .login-container h2 {
@@ -137,7 +138,6 @@ main {
     cursor: pointer;
 }
 
-/* Style for when button is clicked */
 .toggle-password.clicked {
     background: url('./images/eyeToggle.png') no-repeat center;
     background-size: contain;
