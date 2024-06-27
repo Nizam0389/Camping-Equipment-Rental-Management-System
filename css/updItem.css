@@ -77,15 +77,11 @@ body {
     margin-top: 20px;
 }
 
-.form-container {
-    display: flex;
-    justify-content: space-between;
-}
-
 form {
     display: flex;
     flex-direction: column;
     width: 300px;
+    margin: 0 auto;
 }
 
 label {
@@ -108,17 +104,4 @@ button {
 
 button:hover {
     background-color: #45a049;
-}
-
-.image-preview {
-    margin-left: 20px;
-    text-align: center;
-}
-
-.image-preview img {
-    max-width: 300px;
-    max-height: 300px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    background-color: #f9f9f9;
 }
