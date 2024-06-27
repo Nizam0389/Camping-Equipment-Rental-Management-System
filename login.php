@@ -4,17 +4,23 @@ require_once 'dbConnect.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = mysqli_real_escape_string($dbCon, $_POST['username']);
-    $password = mysqli_real_escape_string($dbCon, $_POST['password']);
+    $password = md5(mysqli_real_escape_string($dbCon, $_POST['password']));
 
-    $sql_staff = "SELECT username, password, 'staff' AS role FROM staff WHERE username = '$username'";
+    $sql_staff = "SELECT username, password FROM staff WHERE username = '$username'";
     $result_staff = mysqli_query($dbCon, $sql_staff);
+    if (!$result_staff) {
+        echo "Staff query failed: " . mysqli_error($dbCon) . "<br>";
+    }
 
-    $sql_customer = "SELECT username, password, 'customer' AS role FROM customer WHERE username = '$username'";
+    $sql_customer = "SELECT username, password FROM customer WHERE username = '$username'";
     $result_customer = mysqli_query($dbCon, $sql_customer);
+    if (!$result_customer) {
+        echo "Customer query failed: " . mysqli_error($dbCon) . "<br>";
+    }
 
     if ($result_staff && mysqli_num_rows($result_staff) == 1) {
         $row = mysqli_fetch_assoc($result_staff);
-        if (password_verify($password, $row['password'])) {
+        if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
             header("Location: adminDashboard.php");
             exit();
@@ -23,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } elseif ($result_customer && mysqli_num_rows($result_customer) == 1) {
         $row = mysqli_fetch_assoc($result_customer);
-        if (password_verify($password, $row['password'])) {
+        if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
             header("Location: homepage.php");
             exit();
@@ -59,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <main>
         <div class="login-container">
             <h2>LOGIN</h2>
+            <?php if (!empty($login_error)): ?>
+                <div class="message"><?php echo $login_error; ?></div>
+            <?php endif; ?>
             <form action="login.php" method="POST">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
