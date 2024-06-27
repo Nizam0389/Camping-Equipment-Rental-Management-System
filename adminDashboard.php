@@ -36,7 +36,7 @@ $username = $_SESSION["username"];
             <?php if ($username == 'S001') : ?>
                 <a href="addStaff.php" class="add-staff-link">
                     <i aria-hidden="true"></i>
-                    Add Staff
+                    ADD STAFF
                 </a>
             <?php endif; ?>
             </li>
