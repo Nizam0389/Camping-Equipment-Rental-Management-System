@@ -6,10 +6,10 @@ USE `campingrentaldb`;
 CREATE TABLE `customer` (
   `cust_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `phone_no` varchar(10) NOT NULL,
+  `phone_no` varchar(20) NOT NULL,
   `address` varchar(255) NOT NULL,
   PRIMARY KEY (`cust_id`),
   UNIQUE KEY `username` (`username`)
@@ -19,10 +19,10 @@ CREATE TABLE `customer` (
 CREATE TABLE `staff` (
   `staff_id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
-  `username` varchar(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `phone_no` varchar(10) NOT NULL,
+  `phone_no` varchar(20) NOT NULL,
   `address` varchar(255) NOT NULL,
   PRIMARY KEY (`staff_id`),
   UNIQUE KEY `username` (`username`)
