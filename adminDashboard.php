@@ -31,7 +31,7 @@ $username = $_SESSION["username"];
             <li><a href="index.php">CUSTOMER</a></li>
             <li><a href="itemList.php">ITEM</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><a href="contactus.php">CONTACT US</a></li>
+            <li class="right"><a href="contactUsAdmin.php">CONTACT US</a></li>
             <li class="right">
             <?php if ($username == 'S001') : ?>
                 <a href="addStaff.php" class="add-staff-link">
