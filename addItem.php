@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION['user_type'] !== 'staff') {
+    header("location: login.php");
+    exit;
+}
+$username = $_SESSION["username"];
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
