@@ -33,7 +33,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($result_staff && mysqli_num_rows($result_staff) == 1) {
         $row = mysqli_fetch_assoc($result_staff);
-        echo "Found staff user<br>";
         if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['loggedin'] = true;
@@ -45,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     } elseif ($result_customer && mysqli_num_rows($result_customer) == 1) {
         $row = mysqli_fetch_assoc($result_customer);
-        echo "Found customer user<br>";
         if ($password === $row['password']) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['loggedin'] = true;
