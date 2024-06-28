@@ -37,12 +37,14 @@ listProductHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if (positionClick.classList.contains('addCart')) {
         let id_product = positionClick.parentElement.dataset.id;
+        console.log(`Adding product with ID: ${id_product}`);
         addToCart(id_product);
     }
 });
 
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+    console.log(`Product position in cart: ${positionThisProductInCart}`);
     if (cart.length <= 0) {
         cart = [{
             product_id: product_id,
@@ -56,6 +58,7 @@ const addToCart = (product_id) => {
     } else {
         cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
     }
+    console.log(`Updated cart:`, cart);
     addCartToHTML();
     addCartToMemory();
 };
@@ -75,7 +78,12 @@ const addCartToHTML = () => {
             newItem.dataset.id = item.product_id;
 
             let positionProduct = products.findIndex((value) => value.item_id == item.product_id);
+            if (positionProduct === -1) {
+                console.error(`Product with ID: ${item.product_id} not found in products array`);
+                return; // Skip this item if not found in products array
+            }
             let info = products[positionProduct];
+            console.log(`Adding to cart HTML:`, info);
             listCartHTML.appendChild(newItem);
             newItem.innerHTML = `
                 <div class="image">
@@ -100,6 +108,7 @@ listCartHTML.addEventListener('click', (event) => {
     if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
         let product_id = positionClick.parentElement.parentElement.dataset.id;
         let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
+        console.log(`Changing quantity for product ID: ${product_id}, Type: ${type}`);
         changeQuantityCart(product_id, type);
     }
 });
@@ -117,6 +126,7 @@ const changeQuantityCart = (product_id, type) => {
             }
         }
     }
+    console.log(`Updated cart after quantity change:`, cart);
     addCartToHTML();
     addCartToMemory();
 };
@@ -124,8 +134,15 @@ const changeQuantityCart = (product_id, type) => {
 const initApp = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const itemType = urlParams.get('type');
+    console.log(`Fetching items of type: ${itemType}`);
 
-    fetch(`fetchItems.php?type=${itemType}`)
+    // Fetch all items initially, or items based on type if required
+    let fetchUrl = 'fetchItems.php';
+    if (itemType) {
+        fetchUrl += `?type=${itemType}`;
+    }
+
+    fetch(fetchUrl)
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -134,6 +151,7 @@ const initApp = () => {
     })
     .then(data => {
         products = data;
+        console.log(`Fetched products:`, products);
         addDataToHTML();
 
         if (localStorage.getItem('cart')) {
