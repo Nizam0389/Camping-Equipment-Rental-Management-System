@@ -77,12 +77,12 @@ body {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
     right: -100; /* Aligns dropdown to the right */
-    margin-top: -11px; /* Adjust vertical spacing if needed */
+    margin-top: -9px; /* Adjust vertical spacing if needed */
 }
 
 .navbar li.right .dropdown-content a {
     color: white;
-    padding: 12px 16px;
+    padding: 12px 5px;
     text-decoration: none;
     display: block;
     text-align: left;
@@ -101,7 +101,7 @@ body {
 }
 
 .main-content {
-    padding: 20px;
+    padding: 0px;
     text-align: center;
 }
 
@@ -117,7 +117,7 @@ body {
 
 .action-container {
     background-color: #9FB8A0;
-    padding: 20px;
+    padding: 32px;
     width: auto;
     height: auto;
 }
@@ -157,7 +157,7 @@ body {
 .actions {
     display: flex;
     justify-content: space-around;
-    margin: 20px 0;
+    margin: 100px 0;
 }
 
 .action {
