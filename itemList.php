@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION['user_type'] !== 'staff') {
+    header("location: login.php");
+    exit;
+}
+$username = $_SESSION["username"];
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +15,8 @@
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="index.php">CUSTOMER</a></li>
+            <li><a href="adminDashboard.php">HOME</a></li>
+            <li><a href="customerList.php">CUSTOMER</a></li>
             <li><a href="itemList.php">ITEM</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
@@ -18,8 +27,8 @@
         <h2 class="title-page">- ITEM LIST -</h2>
         <div class="container">
             <div class="search-filter-bar">
-                <input type="text" id="search-bar" placeholder="Search">
-                <select id="filter-type">
+                <input type="text" id="search-bar" placeholder="Search" onkeyup="searchAndFilter()">
+                <select id="filter-type" onchange="searchAndFilter()">
                     <option value="">All Types</option>
                     <option value="tent">Tent</option>
                     <option value="accessory">Accessory</option>
@@ -27,18 +36,17 @@
                     <option value="bed">Bed</option>
                     <option value="table">Table</option>
                 </select>
-                <button onclick="searchAndFilter()">Search</button>
                 <button onclick="window.location.href='addItem.php'">Add Item</button>
             </div>
             <table class="item-table">
                 <thead>
                     <tr>
-                        <th>Item ID</th>
+                        <th class="col-id">Item ID</th>
                         <th>Item Name</th>
                         <th>Type</th>
                         <th>Fee</th>
-                        <th>Quantity</th>
-                        <th>Actions</th>
+                        <th class="col-quantity">Quantity</th>
+                        <th class="col-action">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,14 +59,15 @@
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             echo "<tr>
-                                    <td>" . $row["item_id"]. "</td>
+                                    <td class='col-id'>" . $row["item_id"]. "</td>
                                     <td>" . $row["item_name"]. "</td>
                                     <td>" . $row["item_type"]. "</td>
                                     <td>" . $row["item_fee"]. "</td>
-                                    <td>" . $row["item_quantity"]. "</td>
-                                    <td>
+                                    <td class='col-quantity'>" . $row["item_quantity"]. "</td>
+                                    <td class='col-action'>
                                         <button onclick=\"viewImage('" . $row["item_image_url"] . "')\">View Image</button>
                                         <button onclick=\"window.location.href='updItem.php?item_id=" . $row["item_id"] . "'\">Update</button>
+                                        <button onclick=\"confirmDelete('" . $row["item_id"] . "')\">Delete</button>
                                     </td>
                                   </tr>";
                         }
@@ -103,6 +112,12 @@
         window.onclick = function(event) {
             if (event.target == modal) {
                 modal.style.display = "none";
+            }
+        }
+
+        function confirmDelete(itemId) {
+            if (confirm("Are you sure you want to delete this item?")) {
+                window.location.href = 'deleteItem.php?item_id=' + itemId;
             }
         }
 

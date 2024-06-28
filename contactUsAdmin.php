@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION['user_type'] !== 'staff') {
+    header("location: login.php");
+    exit;
+}
+$username = $_SESSION["username"];
+?>
+
+<?php
 require_once 'dbConnect.php';
 
 // Fetch current contact information from the database
@@ -45,14 +54,14 @@ mysqli_close($dbCon);
 <body>
     <header>
         <div class="navbar">
-            <ul>
-                <li><a href="index.php">HOMEPAGE</a></li>
-                <li><a href="category.php">RENTAL</a></li>
-                <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.php">CONTACT US</a></li>
-                <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
-                <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
-            </ul>
+        <ul>
+            <li><a href="adminDashboard.php">HOME</a></li>
+            <li><a href="customerList.php">CUSTOMER</a></li>
+            <li><a href="itemList.php">ITEM</a></li>
+            <li class="logo"><img src="image/logo.png" alt="logo"></li>
+            <li class="right"><a href="contactus.php">CONTACT US</a></li>
+            <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
+        </ul>
         </div>
     </header>
     <main>
