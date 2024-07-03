@@ -1,8 +1,4 @@
 <?php
-session_start();
-$loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
-$username = $loggedin ? $_SESSION["username"] : "";
-
 require_once 'dbConnect.php';
 
 // Fetch current contact information from the database
@@ -18,25 +14,15 @@ $contact = mysqli_fetch_assoc($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="css/contactUs.css">
-    <script>
-        function confirmLogout() {
-            var result = confirm("Do you want to log out?");
-            if (result) {
-                window.location.href = 'logout.php';
-            }
-        }
-    </script>
 </head>
 <body>
     <header>
         <div class="navbar">
             <ul>
-                <li><a href="homepage.php">HOMEPAGE</a></li>
-                <li><a href="category.php">RENTAL</a></li>
+                <li><a href="index.php">HOMEPAGE</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.php">CONTACT US</a></li>
-                <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
-                <li class="right"><a href="javascript:void(0);" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
+                <li class="right"><a href="contactUsGuest.php">CONTACT US</a></li>
+                <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
                 </ul>
         </div>
     </header>

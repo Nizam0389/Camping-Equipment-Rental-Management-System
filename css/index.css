@@ -19,7 +19,25 @@ body {
 }
 
 .navbar li {
-    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.navbar li.left {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.navbar li.center {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar li.right {
+    flex: 1;
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .navbar li a {
@@ -49,27 +67,10 @@ body {
     transform: scaleX(1);
 }
 
-.navbar li.logo {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .navbar li.logo img {
     border-radius: 50%;
     height: 50px; /* Adjust the logo height */
     width: 50px; /* Adjust the logo width */
-}
-
-.navbar li.right {
-    float: none;
-    display: flex;
-    align-items: center;
-}
-
-.navbar li.right a {
-    margin-left: 10px; /* Adjust spacing between Contact Us and profile logo */
 }
 
 .navbar li.right img {
@@ -115,6 +116,18 @@ body {
 }
 
 @media (max-width: 768px) {
+    .navbar ul {
+        flex-direction: column;
+    }
+
+    .navbar li {
+        justify-content: center;
+    }
+
+    .navbar li.logo, .navbar li.right, .navbar li.left {
+        flex: none;
+    }
+
     .main-content {
         flex-direction: column;
         align-items: center;

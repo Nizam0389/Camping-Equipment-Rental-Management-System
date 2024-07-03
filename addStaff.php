@@ -6,11 +6,9 @@ $error = $success = "";
 $username_err = $password_err = $confirm_password_err = $email_err = $phone_no_err = $name_err = $address_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate username
     if (empty(trim($_POST["username"]))) {
         $username_err = "Please enter a username.";
     } else {
-        // Check if username exists in customer or staff table
         $sql = "SELECT username FROM customer WHERE username = ? UNION SELECT username FROM staff WHERE username = ?";
         if ($stmt = mysqli_prepare($dbCon, $sql)) {
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_username);
@@ -30,7 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         mysqli_stmt_close($stmt);
     }
 
-    // Validate password
     if (empty(trim($_POST["password"]))) {
         $password_err = "Please enter a password.";
     } elseif (strlen(trim($_POST["password"])) < 6) {
@@ -39,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = trim($_POST["password"]);
     }
 
-    // Validate confirm password
     if (empty(trim($_POST["confirm_password"]))) {
         $confirm_password_err = "Please confirm password.";
     } else {
@@ -49,51 +45,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    // Validate email
     if (empty(trim($_POST["email"]))) {
         $email_err = "Please enter an email.";
     } else {
         $email = mysqli_real_escape_string($dbCon, trim($_POST["email"]));
     }
 
-    // Validate phone number
     if (empty(trim($_POST["phone_no"]))) {
         $phone_no_err = "Please enter a phone number.";
     } else {
         $phone_no = mysqli_real_escape_string($dbCon, trim($_POST["phone_no"]));
     }
 
-    // Validate name
     if (empty(trim($_POST["name"]))) {
         $name_err = "Please enter your name.";
     } else {
         $name = mysqli_real_escape_string($dbCon, trim($_POST["name"]));
     }
 
-    // Validate address
     if (empty(trim($_POST["address"]))) {
         $address_err = "Please enter your address.";
     } else {
         $address = mysqli_real_escape_string($dbCon, trim($_POST["address"]));
     }
 
-    // Check input errors before inserting in database
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err) && empty($phone_no_err) && empty($name_err) && empty($address_err)) {
-        // Prepare an insert statement
         $sql = "INSERT INTO staff (username, password, email, phone_no, name, address) VALUES (?, ?, ?, ?, ?, ?)";
         
         if ($stmt = mysqli_prepare($dbCon, $sql)) {
             mysqli_stmt_bind_param($stmt, "ssssss", $param_username, $param_password, $param_email, $param_phone_no, $param_name, $param_address);
             
-            // Set parameters
             $param_username = $username;
-            $param_password = md5($password); // Encrypt the password using md5
+            $param_password = md5($password); 
             $param_email = $email;
             $param_phone_no = $phone_no;
             $param_name = $name;
             $param_address = $address;
             
-            // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 echo "<script> alert('Registration successful!'); </script>";
                 echo "<script> location.href='adminDashboard.php'; </script>";
@@ -101,9 +89,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Something went wrong. Please try again later.";
             }
         }
-        mysqli_stmt_close($stmt); // Close statement
+        mysqli_stmt_close($stmt); 
     }
-    mysqli_close($dbCon); // Close connection
+    mysqli_close($dbCon); 
 }
 ?>
 
@@ -151,7 +139,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="tel" name="phone_no" placeholder="Phone No." value="<?php echo $phone_no; ?>" required>
                 <input type="text" name="name" placeholder="Name" value="<?php echo $name; ?>" required>
                 <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>" required>
-                <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
         </div>
