@@ -4,6 +4,8 @@ let iconCart = document.querySelector('.icon-cart');
 let iconCartSpan = document.querySelector('.icon-cart span');
 let body = document.querySelector('body');
 let closeCart = document.querySelector('.close');
+let modal = document.getElementById('successModal');
+let closeModal = document.getElementById('closeModal');
 let products = [];
 let cart = [];
 
@@ -13,6 +15,16 @@ iconCart.addEventListener('click', () => {
 });
 closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
+});
+
+// Show modal
+const showModal = () => {
+    modal.style.display = "block";
+};
+
+// Hide modal
+closeModal.addEventListener('click', () => {
+    modal.style.display = "none";
 });
 
 // Add products to HTML
@@ -63,6 +75,7 @@ const addToCart = (product_id) => {
     console.log(`Updated cart:`, cart);
     addCartToHTML();
     saveCartToSession();
+    showModal(); // Display modal when item is added to cart
 };
 
 // Save cart to session
@@ -121,13 +134,9 @@ const addCartToHTML = () => {
                 </div>
                 <div class="totalPrice">RM${info.item_fee * item.quantity}</div>
                 <div class="quantity">
-                    <span class="minus">
-                        -
-                    </span>
+                    <span class="minus">-</span>
                     <span>${item.quantity}</span>
-                    <span class="plus">
-                        +
-                    </span>
+                    <span class="plus">+</span>
                 </div>`;
         });
     }
