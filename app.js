@@ -7,6 +7,7 @@ let closeCart = document.querySelector('.close');
 let products = [];
 let cart = [];
 
+// Toggle cart display
 iconCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 });
@@ -14,12 +15,11 @@ closeCart.addEventListener('click', () => {
     body.classList.toggle('showCart');
 });
 
-const addDataToHTML = () => {
+// Add products to HTML
+const addDataToHTML = (filteredProducts) => {
     listProductHTML.innerHTML = ''; // Clear existing items
-
-    // Add new data
-    if (products.length > 0) { // if has data
-        products.forEach(product => {
+    if (filteredProducts.length > 0) { // if has data
+        filteredProducts.forEach(product => {
             let newProduct = document.createElement('div');
             newProduct.dataset.id = product.item_id;
             newProduct.classList.add('item');
@@ -33,6 +33,7 @@ const addDataToHTML = () => {
     }
 };
 
+// Handle adding product to cart
 listProductHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if (positionClick.classList.contains('addCart')) {
@@ -42,6 +43,7 @@ listProductHTML.addEventListener('click', (event) => {
     }
 });
 
+// Add product to cart
 const addToCart = (product_id) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
     console.log(`Product position in cart: ${positionThisProductInCart}`);
@@ -60,13 +62,38 @@ const addToCart = (product_id) => {
     }
     console.log(`Updated cart:`, cart);
     addCartToHTML();
-    addCartToMemory();
+    saveCartToSession();
 };
 
-const addCartToMemory = () => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+// Save cart to session
+const saveCartToSession = () => {
+    fetch('saveCart.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cart)
+    }).then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              console.log('Cart saved successfully');
+          } else {
+              console.error('Failed to save cart');
+          }
+      });
 };
 
+// Load cart from session
+const loadCartFromSession = () => {
+    fetch('loadCart.php')
+    .then(response => response.json())
+    .then(data => {
+        cart = data;
+        addCartToHTML();
+    });
+};
+
+// Display cart items in HTML
 const addCartToHTML = () => {
     listCartHTML.innerHTML = '';
     let totalQuantity = 0;
@@ -103,6 +130,7 @@ const addCartToHTML = () => {
     iconCartSpan.innerText = totalQuantity;
 };
 
+// Change cart item quantity
 listCartHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
@@ -113,6 +141,7 @@ listCartHTML.addEventListener('click', (event) => {
     }
 });
 
+// Update cart item quantity
 const changeQuantityCart = (product_id, type) => {
     let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
     if (positionItemInCart >= 0) {
@@ -128,21 +157,16 @@ const changeQuantityCart = (product_id, type) => {
     }
     console.log(`Updated cart after quantity change:`, cart);
     addCartToHTML();
-    addCartToMemory();
+    saveCartToSession();
 };
 
+// Initialize app
 const initApp = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const itemType = urlParams.get('type');
     console.log(`Fetching items of type: ${itemType}`);
 
-    // Fetch all items initially, or items based on type if required
-    let fetchUrl = 'fetchItems.php';
-    if (itemType) {
-        fetchUrl += `?type=${itemType}`;
-    }
-
-    fetch(fetchUrl)
+    fetch('fetchItems.php')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -152,12 +176,12 @@ const initApp = () => {
     .then(data => {
         products = data;
         console.log(`Fetched products:`, products);
-        addDataToHTML();
-
-        if (localStorage.getItem('cart')) {
-            cart = JSON.parse(localStorage.getItem('cart'));
-            addCartToHTML();
-        }
+        
+        // Filter products by type
+        const filteredProducts = itemType ? products.filter(product => product.item_type === itemType) : products;
+        addDataToHTML(filteredProducts);
+        
+        loadCartFromSession();
     })
     .catch(error => {
         console.error('Fetch error:', error); // Log any fetch errors to the console
