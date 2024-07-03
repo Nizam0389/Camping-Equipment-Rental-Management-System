@@ -43,8 +43,8 @@ if (empty($itemType)) {
     <header>
         <div class="title"><?php echo ucfirst($itemType); ?> List</div>
         
-        <div class="dropdown" style=" float:right; " >
-            <span class="icon">Category</span>
+        <div class="dropdown">
+            <a class="icon">Category</a>
             <div class="dropdown-content">
                 <a href="ListTent.php">Tent</a>
                 <a href="ListAccessory.php">Accessory</a>
