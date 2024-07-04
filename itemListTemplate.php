@@ -24,11 +24,7 @@ if (empty($itemType)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ucfirst($itemType); ?> List</title>
     <link rel="stylesheet" href="css/list.css">
-    <style>
-        .model {
-            display: none;
-        }
-    </style>
+    <script src="js/cart.js" defer></script>
 </head>
 <body class="">
 
@@ -81,7 +77,9 @@ if (empty($itemType)) {
     </div>
     <div class="btn">
         <button class="close">CLOSE</button>
-        <button class="checkOut">Check Out</button>
+        <button>
+            <a class="checkOut" href="payment.php">Check Out</a>
+        </button>
     </div>
 </div>
 
@@ -91,7 +89,6 @@ if (empty($itemType)) {
         <button id="closeModal">Close</button>
     </div>
 </div>
-
 
 <script src="app.js?type=<?php echo urlencode($itemType); ?>"></script>
 </body>

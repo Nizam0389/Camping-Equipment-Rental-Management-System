@@ -3,6 +3,7 @@
 <head>
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="css/payment.css">
+    <script src="js/rental-calculator.js" defer></script>
 </head>
 <body>
     <div class="navbar">
@@ -18,7 +19,18 @@
         <h2 class="title-page">- CART -</h2>
         <div class="cart-container">
             <div class="cart-details">
-                <h3>YOUR RENTING</h3>
+                <h3>Payment</h3>
+                <div class="rental-dates">
+                    <label for="start-date">Start Date:</label>
+                    <input type="date" id="start-date" name="start-date" required>
+                    
+                    <label for="end-date">Return Date:</label>
+                    <input type="date" id="end-date" name="end-date" required>
+                </div>
+                <div class="rental-summary">
+                    <p>Number of days: <span id="num-days">0</span></p>
+
+                </div>
                 <table class="cart-table">
                     <thead>
                         <tr>
@@ -63,5 +75,6 @@
             </div>
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>

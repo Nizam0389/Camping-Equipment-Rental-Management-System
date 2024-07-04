@@ -98,7 +98,7 @@ const saveCartToSession = () => {
 
 // Load cart from session
 const loadCartFromSession = () => {
-    fetch('loadCart.php')
+    return fetch('loadCart.php')
     .then(response => response.json())
     .then(data => {
         cart = data;
@@ -173,6 +173,46 @@ const changeQuantityCart = (product_id, type) => {
     saveCartToSession();
 };
 
+// Add this function to your app.js file
+
+const populateCartItems = () => {
+    const cartItemsContainer = document.getElementById('cart-items');
+    if (!cartItemsContainer) return; // Exit if we're not on the payment page
+
+    cartItemsContainer.innerHTML = ''; // Clear existing items
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        let positionProduct = products.findIndex((value) => value.item_id == item.product_id);
+        if (positionProduct !== -1) {
+            let product = products[positionProduct];
+            let itemTotal = product.item_fee * item.quantity;
+            totalPrice += itemTotal;
+
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${product.item_name}</td>
+                <td>RM ${product.item_fee.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>RM ${itemTotal.toFixed(2)}</td>
+            `;
+            cartItemsContainer.appendChild(newRow);
+        }
+    });
+
+    // Update total price
+    const totalElement = document.querySelector('.total span:last-child');
+    if (totalElement) {
+        totalElement.textContent = `RM ${totalPrice.toFixed(2)}`;
+    }
+
+    // Update daily rate
+    const dailyRateElement = document.getElementById('daily-rate');
+    if (dailyRateElement) {
+        dailyRateElement.textContent = totalPrice.toFixed(2);
+    }
+};
+
 // Initialize app
 const initApp = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -194,10 +234,12 @@ const initApp = () => {
         const filteredProducts = itemType ? products.filter(product => product.item_type === itemType) : products;
         addDataToHTML(filteredProducts);
         
-        loadCartFromSession();
+        loadCartFromSession().then(() => {
+            populateCartItems(); // Call this after loading the cart
+        });
     })
     .catch(error => {
-        console.error('Fetch error:', error); // Log any fetch errors to the console
+        console.error('Fetch error:', error);
     });
 };
 initApp();
