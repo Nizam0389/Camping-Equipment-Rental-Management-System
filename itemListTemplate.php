@@ -24,6 +24,11 @@ if (empty($itemType)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ucfirst($itemType); ?> List</title>
     <link rel="stylesheet" href="css/list.css">
+    <style>
+        .model {
+            display: none;
+        }
+    </style>
 </head>
 <body class="">
 
@@ -79,6 +84,14 @@ if (empty($itemType)) {
         <button class="checkOut">Check Out</button>
     </div>
 </div>
+
+<div id="successModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <p>Item successfully added to cart!</p>
+        <button id="closeModal">Close</button>
+    </div>
+</div>
+
 
 <script src="app.js?type=<?php echo urlencode($itemType); ?>"></script>
 </body>
