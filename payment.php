@@ -30,7 +30,6 @@
                 </div>
                 <div class="rental-summary">
                     <p>Number of days: <span id="num-days">0</span></p>
-
                 </div>
                 <table class="cart-table">
                     <thead>
