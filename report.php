@@ -5,7 +5,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
     exit;
 }
 $username = $_SESSION["username"];
-
 ?>
 
 <!DOCTYPE html>
@@ -13,8 +12,8 @@ $username = $_SESSION["username"];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="css/adminDashboard.css">
+    <title>Report Dashboard</title>
+    <link rel="stylesheet" href="css/report.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
@@ -54,8 +53,13 @@ $username = $_SESSION["username"];
         </ul>
     </div>
     <div class="main-content">
-        
-        
+        <h2 class="title-page">Reports</h2>
+        <div class="report-buttons">
+            <a href="reportCustomerList.php" class="report-button">Customer List</a>
+            <a href="reportStaffList.php" class="report-button">Staff List</a>
+            <a href="reportMonthlyRent.php" class="report-button">Monthly Rent Report</a>
+            <a href="reportItem.php" class="report-button">Item Report</a>
+        </div>
     </div>
 </body>
 </html>
