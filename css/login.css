@@ -16,7 +16,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 60px; /* Adjust this value to change the height of the navigation bar */
+    height: 60px;
 }
 
 .navbar li {
@@ -29,7 +29,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 18px; /* Adjust the font size to fit the reduced height */
+    font-size: 18px;
     position: relative;
 }
 
@@ -59,8 +59,8 @@ body {
 
 .navbar li.logo img {
     border-radius: 50%;
-    height: 50px; /* Adjust the logo height */
-    width: 50px; /* Adjust the logo width */
+    height: 50px;
+    width: 50px;
 }
 
 .navbar li.right {
@@ -70,13 +70,13 @@ body {
 }
 
 .navbar li.right a {
-    margin-left: 10px; /* Adjust spacing between Contact Us and profile logo */
+    margin-left: 10px;
 }
 
 .navbar li.right img {
-    height: 24px; /* Adjust this value to change the height of the profile image */
-    width: 24px; /* Adjust this value to change the width of the profile image */
-    margin-left: 5px; /* Add a small margin for better alignment */
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
 }
 
 main {
@@ -92,7 +92,7 @@ main {
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 400px; /* Fixed width for the container */
+    width: 400px;
     margin: auto;
     margin-top: 8%;
 }
@@ -108,7 +108,7 @@ main {
     margin: 10px 0 5px;
     font-weight: bold;
     color: #333;
-    text-align: left; /* Align labels to the left */
+    text-align: left;
 }
 
 .login-container input[type="text"],
@@ -118,7 +118,7 @@ main {
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; /* Ensure padding doesn't affect total width */
+    box-sizing: border-box;
 }
 
 .password-container {
@@ -128,30 +128,20 @@ main {
 .toggle-password {
     position: absolute;
     top: 50%;
-    right: 10px; /* Adjust as needed */
+    right: 10px;
     transform: translateY(-50%);
-    width: 20px; /* Set width */
-    height: 20px; /* Set height */
-    background: url('./images/eyeToggle.png') no-repeat center;
+    width: 20px; 
+    height: 20px; 
+    background: url('../image/eyeToggle.png') no-repeat center;
     background-size: contain;
     border: none;
     cursor: pointer;
 }
 
 .toggle-password.clicked {
-    background: url('./images/eyeToggle.png') no-repeat center;
+    background: url('../image/eyeToggle.png') no-repeat center;
     background-size: contain;
-    transform: scaleX(-1); /* Flip the image horizontally */
-}
-
-.remember-me {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.remember-me input {
-    margin-right: 5px;
+    transform: scaleX(-1);
 }
 
 .login-btn {

@@ -3,6 +3,7 @@
 <head>
     <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="css/payment.css">
+    <script src="js/cart.js" defer></script>
     <script src="js/rental-calculator.js" defer></script>
 </head>
 <body>
@@ -29,30 +30,18 @@
                 </div>
                 <div class="rental-summary">
                     <p>Number of days: <span id="num-days">0</span></p>
-
                 </div>
                 <table class="cart-table">
                     <thead>
                         <tr>
                             <th>PRODUCT</th>
-                            <th>PRICE</th>
+                            <th>PRICE PER DAY</th>
                             <th>QUANTITY</th>
                             <th>TOTAL</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>Compact 2 Person Pop-up Tent</td>
-                            <td>RM 55.00</td>
-                            <td>1</td>
-                            <td>RM 55.00</td>
-                        </tr>
-                        <tr>
-                            <td>Torch Light</td>
-                            <td>RM 5.00</td>
-                            <td>1</td>
-                            <td>RM 5.00</td>
-                        </tr>
+                    <tbody id="cart-items">
+                        <!-- Cart items will be populated here -->
                     </tbody>
                 </table>
             </div>
@@ -60,7 +49,7 @@
                 <h3>Payment</h3>
                 <div class="total">
                     <span>Total</span>
-                    <span>RM 60.00</span>
+                    <span id="total-price">RM 0.00</span>
                 </div>
                 <h4>Online Banking</h4>
                 <form action="process-payment.php" method="post">
@@ -75,6 +64,5 @@
             </div>
         </div>
     </div>
-    <script src="app.js"></script>
 </body>
 </html>

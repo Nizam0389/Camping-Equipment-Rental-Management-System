@@ -46,6 +46,7 @@ $username = $_SESSION["username"];
                     <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
                 </div>
             </li>
+            
         </ul>
     </div>
     <div class="main-content">
