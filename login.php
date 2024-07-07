@@ -6,8 +6,8 @@ $username = $password = "";
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = mysqli_real_escape_string($dbCon, $_POST['username']);
-    $password = md5(mysqli_real_escape_string($dbCon, $_POST['password']));
+    $username = $_POST['username'];
+    $password = md5($_POST['password']);
 
     $sql_staff = "SELECT username, password FROM staff WHERE username = '$username'";
     $result_staff = mysqli_query($dbCon, $sql_staff);
@@ -76,11 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <div class="password-container">
                     <input type="password" id="password" name="password" required>
                     <button type="button" class="toggle-password"></button>
-                </div>
-
-                <div class="remember-me">
-                    <input type="checkbox" id="remember" name="remember">
-                    <label for="remember">Remember me</label>
                 </div>
 
                 <button type="submit" class="login-btn">LOG IN</button>
