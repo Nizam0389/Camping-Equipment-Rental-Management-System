@@ -24,7 +24,6 @@ if (empty($itemType)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo ucfirst($itemType); ?> List</title>
     <link rel="stylesheet" href="css/list.css">
-    <script src="js/cart.js" defer></script>
 </head>
 <body class="">
 
