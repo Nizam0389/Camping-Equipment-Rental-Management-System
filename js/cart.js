@@ -149,24 +149,21 @@ const populateCartItems = () => {
 };
 
 // Calculate total days based on start and end date
-const calculateTotalDays = () => {
-    const startDateInput = document.getElementById('start-date');
-    const endDateInput = document.getElementById('end-date');
-    if (!startDateInput || !endDateInput) return 1; // Default to 1 day if inputs are not found
+// Add this function to your app.js file
 
-    const startDate = new Date(startDateInput.value);
-    const endDate = new Date(endDateInput.value);
+const calculateTotalDays = () => {
+    const startDate = new Date(localStorage.getItem('start_date'));
+    const endDate = new Date(localStorage.getItem('end_date'));
     if (endDate < startDate) {
         alert("Return date cannot be before the start date.");
-        endDateInput.value = startDateInput.value; // Reset the return date to start date
-        document.getElementById('num-days').textContent = 1;
+        localStorage.setItem('end_date', localStorage.getItem('start_date')); // Reset the return date to start date
         return 1;
     }
     const timeDiff = endDate - startDate;
     const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-    document.getElementById('num-days').textContent = daysDiff;
-    return daysDiff;
+    return daysDiff > 0 ? daysDiff : 1;
 };
+
 
 // Initialize app
 const initApp = () => {
@@ -236,4 +233,15 @@ function saveRent() {
     }).catch(error => {
         alert('Error: ' + error);
     });
+}
+
+// Redirect to confirmation page
+const redirectToConfirmation = () => {
+    window.location.href = 'confirmation.php';
+};
+
+// Existing checkout button functionality
+const checkoutButton = document.querySelector('.checkOut');
+if (checkoutButton) {
+    checkoutButton.addEventListener('click', redirectToConfirmation);
 }

@@ -77,7 +77,7 @@ if (empty($itemType)) {
     <div class="btn">
         <button class="close">CLOSE</button>
         <button>
-            <a class="checkOut" href="payment.php">Check Out</a>
+            <a class="checkOut" href="confirmation.php">Check Out</a>
         </button>
     </div>
 </div>
