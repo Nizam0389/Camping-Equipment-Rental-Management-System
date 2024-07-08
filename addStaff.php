@@ -83,10 +83,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_address = $address;
             
             if (mysqli_stmt_execute($stmt)) {
-                echo "<script> alert('Registration successful!'); </script>";
-                echo "<script> location.href='adminDashboard.php'; </script>";
+                echo "<script>
+                window.onload = function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Succesful Add!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        window.location.href = 'adminDashboard.php';
+                    });
+                }
+                </script>";
             } else {
-                echo "Something went wrong. Please try again later.";
+                echo "<script>
+                window.onload = function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'erro',
+                        title: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        window.location.href = 'adminDashboard.php';
+                    });
+                }
+                </script>";
             }
         }
         mysqli_stmt_close($stmt); 
@@ -110,6 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     <header>
