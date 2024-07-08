@@ -108,7 +108,7 @@ function confirmAndSaveRentalDetails() {
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="index.php">HOMEPAGE</a></li>
+            <li><a href="homepage.php">HOMEPAGE</a></li>
             <li><a href="category.php">RENTAL</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>

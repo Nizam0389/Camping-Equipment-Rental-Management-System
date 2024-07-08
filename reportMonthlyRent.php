@@ -17,7 +17,7 @@ while ($row = $yearResult->fetch_assoc()) {
 }
 
 // Fetch data for the selected year
-$sql = "SELECT MONTH(rent_date) as month, SUM(RD_quantity) as total_quantity
+$sql = "SELECT MONTH(rent_date) as month, SUM(RD_quantity) as total_quantity, COUNT(DISTINCT Rent.cust_id) as total_customers
         FROM RentalDetail
         JOIN Rent ON RentalDetail.rent_id = Rent.rent_id
         WHERE YEAR(rent_date) = $year
@@ -26,8 +26,10 @@ $result = $dbCon->query($sql);
 
 // Prepare data for the chart
 $monthlyData = array_fill(1, 12, 0); // Initialize array for 12 months
+$monthlyCustomers = array_fill(1, 12, 0); // Initialize array for customers per month
 while ($row = $result->fetch_assoc()) {
     $monthlyData[(int)$row['month']] = $row['total_quantity'];
+    $monthlyCustomers[(int)$row['month']] = $row['total_customers'];
 }
 $dbCon->close();
 ?>
@@ -69,6 +71,7 @@ $dbCon->close();
                         <tr>
                             <th>Month</th>
                             <th>Total Items Rented</th>
+                            <th>Total Customers Renting</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +80,7 @@ $dbCon->close();
                             echo "<tr>
                                     <td>" . date("F", mktime(0, 0, 0, $month, 1)) . "</td>
                                     <td>" . $total_quantity . "</td>
+                                    <td>" . $monthlyCustomers[$month] . "</td>
                                   </tr>";
                         }
                         ?>
@@ -96,6 +100,14 @@ $dbCon->close();
                     data: <?php echo json_encode(array_values($monthlyData)); ?>,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    fill: false
+                },
+                {
+                    label: 'Total Customers Renting',
+                    data: <?php echo json_encode(array_values($monthlyCustomers)); ?>,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
                     borderWidth: 1,
                     fill: false
                 }]
