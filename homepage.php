@@ -14,12 +14,31 @@ $username = $_SESSION["username"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYAKIRI CAMPING</title>
     <link rel="stylesheet" href="css/homepage.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         function confirmLogout() {
-            var result = confirm("Do you want to log out?");
-            if (result) {
-                window.location.href = 'logout.php';
-            }
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Logging Out!',
+                        text: 'You are being logged out.',
+                        icon: 'info',
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    });
+                    setTimeout(() => {
+                        window.location.href = 'logout.php';
+                    }, 1000);
+                }
+            });
         }
     </script>
 </head>
@@ -41,7 +60,7 @@ $username = $_SESSION["username"];
             </li>
         </ul>
     </div>
-    <div class="main-content" style="z-index:-5">
+    <div class="main-content">
         <div class="info-box">
             <h1>SYAKIRI CAMPING</h1>
             <p>"SYAKIRI CAMPING" is your one stop destination for all your
@@ -52,7 +71,7 @@ $username = $_SESSION["username"];
                 ensures that you have everything you need to make your
                 camping experience comfortable and enjoyable. With affordable
                 rental rates and convenient pickup/delivery options, "SYAKIRI
-                CAMPING" is committed to helping you make the most of your 
+                CAMPING" is committed to helping you make the most of your
                 outdoor adventures without the hassle of buying and storing equipment.
             </p>
         </div>
