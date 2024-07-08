@@ -59,7 +59,9 @@ body {
     padding: 5px;
     background-color: #fff;
     height: 30px;
+    width: auto; /* Adjust width automatically to maintain aspect ratio */
 }
+
 
 .navbar li.right {
     position: relative;
@@ -84,7 +86,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 80px 20px 20px; /* Adjusted top padding to account for fixed navbar */
+    padding: 80px 20px 20px;
     box-sizing: border-box;
 }
 
@@ -171,7 +173,9 @@ body {
 }
 
 .button {
-    margin-bottom: 4px;
+    display: inline-block;
+    width: 100px;
+    margin: 4px 5px;
     padding: 8px 12px;
     border: 1px solid #75B9E1;
     border-radius: 3px;
@@ -180,23 +184,6 @@ body {
     font-family: inherit;
     text-transform: uppercase;
     color: #fff;
-}
-
-.button:focus {
-    outline: none;
-}
-
-.button--warning {
-    border-color: #FFB039;
-    background: #ff9800;
-}
-
-.button--success {
-    border-color: #71E6AB;
-    background: #4AD890;
-}
-
-.button--error {
-    border-color: #F578A4;
-    background: #EF5289;
+    text-align: center; 
+    text-decoration: none;
 }
