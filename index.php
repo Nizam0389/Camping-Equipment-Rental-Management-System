@@ -14,7 +14,7 @@ $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
 <body>
     <div class="navbar">
         <ul class="navbar-links">
-            <li><a href="<?php echo $loggedin ? 'category.php' : '#'; ?>" <?php if(!$loggedin) echo 'onclick="showLoginPopup(event)"'; ?>>rentAL</a></li>
+            <li><a href="<?php echo $loggedin ? 'category.php' : '#'; ?>" <?php if(!$loggedin) echo 'onclick="showLoginPopup(event)"'; ?>>RENTAL</a></li>
             <li><a href="contactUsGuest.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="<?php echo $loggedin ? 'profile.php' : 'login.php'; ?>"><img src="image/profilebg.png" alt="Profile"></a></li>

@@ -132,12 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <div class="navbar">
             <ul>
-<<<<<<< HEAD
-                <li><a href="index.html">HOMEPAGE</a></li>
-                <li><a href="category.html">rentAL</a></li>
-=======
                 <li><a href="index.php">HOMEPAGE</a></li>
->>>>>>> 31b0f2282a6baa7990a1d703beec4fcbea4397b7
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
                 <li class="right"><a href="contactUsGuest.php">CONTACT US</a></li>
                 <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>

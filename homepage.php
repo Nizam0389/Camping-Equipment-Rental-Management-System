@@ -45,7 +45,7 @@ $username = $_SESSION["username"];
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="category.php">rentAL</a></li>
+            <li><a href="category.php">RENTAL</a></li>
             <li><a href="contactUs.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><span class="username"><?php echo htmlspecialchars($username); ?></span></li>
@@ -54,7 +54,7 @@ $username = $_SESSION["username"];
                     <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
                 </a>
                 <div class="dropdown-content">
-                    <a href="staffAccountSetting.php">Profile</a>
+                    <a href="customerAccountSetting.php">Profile</a>
                     <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
                 </div>
             </li>
