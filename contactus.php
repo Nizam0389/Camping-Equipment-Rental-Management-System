@@ -36,7 +36,15 @@ $contact = mysqli_fetch_assoc($result);
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
                 <li class="right"><a href="contactus.php">CONTACT US</a></li>
                 <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
-                <li class="right"><a href="javascript:void(0);" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
+                <li class="right profile-dropdown">
+                <a href="javascript:void(0);">
+                    <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
+                </a>
+                <div class="dropdown-content">
+                    <a href="staffAccountSetting.php">Profile</a>
+                    <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
+                </div>
+            </li>
                 </ul>
         </div>
     </header>
