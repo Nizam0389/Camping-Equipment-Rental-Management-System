@@ -122,399 +122,212 @@ INSERT INTO `Rent` (`rent_date`, `return_date`, `rent_status`, `cust_id`) VALUES
 ('2026-12-15', '2026-12-20', false, 217);
 
 -- rentaldetail
--- Update the RentalDetail table based on the provided rent_id values
-
+-- Insert data into RentalDetail table
 INSERT INTO `RentalDetail` (`RD_quantity`, `rd_fee`, `rent_id`, `item_id`) VALUES
 -- Rent 55
 (2, 80, 55, 1), -- Foldable Aluminum Table (2 * 40)
-(1, 10, 55, 6), -- Camping Air Basic 1 Person (1 * 10)
+(1, 10, 55, 7), -- Camping Air Basic 1 Person (1 * 10)
 
 -- Rent 56
-(1, 40, 56, 3), -- Wooden Eggroll Table (1 * 40)
-(1, 15, 56, 13), -- Large Folding Camping Chair (1 * 15)
+(1, 40, 56, 4), -- Wooden Eggroll Table (1 * 40)
+(1, 15, 56, 14), -- Large Folding Camping Chair (1 * 15)
 (3, 6, 56, 17), -- Multipurpose Rope(10m) (3 * 2)
 
 -- Rent 57
 (1, 40, 57, 1), -- Foldable Aluminum Table (1 * 40)
-(2, 20, 57, 15), -- Torch Light (2 * 1)
-(1, 50, 57, 18), -- Portable Mini Stove (1 * 2)
+(2, 2, 57, 16), -- Torch Light (2 * 1)
+(1, 2, 57, 18), -- Portable Mini Stove (1 * 2)
 
 -- Rent 58
 (3, 60, 58, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 180, 58, 24), -- 3-5 Person Camping Tent (1 * 180)
+(1, 180, 58, 25), -- 3-5 Person Camping Tent (1 * 180)
 
 -- Rent 59
-(2, 50, 59, 9), -- Laybed (2 * 25)
-(1, 20, 59, 10), -- Family Sleeping Bag (1 * 20)
-(3, 15, 59, 14), -- Camping Lamp Rechargeable (3 * 5)
+(2, 50, 59, 10), -- Laybed (2 * 25)
+(1, 20, 59, 11), -- Family Sleeping Bag (1 * 20)
+(3, 15, 59, 15), -- Camping Lamp Rechargeable (3 * 5)
 
 -- Rent 60
-(1, 10, 60, 12), -- Low Folding Camping Chair (1 * 10)
-(2, 20, 60, 7), -- Camping Air Basic 2 Person (2 * 10)
+(1, 10, 60, 13), -- Low Folding Camping Chair (1 * 10)
+(2, 20, 60, 8), -- Camping Air Basic 2 Person (2 * 10)
 
 -- Rent 61
-(3, 30, 61, 11), -- Groundsheet (3 * 10)
-(2, 6, 61, 20), -- Cooking Utensil (2 * 3)
+(3, 30, 61, 12), -- Groundsheet (3 * 10)
+(2, 6, 61, 22), -- Cooking Utensil (2 * 3)
 
 -- Rent 62
-(1, 20, 62, 4), -- Multifunction Folding Table (1 * 20)
-(3, 15, 62, 22), -- Titanium Pot and Cup (3 * 5)
+(1, 20, 62, 5), -- Multifunction Folding Table (1 * 20)
+(3, 15, 62, 20), -- Titanium Pot and Cup (3 * 5)
 (2, 4, 62, 19), -- Camp Cook Set (2 * 2)
 
 -- Rent 63
-(1, 40, 63, 3), -- Wooden Eggroll Table (1 * 40)
+(1, 40, 63, 4), -- Wooden Eggroll Table (1 * 40)
 (2, 50, 63, 18), -- Portable Mini Stove (2 * 25)
-(2, 6, 63, 15), -- Torch Light (2 * 3)
+(2, 2, 63, 16), -- Torch Light (2 * 1)
 
 -- Rent 64
-(1, 200, 64, 25), -- 5-8 Person Camping Tent (1 * 200)
-(1, 2, 64, 20), -- Cooking Utensil (1 * 2)
+(1, 200, 64, 26), -- 5-8 Person Camping Tent (1 * 200)
+(1, 2, 64, 22), -- Cooking Utensil (1 * 2)
 
 -- Rent 65
-(2, 30, 65, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 10, 65, 16), -- Multipurpose Rope(10m) (1 * 10)
+(2, 30, 65, 14), -- Large Folding Camping Chair (2 * 15)
+(1, 10, 65, 17), -- Multipurpose Rope(10m) (1 * 10)
 
 -- Rent 66
-(2, 20, 66, 12), -- Low Folding Camping Chair (2 * 10)
-(1, 20, 66, 10), -- Family Sleeping Bag (1 * 20)
+(2, 20, 66, 13), -- Low Folding Camping Chair (2 * 10)
+(1, 20, 66, 11), -- Family Sleeping Bag (1 * 20)
 
 -- Rent 67
-(1, 55, 67, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(1, 1, 67, 15), -- Torch Light (1 * 1)
+(1, 55, 67, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 1, 67, 16), -- Torch Light (1 * 1)
 
 -- Rent 68
-(2, 40, 68, 8), -- Single Sleeping Bag (2 * 20)
-(1, 40, 68, 3), -- Wooden Eggroll Table (1 * 40)
-(1, 25, 68, 24), -- 3-5 Person Camping Tent (1 * 180)
+(2, 40, 68, 9), -- Single Sleeping Bag (2 * 20)
+(1, 40, 68, 4), -- Wooden Eggroll Table (1 * 40)
+(1, 180, 68, 25), -- 3-5 Person Camping Tent (1 * 180)
 
 -- Rent 69
-(1, 5, 69, 14), -- Camping Lamp Rechargeable (1 * 5)
-(1, 15, 69, 22), -- Titanium Pot and Cup (1 * 15)
+(1, 5, 69, 15), -- Camping Lamp Rechargeable (1 * 5)
+(1, 15, 69, 20), -- Titanium Pot and Cup (1 * 15)
 (1, 2, 69, 19), -- Camp Cook Set (1 * 2)
 
 -- Rent 70
-(1, 200, 70, 25), -- 5-8 Person Camping Tent (1 * 200)
-(2, 30, 70, 13), -- Large Folding Camping Chair (2 * 15)
+(1, 200, 70, 26), -- 5-8 Person Camping Tent (1 * 200)
+(2, 30, 70, 14), -- Large Folding Camping Chair (2 * 15)
 
 -- Rent 71
-(1, 20, 71, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 20, 71, 7), -- Camping Air Basic 1 Person (1 * 20)
 (1, 40, 71, 1), -- Foldable Aluminum Table (1 * 40)
 
 -- Rent 72
-(2, 20, 72, 12), -- Low Folding Camping Chair (2 * 10)
-(1, 25, 72, 9), -- Laybed (1 * 25)
+(2, 20, 72, 13), -- Low Folding Camping Chair (2 * 10)
+(1, 25, 72, 10), -- Laybed (1 * 25)
 
 -- Rent 73
-(1, 55, 73, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(1, 2, 73, 20), -- Cooking Utensil (1 * 2)
+(1, 55, 73, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 2, 73, 22), -- Cooking Utensil (1 * 2)
 
 -- Rent 74
-(3, 75, 74, 9), -- Laybed (3 * 25)
-(2, 30, 74, 7), -- Camping Air Basic 2 Person (2 * 15)
+(3, 75, 74, 10), -- Laybed (3 * 25)
+(2, 30, 74, 8), -- Camping Air Basic 2 Person (2 * 15)
 
 -- Rent 75
-(1, 10, 75, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 40, 75, 4), -- Multifunction Folding Table (1 * 40)
+(1, 10, 75, 13), -- Low Folding Camping Chair (1 * 10)
+(1, 40, 75, 5), -- Multifunction Folding Table (1 * 40)
 
 -- Rent 76
-(2, 20, 76, 10), -- Family Sleeping Bag (2 * 20)
-(1, 40, 76, 3), -- Wooden Eggroll Table (1 * 40)
+(2, 20, 76, 11), -- Family Sleeping Bag (2 * 20)
+(1, 40, 76, 4), -- Wooden Eggroll Table (1 * 40)
 
 -- Rent 77
-(1, 55, 77, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 10, 77, 14), -- Camping Lamp Rechargeable (2 * 5)
+(1, 55, 77, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 10, 77, 15), -- Camping Lamp Rechargeable (2 * 5)
 
 -- Rent 78
-(3, 30, 78, 12), -- Low Folding Camping Chair (3 * 10)
-(1, 20, 78, 6), -- Camping Air Basic 1 Person (1 * 20)
+(3, 30, 78, 13), -- Low Folding Camping Chair (3 * 10)
+(1, 20, 78, 7), -- Camping Air Basic 1 Person (1 * 20)
 
 -- Rent 79
-(1, 15, 79, 13), -- Large Folding Camping Chair (1 * 15)
-(1, 5, 79, 14), -- Camping Lamp Rechargeable (1 * 5)
+(1, 15, 79, 14), -- Large Folding Camping Chair (1 * 15)
+(1, 5, 79, 15), -- Camping Lamp Rechargeable (1 * 5)
 
 -- Rent 80
-(2, 40, 80, 8), -- Single Sleeping Bag (2 * 20)
-(1, 55, 80, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 40, 80, 9), -- Single Sleeping Bag (2 * 20)
+(1, 55, 80, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
 
 -- Rent 81
-(1, 15, 81, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 10, 81, 12), -- Low Folding Camping Chair (2 * 10)
+(1, 15, 81, 14), -- Large Folding Camping Chair (1 * 15)
+(2, 20, 81, 13), -- Low Folding Camping Chair (2 * 10)
 
 -- Rent 82
 (3, 60, 82, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 20, 82, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 20, 82, 7), -- Camping Air Basic 1 Person (1 * 20)
 
 -- Rent 83
-(2, 40, 83, 4), -- Multifunction Folding Table (2 * 20)
-(1, 15, 83, 22), -- Titanium Pot and Cup (1 * 15)
+(2, 40, 83, 5), -- Multifunction Folding Table (2 * 20)
+(1, 15, 83, 20), -- Titanium Pot and Cup (1 * 15)
 
 -- Rent 84
-(1, 5, 84, 14), -- Camping Lamp Rechargeable (1 * 5)
-(2, 2, 84, 20), -- Cooking Utensil (2 * 2)
+(1, 5, 84, 15), -- Camping Lamp Rechargeable (1 * 5)
+(2, 4, 84, 22), -- Cooking Utensil (2 * 2)
 
 -- Rent 85
-(1, 20, 85, 10), -- Family Sleeping Bag (1 * 20)
-(1, 10, 85, 12), -- Low Folding Camping Chair (1 * 10)
+(1, 20, 85, 11), -- Family Sleeping Bag (1 * 20)
+(1, 10, 85, 13), -- Low Folding Camping Chair (1 * 10)
 
 -- Rent 86
 (2, 80, 86, 1), -- Foldable Aluminum Table (2 * 40)
-(1, 5, 86, 14), -- Camping Lamp Rechargeable (1 * 5)
+(1, 5, 86, 15), -- Camping Lamp Rechargeable (1 * 5)
 
 -- Rent 87
-(1, 55, 87, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(1, 2, 87, 20), -- Cooking Utensil (1 * 2)
+(1, 55, 87, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 2, 87, 22), -- Cooking Utensil (1 * 2)
 
 -- Rent 88
-(2, 40, 88, 7), -- Camping Air Basic 2 Person (2 * 20)
-(1, 25, 88, 9), -- Laybed (1 * 25)
+(2, 40, 88, 8), -- Camping Air Basic 2 Person (2 * 20)
+(1, 25, 88, 10), -- Laybed (1 * 25)
 
--- Rent 89
-(1, 40, 89, 3), -- Wooden Eggroll Table (1 * 40)
-(1, 15, 89, 22), -- Titanium Pot and Cup (1 * 15)
+-- Rent 89 (continued)
+(1, 40, 89, 4), -- Wooden Eggroll Table (1 * 40)
+(1, 15, 89, 20), -- Titanium Pot and Cup (1 * 15)
+(1, 10, 89, 11), -- Family Sleeping Bag (1 * 10)
+(2, 4, 89, 17), -- Multipurpose Rope(10m) (2 * 2)
 
 -- Rent 90
-(1, 10, 90, 10), -- Family Sleeping Bag (1 * 10)
-(3, 6, 90, 17), -- Multipurpose Rope(10m) (3 * 2)
+(1, 55, 90, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 20, 90, 19), -- Camp Cook Set (2 * 10)
 
 -- Rent 91
-(1, 55, 91, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 20, 91, 19), -- Camp Cook Set (2 * 10)
+(2, 20, 91, 9), -- Single Sleeping Bag (2 * 10)
+(1, 200, 91, 26), -- 5-8 Person Camping Tent (1 * 200)
 
 -- Rent 92
-(2, 40, 92, 8), -- Single Sleeping Bag (2 * 20)
-(1, 200, 92, 25), -- 5-8 Person Camping Tent (1 * 200)
+(1, 20, 92, 7), -- Camping Air Basic 1 Person (1 * 10)
+(1, 5, 92, 15), -- Camping Lamp Rechargeable (1 * 5)
 
 -- Rent 93
-(1, 20, 93, 6), -- Camping Air Basic 1 Person (1 * 20)
-(1, 5, 93, 14), -- Camping Lamp Rechargeable (1 * 5)
+(2, 30, 93, 14), -- Large Folding Camping Chair (2 * 15)
+(1, 20, 93, 11), -- Family Sleeping Bag (1 * 20)
 
 -- Rent 94
-(2, 30, 94, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 20, 94, 10), -- Family Sleeping Bag (1 * 20)
+(1, 10, 94, 13), -- Low Folding Camping Chair (1 * 10)
+(1, 15, 94, 20), -- Titanium Pot and Cup (1 * 15)
 
 -- Rent 95
-(1, 10, 95, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 15, 95, 22), -- Titanium Pot and Cup (1 * 15)
+(1, 20, 95, 11), -- Family Sleeping Bag (1 * 20)
+(2, 4, 95, 18), -- Portable Mini Stove (2 * 2)
 
 -- Rent 96
-(1, 20, 96, 10), -- Family Sleeping Bag (1 * 20)
-(2, 50, 96, 18), -- Portable Mini Stove (2 * 25)
+(1, 40, 96, 1), -- Foldable Aluminum Table (1 * 40)
+(1, 4, 96, 22), -- Cooking Utensil (1 * 2)
 
 -- Rent 97
-(1, 40, 97, 1), -- Foldable Aluminum Table (1 * 40)
-(1, 3, 97, 20), -- Cooking Utensil (1 * 2)
+(2, 40, 97, 5), -- Multifunction Folding Table (2 * 20)
+(1, 180, 97, 25), -- 3-5 Person Camping Tent (1 * 180)
 
 -- Rent 98
-(2, 80, 98, 4), -- Multifunction Folding Table (2 * 20)
-(1, 180, 98, 24), -- 3-5 Person Camping Tent (1 * 180)
+(1, 15, 98, 14), -- Large Folding Camping Chair (1 * 15)
+(2, 4, 98, 19), -- Camp Cook Set (2 * 2)
 
 -- Rent 99
-(1, 15, 99, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 4, 99, 19), -- Camp Cook Set (2 * 2)
+(1, 20, 99, 7), -- Camping Air Basic 1 Person (1 * 20)
+(2, 20, 99, 13), -- Low Folding Camping Chair (2 * 10)
 
 -- Rent 100
-(1, 20, 100, 6), -- Camping Air Basic 1 Person (1 * 20)
-(2, 10, 100, 12), -- Low Folding Camping Chair (2 * 10)
+(2, 80, 100, 4), -- Wooden Eggroll Table (2 * 40)
+(1, 4, 100, 22), -- Cooking Utensil (1 * 2)
 
 -- Rent 101
-(2, 40, 101, 3), -- Wooden Eggroll Table (2 * 40)
-(1, 2, 101, 20), -- Cooking Utensil (1 * 2)
+(1, 55, 101, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 2, 101, 16), -- Torch Light (2 * 1)
 
 -- Rent 102
-(1, 55, 102, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 6, 102, 15), -- Torch Light (2 * 3)
+(3, 60, 102, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 10, 102, 11); -- Family Sleeping Bag (1 * 10)
 
--- Rent 103
-(3, 60, 103, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 10, 103, 10), -- Family Sleeping Bag (1 * 10)
 
--- Rent 104
-(1, 20, 104, 8), -- Single Sleeping Bag (1 * 20)
-(2, 10, 104, 12), -- Low Folding Camping Chair (2 * 10)
 
--- Rent 105
-(1, 40, 105, 3), -- Wooden Eggroll Table (1 * 40)
-(2, 30, 105, 18), -- Portable Mini Stove (2 * 15)
 
--- Rent 106
-(1, 10, 106, 10), -- Family Sleeping Bag (1 * 20)
-(3, 6, 106, 17), -- Multipurpose Rope(10m) (3 * 2)
-
--- Rent 107
-(1, 55, 107, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 20, 107, 19), -- Camp Cook Set (2 * 10)
-
--- Rent 108
-(2, 40, 108, 8), -- Single Sleeping Bag (2 * 20)
-(1, 200, 108, 25), -- 5-8 Person Camping Tent (1 * 200)
-
--- Rent 109
-(1, 20, 109, 6), -- Camping Air Basic 1 Person (1 * 20)
-(1, 5, 109, 14), -- Camping Lamp Rechargeable (1 * 5)
-
--- Rent 110
-(2, 30, 110, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 20, 110, 10), -- Family Sleeping Bag (1 * 20)
-
--- Rent 111
-(1, 10, 111, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 15, 111, 22), -- Titanium Pot and Cup (1 * 15)
-
--- Rent 112
-(1, 20, 112, 10), -- Family Sleeping Bag (1 * 20)
-(2, 50, 112, 18), -- Portable Mini Stove (2 * 25)
-
--- Rent 113
-(1, 40, 113, 1), -- Foldable Aluminum Table (1 * 40)
-(1, 3, 113, 20), -- Cooking Utensil (1 * 2)
-
--- Rent 114
-(2, 80, 114, 4), -- Multifunction Folding Table (2 * 20)
-(1, 180, 114, 24), -- 3-5 Person Camping Tent (1 * 180)
-
--- Rent 115
-(1, 15, 115, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 4, 115, 19), -- Camp Cook Set (2 * 2)
-
--- Rent 116
-(1, 20, 116, 6), -- Camping Air Basic 1 Person (1 * 20)
-(2, 10, 116, 12), -- Low Folding Camping Chair (2 * 10)
-
--- Rent 117
-(2, 40, 117, 3), -- Wooden Eggroll Table (2 * 40)
-(1, 2, 117, 20), -- Cooking Utensil (1 * 2)
-
--- Rent 118
-(1, 55, 118, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 6, 118, 15), -- Torch Light (2 * 3)
-
--- Rent 119
-(3, 60, 119, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 10, 119, 10), -- Family Sleeping Bag (1 * 10)
-
--- Rent 120
-(1, 20, 120, 8), -- Single Sleeping Bag (1 * 20)
-(2, 10, 120, 12), -- Low Folding Camping Chair (2 * 10)
-
--- Rent 121
-(1, 40, 121, 3), -- Wooden Eggroll Table (1 * 40)
-(2, 30, 121, 18), -- Portable Mini Stove (2 * 15)
-
--- Rent 122
-(1, 10, 122, 10), -- Family Sleeping Bag (1 * 20)
-(3, 6, 122, 17), -- Multipurpose Rope(10m) (3 * 2)
-
--- Rent 123
-(1, 55, 123, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 20, 123, 19), -- Camp Cook Set (2 * 10)
-
--- Rent 124
-(2, 40, 124, 8), -- Single Sleeping Bag (2 * 20)
-(1, 200, 124, 25), -- 5-8 Person Camping Tent (1 * 200)
-
--- Rent 125
-(1, 20, 125, 6), -- Camping Air Basic 1 Person (1 * 20)
-(1, 5, 125, 14), -- Camping Lamp Rechargeable (1 * 5)
-
--- Rent 126
-(2, 30, 126, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 20, 126, 10), -- Family Sleeping Bag (1 * 20)
-
--- Rent 127
-(1, 10, 127, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 15, 127, 22), -- Titanium Pot and Cup (1 * 15)
-
--- Rent 128
-(1, 20, 128, 10), -- Family Sleeping Bag (1 * 20)
-(2, 50, 128, 18), -- Portable Mini Stove (2 * 25)
-
--- Rent 129
-(1, 40, 129, 1), -- Foldable Aluminum Table (1 * 40)
-(1, 3, 129, 20), -- Cooking Utensil (1 * 2)
-
--- Rent 130
-(2, 80, 130, 4), -- Multifunction Folding Table (2 * 20)
-(1, 180, 130, 24), -- 3-5 Person Camping Tent (1 * 180)
-
--- Rent 131
-(1, 15, 131, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 4, 131, 19), -- Camp Cook Set (2 * 2)
-
--- Rent 132
-(1, 20, 132, 6), -- Camping Air Basic 1 Person (1 * 20)
-(2, 10, 132, 12), -- Low Folding Camping Chair (2 * 10)
-
--- Rent 133
-(2, 40, 133, 3), -- Wooden Eggroll Table (2 * 40)
-(1, 2, 133, 20), -- Cooking Utensil (1 * 2)
-
--- Rent 134
-(1, 55, 134, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 6, 134, 15), -- Torch Light (2 * 3)
-
--- Rent 135
-(3, 60, 135, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 10, 135, 10), -- Family Sleeping Bag (1 * 10)
-
--- Rent 136
-(1, 20, 136, 8), -- Single Sleeping Bag (1 * 20)
-(2, 10, 136, 12), -- Low Folding Camping Chair (2 * 10)
-
--- Rent 137
-(1, 40, 137, 3), -- Wooden Eggroll Table (1 * 40)
-(2, 30, 137, 18), -- Portable Mini Stove (2 * 15)
-
--- Rent 138
-(1, 10, 138, 10), -- Family Sleeping Bag (1 * 20)
-(3, 6, 138, 17), -- Multipurpose Rope(10m) (3 * 2)
-
--- Rent 139
-(1, 55, 139, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 20, 139, 19), -- Camp Cook Set (2 * 10)
-
--- Rent 140
-(2, 40, 140, 8), -- Single Sleeping Bag (2 * 20)
-(1, 200, 140, 25), -- 5-8 Person Camping Tent (1 * 200)
-
--- Rent 141
-(1, 20, 141, 6), -- Camping Air Basic 1 Person (1 * 20)
-(1, 5, 141, 14), -- Camping Lamp Rechargeable (1 * 5)
-
--- Rent 142
-(2, 30, 142, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 20, 142, 10), -- Family Sleeping Bag (1 * 20)
-
--- Rent 143
-(1, 10, 143, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 15, 143, 22), -- Titanium Pot and Cup (1 * 15)
-
--- Rent 144
-(1, 20, 144, 10), -- Family Sleeping Bag (1 * 20)
-(2, 50, 144, 18), -- Portable Mini Stove (2 * 25)
-
--- Rent 145
-(1, 40, 145, 1), -- Foldable Aluminum Table (1 * 40)
-(1, 3, 145, 20), -- Cooking Utensil (1 * 2)
-
--- Rent 146
-(2, 80, 146, 4), -- Multifunction Folding Table (2 * 20)
-(1, 180, 146, 24), -- 3-5 Person Camping Tent (1 * 180)
-
--- Rent 147
-(1, 15, 147, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 4, 147, 19), -- Camp Cook Set (2 * 2)
-
--- Rent 148
-(1, 20, 148, 6), -- Camping Air Basic 1 Person (1 * 20)
-(2, 10, 148, 12), -- Low Folding Camping Chair (2 * 10)
-
--- Rent 149
-(2, 40, 149, 3), -- Wooden Eggroll Table (2 * 40)
-(1, 2, 149, 20), -- Cooking Utensil (1 * 2)
-
--- Rent 150
-(1, 55, 150, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 6, 150, 15); -- Torch Light (2 * 3)
 
 -- payment
 -- Assuming Rent table has been populated and contains 50 rows as per the previous steps.
