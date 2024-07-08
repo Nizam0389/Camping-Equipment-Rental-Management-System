@@ -1,0 +1,484 @@
+-- customer
+INSERT INTO `customer` (`name`, `username`, `password`, `email`, `phone_no`, `address`) VALUES
+('Ahmad Najmi', 'ahmadnajmi', '200820e3227815ed1756a6b531e7e0d2', 'ahmad.najmi@gmail.com', '0123456789', 'No 1, Jalan ABC, Kuala Lumpur'),
+('Lim Wei Sheng', 'limweisheng', '200820e3227815ed1756a6b531e7e0d2', 'lim.weisheng@gmail.com', '0123456790', 'No 2, Jalan DEF, Petaling Jaya'),
+('John Smith', 'johnsmith', '200820e3227815ed1756a6b531e7e0d2', 'john.smith@gmail.com', '0123456791', '123 Main St, New York'),
+('Nur Aisyah', 'nuraisyah', '200820e3227815ed1756a6b531e7e0d2', 'nur.aisyah@gmail.com', '0123456792', 'No 3, Jalan GHI, Shah Alam'),
+('Tan Mei Ling', 'tanmeiling', '200820e3227815ed1756a6b531e7e0d2', 'tan.meiling@gmail.com', '0123456793', 'No 4, Jalan JKL, Georgetown'),
+('Emily Johnson', 'emilyjohnson', '200820e3227815ed1756a6b531e7e0d2', 'emily.johnson@gmail.com', '0123456794', '456 Elm St, Los Angeles'),
+('Syafiq Hakimi', 'syafiqhakimi', '200820e3227815ed1756a6b531e7e0d2', 'syafiq.hakimi@gmail.com', '0123456795', 'No 5, Jalan MNO, Ipoh'),
+('Lee Jia Jun', 'leejiajun', '200820e3227815ed1756a6b531e7e0d2', 'lee.jiajun@gmail.com', '0123456796', 'No 6, Jalan PQR, Johor Bahru'),
+('Michael Brown', 'michaelbrown', '200820e3227815ed1756a6b531e7e0d2', 'michael.brown@gmail.com', '0123456797', '789 Oak St, Chicago'),
+('Aminah Abdullah', 'aminahabdllah', '200820e3227815ed1756a6b531e7e0d2', 'aminah.abdullah@gmail.com', '0123456798', 'No 7, Jalan STU, Kota Bharu'),
+('Wong Siew Ling', 'wongsiewling', '200820e3227815ed1756a6b531e7e0d2', 'wong.siewling@gmail.com', '0123456799', 'No 8, Jalan VWX, Melaka'),
+('Jessica Davis', 'jessicadavis', '200820e3227815ed1756a6b531e7e0d2', 'jessica.davis@gmail.com', '0123456700', '101 Maple St, Houston'),
+('Hafizuddin', 'hafizuddin', '200820e3227815ed1756a6b531e7e0d2', 'hafizuddin@gmail.com', '0123456701', 'No 9, Jalan YZ, Seremban'),
+('Chan Kok Wei', 'chankokwei', '200820e3227815ed1756a6b531e7e0d2', 'chan.kokwei@gmail.com', '0123456702', 'No 10, Jalan ABC, Alor Setar'),
+('David Wilson', 'davidwilson', '200820e3227815ed1756a6b531e7e0d2', 'david.wilson@gmail.com', '0123456703', '102 Pine St, Phoenix'),
+('Zainab Osman', 'zainabosman', '200820e3227815ed1756a6b531e7e0d2', 'zainab.osman@gmail.com', '0123456704', 'No 11, Jalan DEF, Kuala Terengganu'),
+('Lau Chee Meng', 'laucheemeng', '200820e3227815ed1756a6b531e7e0d2', 'lau.cheemeng@gmail.com', '0123456705', 'No 12, Jalan GHI, Kota Kinabalu'),
+('Susan Miller', 'susanmiller', '200820e3227815ed1756a6b531e7e0d2', 'susan.miller@gmail.com', '0123456706', '103 Cedar St, Philadelphia'),
+('Faisal Rahman', 'faisalrahman', '200820e3227815ed1756a6b531e7e0d2', 'faisal.rahman@gmail.com', '0123456707', 'No 13, Jalan JKL, Kuching'),
+('Goh Siew Yin', 'gohsiewyin', '200820e3227815ed1756a6b531e7e0d2', 'goh.siewyin@gmail.com', '0123456708', 'No 14, Jalan MNO, Miri'),
+('Brian Taylor', 'briantaylor', '200820e3227815ed1756a6b531e7e0d2', 'brian.taylor@gmail.com', '0123456709', '104 Birch St, San Antonio'),
+('Farah Hidayah', 'farahhidayah', '200820e3227815ed1756a6b531e7e0d2', 'farah.hidayah@gmail.com', '0123456710', 'No 15, Jalan PQR, Bintulu'),
+('Lim Chee Wah', 'limcheewah', '200820e3227815ed1756a6b531e7e0d2', 'lim.cheewah@gmail.com', '0123456711', 'No 16, Jalan STU, Sandakan'),
+('Anna White', 'annawhite', '200820e3227815ed1756a6b531e7e0d2', 'anna.white@gmail.com', '0123456712', '105 Spruce St, Dallas'),
+('Haziq Zulkifli', 'haziqzulkifli', '200820e3227815ed1756a6b531e7e0d2', 'haziq.zulkifli@gmail.com', '0123456713', 'No 17, Jalan VWX, Tawau'),
+('Chong Wei Jie', 'chongweijie', '200820e3227815ed1756a6b531e7e0d2', 'chong.weijie@gmail.com', '0123456714', 'No 18, Jalan YZ, Lahad Datu'),
+('Chris Lee', 'chrislee', '200820e3227815ed1756a6b531e7e0d2', 'chris.lee@gmail.com', '0123456715', '106 Fir St, Austin'),
+('Nurul Iman', 'nuruliman', '200820e3227815ed1756a6b531e7e0d2', 'nurul.iman@gmail.com', '0123456716', 'No 19, Jalan ABC, Sepang'),
+('Teoh Ee Ling', 'teoheeling', '200820e3227815ed1756a6b531e7e0d2', 'teoh.eeling@gmail.com', '0123456717', 'No 20, Jalan DEF, Klang'),
+('Joshua Harris', 'joshuaharris', '200820e3227815ed1756a6b531e7e0d2', 'joshua.harris@gmail.com', '0123456718', '107 Redwood St, San Diego');
+
+
+-- staff
+INSERT INTO `staff` (`name`, `username`, `password`, `email`, `phone_no`, `address`) VALUES
+('Admin', 'S001', '200820e3227815ed1756a6b531e7e0d2', 'admin@gmail.com', '0111111111', 'Admin'),
+('Ali Bin Hassan', 'staff1', '200820e3227815ed1756a6b531e7e0d2', 'ali.hassan@gmail.com', '0123456781', 'No 1, Jalan XYZ, Kuala Lumpur'),
+('Chong Li Wei', 'staff2', '200820e3227815ed1756a6b531e7e0d2', 'chong.liwei@gmail.com', '0123456782', 'No 2, Jalan UVW, Petaling Jaya'),
+('Sarah Johnson', 'staff3', '200820e3227815ed1756a6b531e7e0d2', 'sarah.johnson@gmail.com', '0123456783', '123 Maple St, New York'),
+('Fatimah Binti Ali', 'staff4', '200820e3227815ed1756a6b531e7e0d2', 'fatimah.ali@gmail.com', '0123456784', 'No 3, Jalan RST, Shah Alam'),
+('Lim Mei Yeng', 'staff5', '200820e3227815ed1756a6b531e7e0d2', 'lim.meiyeng@gmail.com', '0123456785', '456 Elm St, Los Angeles');
+
+-- item
+INSERT INTO `Item` (`item_name`, `item_type`, `item_fee`, `item_quantity`, `item_image_url`) VALUES
+('Foldable Aluminum Table', 'table', 40, 20, 'upload/Foldable_aluminium_table.png'),
+('Foldable Aluminium Alloy Table', 'table', 40, 20, 'upload/Foldable_aluminium_alloy_table.png'),
+('Wooden Eggroll Table', 'table', 40, 20, 'upload/Wooden_eggroll_table.png'),
+('Multifunction Folding Table', 'table', 20, 20, 'upload/Multifunction_folding_table.png'),
+('Small Foldable Aluminium Table', 'table', 20, 20, 'upload/small_foldable_aluminium_table.png'),
+('Camping Air Basic 1 Person', 'bed', 10, 10, 'upload/camping_air_basic_1_person.png'),
+('Camping Air Basic 2 Person', 'bed', 20, 30, 'upload/camping_air_basic_2_person.png'),
+('Single Sleeping Bag', 'bed', 10, 30, 'upload/single_sleeping_bed.png'),
+('Laybed', 'bed', 25, 30, 'upload/laybed.png'),
+('Family Sleeping Bag', 'bed', 20, 10, 'upload/family_sleeping_bed.png'),
+('Groundsheet', 'accessory', 10, 40, 'upload/ground_sheet.png'),
+('Low Folding Camping Chair', 'accessory', 10, 40, 'upload/low_folding_camping_chair.png'),
+('Large Folding Camping Chair', 'accessory', 15, 30, 'upload/large_folding_camping_chair.png'),
+('Camping Lamp Rechargeable', 'accessory', 5, 40, 'upload/camping_lamp.png'),
+('Torch Light', 'accessory', 1, 30, 'upload/Torch.png'),
+('Multipurpose Rope(10m)', 'accessory', 2, 35, 'upload/rope.png'),
+('Portable Mini Stove', 'cooking set', 2, 50, 'upload/portable_mini_stove.png'),
+('Camp Cook Set', 'cooking set', 10, 25, 'upload/cooking_set.png'),
+('Titanium Pot and Cup', 'cooking set', 3, 15, 'upload/Titanium_Pot.png'),
+('Ceramic 2-Pot', 'cooking set', 5, 15, 'upload/ceramic_2_pot.png'),
+('Cooking Utensil', 'cooking set', 2, 14, 'upload/camping_utensil.png'),
+('Compact 2 Person Pop-up Tent', 'tent', 55, 10, 'upload/2_person_pop_tent.png'),
+('Single Person Tent', 'tent', 25, 10, 'upload/single_person_tent.png'),
+('3-5 Person Camping Tent', 'tent', 180, 10, 'upload/5_person_tent.png'),
+('5-8 Person Camping Tent', 'tent', 200, 10, 'upload/5_8_person_tent.png');
+
+
+-- rent table
+INSERT INTO `Rent` (`rent_date`, `return_date`, `rent_status`, `cust_id`) VALUES
+('2023-01-10', '2023-01-12', false, 2),
+('2023-02-15', '2023-02-18', false, 123),
+('2023-03-05', '2023-03-09', true, 212),
+('2023-04-01', '2023-04-03', false, 213),
+('2023-05-20', '2023-05-27', false, 214),
+('2023-06-10', '2023-06-14', false, 215),
+('2023-07-15', '2023-07-23', true, 216),
+('2023-08-05', '2023-08-13', false, 217),
+('2023-09-01', '2023-09-04', false, 218),
+('2023-10-20', '2023-10-22', true, 219),
+('2023-11-10', '2023-11-19', false, 220),
+('2023-12-15', '2023-12-18', false, 221),
+('2024-01-10', '2024-01-12', false, 222),
+('2024-02-15', '2024-02-20', false, 223),
+('2024-03-05', '2024-03-10', true, 224),
+('2024-04-01', '2024-04-07', false, 225),
+('2024-05-20', '2024-05-25', false, 226),
+('2024-06-10', '2024-06-19', false, 227),
+('2024-07-15', '2024-07-17', true, 228),
+('2024-08-05', '2024-08-08', false, 229),
+('2024-09-01', '2024-09-10', false, 2),
+('2024-10-20', '2024-10-25', true, 123),
+('2024-11-10', '2024-11-18', false, 212),
+('2024-12-15', '2024-12-23', false, 213),
+('2025-01-10', '2025-01-15', false, 214),
+('2025-02-15', '2025-02-21', false, 215),
+('2025-03-05', '2025-03-09', true, 216),
+('2025-04-01', '2025-04-06', false, 217),
+('2025-05-20', '2025-05-28', false, 218),
+('2025-06-10', '2025-06-13', false, 219),
+('2025-07-15', '2025-07-22', true, 220),
+('2025-08-05', '2025-08-12', false, 221),
+('2025-09-01', '2025-09-04', false, 222),
+('2025-10-20', '2025-10-22', true, 223),
+('2025-11-10', '2025-11-16', false, 224),
+('2025-12-15', '2025-12-19', false, 225),
+('2026-01-10', '2026-01-14', false, 226),
+('2026-02-15', '2026-02-24', false, 227),
+('2026-03-05', '2026-03-07', true, 228),
+('2026-04-01', '2026-04-06', false, 229),
+('2026-05-20', '2026-05-25', false, 2),
+('2026-06-10', '2026-06-17', false, 123),
+('2026-07-15', '2026-07-19', true, 212),
+('2026-08-05', '2026-08-09', false, 213),
+('2026-09-01', '2026-09-03', false, 214),
+('2026-10-20', '2026-10-27', true, 215),
+('2026-11-10', '2026-11-14', false, 216),
+('2026-12-15', '2026-12-20', false, 217);
+
+-- rentaldetail
+-- Insert data into RentalDetail table
+INSERT INTO `RentalDetail` (`RD_quantity`, `rd_fee`, `rent_id`, `item_id`) VALUES
+-- Rent 55
+(2, 80, 55, 1), -- Foldable Aluminum Table (2 * 40)
+(1, 10, 55, 7), -- Camping Air Basic 1 Person (1 * 10)
+
+-- Rent 56
+(1, 40, 56, 4), -- Wooden Eggroll Table (1 * 40)
+(1, 15, 56, 14), -- Large Folding Camping Chair (1 * 15)
+(3, 6, 56, 17), -- Multipurpose Rope(10m) (3 * 2)
+
+-- Rent 57
+(1, 40, 57, 1), -- Foldable Aluminum Table (1 * 40)
+(2, 2, 57, 16), -- Torch Light (2 * 1)
+(1, 2, 57, 18), -- Portable Mini Stove (1 * 2)
+
+-- Rent 58
+(3, 60, 58, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 180, 58, 25), -- 3-5 Person Camping Tent (1 * 180)
+
+-- Rent 59
+(2, 50, 59, 10), -- Laybed (2 * 25)
+(1, 20, 59, 11), -- Family Sleeping Bag (1 * 20)
+(3, 15, 59, 15), -- Camping Lamp Rechargeable (3 * 5)
+
+-- Rent 60
+(1, 10, 60, 13), -- Low Folding Camping Chair (1 * 10)
+(2, 20, 60, 8), -- Camping Air Basic 2 Person (2 * 10)
+
+-- Rent 61
+(3, 30, 61, 12), -- Groundsheet (3 * 10)
+(2, 6, 61, 22), -- Cooking Utensil (2 * 3)
+
+-- Rent 62
+(1, 20, 62, 5), -- Multifunction Folding Table (1 * 20)
+(3, 15, 62, 20), -- Titanium Pot and Cup (3 * 5)
+(2, 4, 62, 19), -- Camp Cook Set (2 * 2)
+
+-- Rent 63
+(1, 40, 63, 4), -- Wooden Eggroll Table (1 * 40)
+(2, 50, 63, 18), -- Portable Mini Stove (2 * 25)
+(2, 2, 63, 16), -- Torch Light (2 * 1)
+
+-- Rent 64
+(1, 200, 64, 26), -- 5-8 Person Camping Tent (1 * 200)
+(1, 2, 64, 22), -- Cooking Utensil (1 * 2)
+
+-- Rent 65
+(2, 30, 65, 14), -- Large Folding Camping Chair (2 * 15)
+(1, 10, 65, 17), -- Multipurpose Rope(10m) (1 * 10)
+
+-- Rent 66
+(2, 20, 66, 13), -- Low Folding Camping Chair (2 * 10)
+(1, 20, 66, 11), -- Family Sleeping Bag (1 * 20)
+
+-- Rent 67
+(1, 55, 67, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 1, 67, 16), -- Torch Light (1 * 1)
+
+-- Rent 68
+(2, 40, 68, 9), -- Single Sleeping Bag (2 * 20)
+(1, 40, 68, 4), -- Wooden Eggroll Table (1 * 40)
+(1, 180, 68, 25), -- 3-5 Person Camping Tent (1 * 180)
+
+-- Rent 69
+(1, 5, 69, 15), -- Camping Lamp Rechargeable (1 * 5)
+(1, 15, 69, 20), -- Titanium Pot and Cup (1 * 15)
+(1, 2, 69, 19), -- Camp Cook Set (1 * 2)
+
+-- Rent 70
+(1, 200, 70, 26), -- 5-8 Person Camping Tent (1 * 200)
+(2, 30, 70, 14), -- Large Folding Camping Chair (2 * 15)
+
+-- Rent 71
+(1, 20, 71, 7), -- Camping Air Basic 1 Person (1 * 20)
+(1, 40, 71, 1), -- Foldable Aluminum Table (1 * 40)
+
+-- Rent 72
+(2, 20, 72, 13), -- Low Folding Camping Chair (2 * 10)
+(1, 25, 72, 10), -- Laybed (1 * 25)
+
+-- Rent 73
+(1, 55, 73, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 2, 73, 22), -- Cooking Utensil (1 * 2)
+
+-- Rent 74
+(3, 75, 74, 10), -- Laybed (3 * 25)
+(2, 30, 74, 8), -- Camping Air Basic 2 Person (2 * 15)
+
+-- Rent 75
+(1, 10, 75, 13), -- Low Folding Camping Chair (1 * 10)
+(1, 40, 75, 5), -- Multifunction Folding Table (1 * 40)
+
+-- Rent 76
+(2, 20, 76, 11), -- Family Sleeping Bag (2 * 20)
+(1, 40, 76, 4), -- Wooden Eggroll Table (1 * 40)
+
+-- Rent 77
+(1, 55, 77, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 10, 77, 15), -- Camping Lamp Rechargeable (2 * 5)
+
+-- Rent 78
+(3, 30, 78, 13), -- Low Folding Camping Chair (3 * 10)
+(1, 20, 78, 7), -- Camping Air Basic 1 Person (1 * 20)
+
+-- Rent 79
+(1, 15, 79, 14), -- Large Folding Camping Chair (1 * 15)
+(1, 5, 79, 15), -- Camping Lamp Rechargeable (1 * 5)
+
+-- Rent 80
+(2, 40, 80, 9), -- Single Sleeping Bag (2 * 20)
+(1, 55, 80, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+
+-- Rent 81
+(1, 15, 81, 14), -- Large Folding Camping Chair (1 * 15)
+(2, 20, 81, 13), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 82
+(3, 60, 82, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 20, 82, 7), -- Camping Air Basic 1 Person (1 * 20)
+
+-- Rent 83
+(2, 40, 83, 5), -- Multifunction Folding Table (2 * 20)
+(1, 15, 83, 20), -- Titanium Pot and Cup (1 * 15)
+
+-- Rent 84
+(1, 5, 84, 15), -- Camping Lamp Rechargeable (1 * 5)
+(2, 4, 84, 22), -- Cooking Utensil (2 * 2)
+
+-- Rent 85
+(1, 20, 85, 11), -- Family Sleeping Bag (1 * 20)
+(1, 10, 85, 13), -- Low Folding Camping Chair (1 * 10)
+
+-- Rent 86
+(2, 80, 86, 1), -- Foldable Aluminum Table (2 * 40)
+(1, 5, 86, 15), -- Camping Lamp Rechargeable (1 * 5)
+
+-- Rent 87
+(1, 55, 87, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 2, 87, 22), -- Cooking Utensil (1 * 2)
+
+-- Rent 88
+(2, 40, 88, 8), -- Camping Air Basic 2 Person (2 * 20)
+(1, 25, 88, 10), -- Laybed (1 * 25)
+
+-- Rent 89 (continued)
+(1, 40, 89, 4), -- Wooden Eggroll Table (1 * 40)
+(1, 15, 89, 20), -- Titanium Pot and Cup (1 * 15)
+(1, 10, 89, 11), -- Family Sleeping Bag (1 * 10)
+(2, 4, 89, 17), -- Multipurpose Rope(10m) (2 * 2)
+
+-- Rent 90
+(1, 55, 90, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 20, 90, 19), -- Camp Cook Set (2 * 10)
+
+-- Rent 91
+(2, 20, 91, 9), -- Single Sleeping Bag (2 * 10)
+(1, 200, 91, 26), -- 5-8 Person Camping Tent (1 * 200)
+
+-- Rent 92
+(1, 20, 92, 7), -- Camping Air Basic 1 Person (1 * 10)
+(1, 5, 92, 15), -- Camping Lamp Rechargeable (1 * 5)
+
+-- Rent 93
+(2, 30, 93, 14), -- Large Folding Camping Chair (2 * 15)
+(1, 20, 93, 11), -- Family Sleeping Bag (1 * 20)
+
+-- Rent 94
+(1, 10, 94, 13), -- Low Folding Camping Chair (1 * 10)
+(1, 15, 94, 20), -- Titanium Pot and Cup (1 * 15)
+
+-- Rent 95
+(1, 20, 95, 11), -- Family Sleeping Bag (1 * 20)
+(2, 4, 95, 18), -- Portable Mini Stove (2 * 2)
+
+-- Rent 96
+(1, 40, 96, 1), -- Foldable Aluminum Table (1 * 40)
+(1, 4, 96, 22), -- Cooking Utensil (1 * 2)
+
+-- Rent 97
+(2, 40, 97, 5), -- Multifunction Folding Table (2 * 20)
+(1, 180, 97, 25), -- 3-5 Person Camping Tent (1 * 180)
+
+-- Rent 98
+(1, 15, 98, 14), -- Large Folding Camping Chair (1 * 15)
+(2, 4, 98, 19), -- Camp Cook Set (2 * 2)
+
+-- Rent 99
+(1, 20, 99, 7), -- Camping Air Basic 1 Person (1 * 20)
+(2, 20, 99, 13), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 100
+(2, 80, 100, 4), -- Wooden Eggroll Table (2 * 40)
+(1, 4, 100, 22), -- Cooking Utensil (1 * 2)
+
+-- Rent 101
+(1, 55, 101, 23), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 2, 101, 16), -- Torch Light (2 * 1)
+
+-- Rent 102
+(3, 60, 102, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 10, 102, 11); -- Family Sleeping Bag (1 * 10)
+
+
+
+
+
+-- payment
+-- Assuming Rent table has been populated and contains 50 rows as per the previous steps.
+
+-- Calculate total_fee for each rent_id
+-- Replace this with actual calculations if you're using a script
+-- Below is a simplified example based on assumed rd_fee values for illustration purposes
+
+-- Insert data into Payment table
+INSERT INTO `Payment` (`total_fee`, `payment_date`, `rent_id`) VALUES
+-- Rent 55
+(90 * (DATEDIFF('2023-01-12', '2023-01-10')), '2023-01-10', 55),
+
+-- Rent 56
+(61 * (DATEDIFF('2023-02-18', '2023-02-15')), '2023-02-15', 56),
+
+-- Rent 57
+(44 * (DATEDIFF('2023-03-09', '2023-03-05')), '2023-03-05', 57),
+
+-- Rent 58
+(240 * (DATEDIFF('2023-04-03', '2023-04-01')), '2023-04-01', 58),
+
+-- Rent 59
+(85 * (DATEDIFF('2023-05-27', '2023-05-20')), '2023-05-20', 59),
+
+-- Rent 60
+(30 * (DATEDIFF('2023-06-14', '2023-06-10')), '2023-06-10', 60),
+
+-- Rent 61
+(36 * (DATEDIFF('2023-07-23', '2023-07-15')), '2023-07-15', 61),
+
+-- Rent 62
+(39 * (DATEDIFF('2023-08-13', '2023-08-05')), '2023-08-05', 62),
+
+-- Rent 63
+(96 * (DATEDIFF('2023-09-04', '2023-09-01')), '2023-09-01', 63),
+
+-- Rent 64
+(202 * (DATEDIFF('2023-10-22', '2023-10-20')), '2023-10-20', 64),
+
+-- Rent 65
+(40 * (DATEDIFF('2023-11-19', '2023-11-10')), '2023-11-10', 65),
+
+-- Rent 66
+(40 * (DATEDIFF('2023-12-18', '2023-12-15')), '2023-12-15', 66),
+
+-- Rent 67
+(56 * (DATEDIFF('2024-01-12', '2024-01-10')), '2024-01-10', 67),
+
+-- Rent 68
+(105 * (DATEDIFF('2024-02-20', '2024-02-15')), '2024-02-15', 68),
+
+-- Rent 69
+(22 * (DATEDIFF('2024-03-10', '2024-03-05')), '2024-03-05', 69),
+
+-- Rent 70
+(230 * (DATEDIFF('2024-04-07', '2024-04-01')), '2024-04-01', 70),
+
+-- Rent 71
+(60 * (DATEDIFF('2024-05-25', '2024-05-20')), '2024-05-20', 71),
+
+-- Rent 72
+(45 * (DATEDIFF('2024-06-19', '2024-06-10')), '2024-06-10', 72),
+
+-- Rent 73
+(57 * (DATEDIFF('2024-07-17', '2024-07-15')), '2024-07-15', 73),
+
+-- Rent 74
+(105 * (DATEDIFF('2024-08-08', '2024-08-05')), '2024-08-05', 74),
+
+-- Rent 75
+(50 * (DATEDIFF('2024-09-10', '2024-09-01')), '2024-09-01', 75),
+
+-- Rent 76
+(60 * (DATEDIFF('2024-10-25', '2024-10-20')), '2024-10-20', 76),
+
+-- Rent 77
+(60 * (DATEDIFF('2024-11-18', '2024-11-10')), '2024-11-10', 77),
+
+-- Rent 78
+(50 * (DATEDIFF('2024-12-23', '2024-12-15')), '2024-12-15', 78),
+
+-- Rent 79
+(20 * (DATEDIFF('2025-01-15', '2025-01-10')), '2025-01-10', 79),
+
+-- Rent 80
+(95 * (DATEDIFF('2025-02-21', '2025-02-15')), '2025-02-15', 80),
+
+-- Rent 81
+(25 * (DATEDIFF('2025-03-09', '2025-03-05')), '2025-03-05', 81),
+
+-- Rent 82
+(60 * (DATEDIFF('2025-04-06', '2025-04-01')), '2025-04-01', 82),
+
+-- Rent 83
+(55 * (DATEDIFF('2025-05-28', '2025-05-20')), '2025-05-20', 83),
+
+-- Rent 84
+(9 * (DATEDIFF('2025-06-13', '2025-06-10')), '2025-06-10', 84),
+
+-- Rent 85
+(30 * (DATEDIFF('2025-07-22', '2025-07-15')), '2025-07-15', 85),
+
+-- Rent 86
+(85 * (DATEDIFF('2025-08-12', '2025-08-05')), '2025-08-05', 86),
+
+-- Rent 87
+(57 * (DATEDIFF('2025-09-04', '2025-09-01')), '2025-09-01', 87),
+
+-- Rent 88
+(65 * (DATEDIFF('2025-10-22', '2025-10-20')), '2025-10-20', 88),
+
+-- Rent 89
+(76 * (DATEDIFF('2025-11-16', '2025-11-10')), '2025-11-10', 89),
+
+-- Rent 90
+(75 * (DATEDIFF('2025-12-19', '2025-12-15')), '2025-12-15', 90),
+
+-- Rent 91
+(230 * (DATEDIFF('2026-01-14', '2026-01-10')), '2026-01-10', 91),
+
+-- Rent 92
+(25 * (DATEDIFF('2026-02-24', '2026-02-15')), '2026-02-15', 92),
+
+-- Rent 93
+(70 * (DATEDIFF('2026-03-07', '2026-03-05')), '2026-03-05', 93),
+
+-- Rent 94
+(25 * (DATEDIFF('2026-04-06', '2026-04-01')), '2026-04-01', 94),
+
+-- Rent 95
+(70 * (DATEDIFF('2026-05-25', '2026-05-20')), '2026-05-20', 95),
+
+-- Rent 96
+(43 * (DATEDIFF('2026-06-17', '2026-06-10')), '2026-06-10', 96),
+
+-- Rent 97
+(260 * (DATEDIFF('2026-07-19', '2026-07-15')), '2026-07-15', 97),
+
+-- Rent 98
+(19 * (DATEDIFF('2026-08-09', '2026-08-05')), '2026-08-05', 98),
+
+-- Rent 99
+(70 * (DATEDIFF('2026-09-03', '2026-09-01')), '2026-09-01', 99),
+
+-- Rent 100
+(82 * (DATEDIFF('2026-10-27', '2026-10-20')), '2026-10-20', 100),
+
+-- Rent 101
+(66 * (DATEDIFF('2026-11-14', '2026-11-10')), '2026-11-10', 101),
+
+-- Rent 102
+(90 * (DATEDIFF('2026-12-20', '2026-12-15')), '2026-12-15', 102);
+
