@@ -49,30 +49,33 @@ const addDataToHTML = (filteredProducts) => {
 listProductHTML.addEventListener('click', (event) => {
     let positionClick = event.target;
     if (positionClick.classList.contains('addCart')) {
-        let id_product = positionClick.parentElement.dataset.id;
+        let productElement = positionClick.parentElement;
+        let id_product = productElement.dataset.id;
+        let item_name = productElement.querySelector('h2').textContent;
+        let item_fee = parseFloat(productElement.querySelector('.price').textContent.replace('RM', ''));
+        let item_image_url = productElement.querySelector('img').src;
         console.log(`Adding product with ID: ${id_product}`);
-        addToCart(id_product);
+        addToCart(id_product, item_name, item_fee, item_image_url);
     }
 });
 
 // Add product to cart
-const addToCart = (product_id) => {
+const addToCart = (product_id, item_name, item_fee, item_image_url) => {
     let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
     console.log(`Product position in cart: ${positionThisProductInCart}`);
-    if (cart.length <= 0) {
-        cart = [{
-            product_id: product_id,
-            quantity: 1
-        }];
-    } else if (positionThisProductInCart < 0) {
+    if (positionThisProductInCart < 0) {
         cart.push({
             product_id: product_id,
+            item_name: item_name,
+            item_fee: item_fee,
+            item_image_url: item_image_url,
             quantity: 1
         });
     } else {
-        cart[positionThisProductInCart].quantity = cart[positionThisProductInCart].quantity + 1;
+        cart[positionThisProductInCart].quantity += 1;
     }
     console.log(`Updated cart:`, cart);
+    localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
     addCartToHTML();
     saveCartToSession();
     showModal(); // Display modal when item is added to cart
@@ -102,6 +105,7 @@ const loadCartFromSession = () => {
     .then(response => response.json())
     .then(data => {
         cart = data;
+        localStorage.setItem('cart', JSON.stringify(cart)); // Save cart to localStorage
         addCartToHTML();
     });
 };
@@ -127,12 +131,12 @@ const addCartToHTML = () => {
             listCartHTML.appendChild(newItem);
             newItem.innerHTML = `
                 <div class="image">
-                    <img src="${info.item_image_url}">
+                    <img src="${item.item_image_url}">
                 </div>
                 <div class="name">
-                    ${info.item_name}
+                    ${item.item_name}
                 </div>
-                <div class="totalPrice">RM${info.item_fee * item.quantity}</div>
+                <div class="totalPrice">RM${(item.item_fee * item.quantity).toFixed(2)}</div>
                 <div class="quantity">
                     <span class="minus">-</span>
                     <span>${item.quantity}</span>
@@ -158,7 +162,6 @@ listCartHTML.addEventListener('click', (event) => {
 const changeQuantityCart = (product_id, type) => {
     let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
     if (positionItemInCart >= 0) {
-        let info = cart[positionItemInCart];
         if (type === 'plus') {
             cart[positionItemInCart].quantity += 1;
         } else {
@@ -168,31 +171,32 @@ const changeQuantityCart = (product_id, type) => {
             }
         }
     }
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update cart in localStorage
     console.log(`Updated cart after quantity change:`, cart);
     addCartToHTML();
     saveCartToSession();
 };
 
-// Add this function to your app.js file
-
+// Populate cart items on the confirmation/payment page
 const populateCartItems = () => {
     const cartItemsContainer = document.getElementById('cart-items');
     if (!cartItemsContainer) return; // Exit if we're not on the payment page
 
     cartItemsContainer.innerHTML = ''; // Clear existing items
     let totalPrice = 0;
+    const numDays = calculateTotalDays(); // Calculate the total number of days
 
     cart.forEach(item => {
         let positionProduct = products.findIndex((value) => value.item_id == item.product_id);
         if (positionProduct !== -1) {
             let product = products[positionProduct];
-            let itemTotal = product.item_fee * item.quantity;
+            let itemTotal = item.item_fee * item.quantity * numDays;
             totalPrice += itemTotal;
 
             let newRow = document.createElement('tr');
             newRow.innerHTML = `
-                <td>${product.item_name}</td>
-                <td>RM ${product.item_fee.toFixed(2)}</td>
+                <td>${item.item_name}</td>
+                <td>RM ${item.item_fee.toFixed(2)}</td>
                 <td>${item.quantity}</td>
                 <td>RM ${itemTotal.toFixed(2)}</td>
             `;
@@ -211,6 +215,20 @@ const populateCartItems = () => {
     if (dailyRateElement) {
         dailyRateElement.textContent = totalPrice.toFixed(2);
     }
+};
+
+// Calculate total days based on start and end date
+const calculateTotalDays = () => {
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    if (!startDateInput || !endDateInput) return 1; // Default to 1 day if inputs are not found
+
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
+    const timeDiff = endDate - startDate;
+    const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+    document.getElementById('num-days').textContent = daysDiff;
+    return daysDiff;
 };
 
 // Initialize app

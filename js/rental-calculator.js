@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const endDateInput = document.getElementById('end-date');
     const totalDaysSpan = document.getElementById('num-days');
 
+    // Check if the elements exist
+    if (!startDateInput || !endDateInput || !totalDaysSpan) {
+        console.error('Required elements are not found in the DOM.');
+        return;
+    }
+
     // Set default dates
     const today = new Date().toISOString().split('T')[0];
     const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
@@ -38,12 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
             startDateInput.value = today; // Reset the start date to today
         }
         calculateTotalDays();
-        updateCartItems(); // Update cart items on date change
     });
 
     endDateInput.addEventListener('change', () => {
         calculateTotalDays();
-        updateCartItems(); // Update cart items on date change
     });
 
     calculateTotalDays(); // Initial calculation
