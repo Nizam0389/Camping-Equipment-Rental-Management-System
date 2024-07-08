@@ -31,7 +31,7 @@ try {
         $rd_fee = $quantity * $item_fee * $days;
 
         // Log details for debugging
-        error_log("Inserting RentalDetail: Quantity - $quantity, Fee - $rd_fee, Rent ID - $rent_id, Item ID - $item_id");
+        error_log("Inserting rentaldetail: Quantity - $quantity, Fee - $rd_fee, rent ID - $rent_id, Item ID - $item_id");
 
         $stmt->bind_param("idii", $quantity, $rd_fee, $rent_id, $item_id);
 

@@ -55,17 +55,17 @@ $username = $_SESSION["username"];
                 <input type="text" id="search-bar" placeholder="Search by customer name" onkeyup="searchAndFilter()">
                 <select id="rent-status-filter" onchange="searchAndFilter()">
                     <option value="">All Status</option>
-                    <option value="1">Renting</option>
+                    <option value="1">renting</option>
                     <option value="0">Returned</option>
                 </select>
             </div>
             <table class="customer-table">
                 <thead>
                     <tr>
-                        <th>Rent ID</th>
+                        <th>rent ID</th>
                         <th>Customer ID</th>
                         <th>Customer Name</th>
-                        <th>Rent Date</th>
+                        <th>rent Date</th>
                         <th>Return Date</th>
                         <th>Total Fee</th>
                         <th>Actions</th>
@@ -76,7 +76,7 @@ $username = $_SESSION["username"];
                     include 'dbConnect.php';
 
                     $sql = "SELECT r.rent_id, c.cust_id, c.name, r.rent_date, r.return_date, p.total_fee, r.rent_status
-                            FROM Rent r
+                            FROM rent r
                             JOIN customer c ON r.cust_id = c.cust_id
                             JOIN Payment p ON r.rent_id = p.rent_id";
                     $result = $dbCon->query($sql);
@@ -90,7 +90,7 @@ $username = $_SESSION["username"];
                                     <td>" . $row["rent_date"]. "</td>
                                     <td>" . $row["return_date"]. "</td>
                                     <td>" . $row["total_fee"]. "</td>
-                                    <td><button onclick=\"window.location.href='viewRentalDetail.php?rent_id=" . $row["rent_id"] . "&status=" . $row["rent_status"] . "'\">View Details</button></td>
+                                    <td><button onclick=\"window.location.href='viewrentaldetail.php?rent_id=" . $row["rent_id"] . "&status=" . $row["rent_status"] . "'\">View Details</button></td>
                                   </tr>";
                         }
                     } else {

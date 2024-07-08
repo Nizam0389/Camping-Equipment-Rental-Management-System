@@ -32,7 +32,7 @@ $contact = mysqli_fetch_assoc($result);
         <div class="navbar">
             <ul>
                 <li><a href="homepage.php">HOMEPAGE</a></li>
-                <li><a href="category.php">RENTAL</a></li>
+                <li><a href="category.php">rentAL</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
                 <li class="right"><a href="contactus.php">CONTACT US</a></li>
                 <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>

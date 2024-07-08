@@ -10,9 +10,9 @@ include 'dbConnect.php';
 
 // Fetch statistics from the database
 $total_customers = $dbCon->query("SELECT COUNT(*) FROM customer")->fetch_row()[0];
-$active_customers = $dbCon->query("SELECT COUNT(DISTINCT c.cust_id) FROM customer c JOIN Rent r ON c.cust_id = r.cust_id WHERE r.rent_status = 1")->fetch_row()[0];
+$active_customers = $dbCon->query("SELECT COUNT(DISTINCT c.cust_id) FROM customer c JOIN rent r ON c.cust_id = r.cust_id WHERE r.rent_status = 1")->fetch_row()[0];
 $available_equipment = $dbCon->query("SELECT SUM(item_quantity) FROM Item")->fetch_row()[0];
-$rented_equipment = $dbCon->query("SELECT SUM(rd.RD_quantity) FROM RentalDetail rd JOIN Rent r ON rd.rent_id = r.rent_id WHERE r.rent_status = 1")->fetch_row()[0];
+$rented_equipment = $dbCon->query("SELECT SUM(rd.RD_quantity) FROM rentaldetail rd JOIN rent r ON rd.rent_id = r.rent_id WHERE r.rent_status = 1")->fetch_row()[0];
 
 $dbCon->close();
 ?>
@@ -78,7 +78,7 @@ $dbCon->close();
                     <div class="stat-value"><?php echo $available_equipment; ?></div>
                 </div>
                 <div class="stat">
-                    <div class="stat-title">RENTED EQUIPMENT</div>
+                    <div class="stat-title">rentED EQUIPMENT</div>
                     <div class="stat-value"><?php echo $rented_equipment; ?></div>
                 </div>
             </div>

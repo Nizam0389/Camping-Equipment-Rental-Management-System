@@ -26,7 +26,7 @@ $username = $_SESSION["username"];
 <body>
     <div class="navbar">
         <ul>
-            <li><a href="category.php">RENTAL</a></li>
+            <li><a href="category.php">rentAL</a></li>
             <li><a href="contactUs.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><span class="username"><?php echo htmlspecialchars($username); ?></span></li>

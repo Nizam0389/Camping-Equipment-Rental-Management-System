@@ -99,7 +99,7 @@ function confirmAndProceed() {
 
     const data = { start_date: startDate, end_date: endDate, items: items };
 
-    fetch('saveRent.php', {
+    fetch('saverent.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -109,7 +109,7 @@ function confirmAndProceed() {
       .then(data => {
           console.log(data); // Log the response data for debugging
           if (data.success) {
-              alert('Rent details saved successfully!');
+              alert('rent details saved successfully!');
               // Store rent details in session and redirect to payment page
               localStorage.setItem('rent_id', data.rent_id);
               window.location.href = 'payment.php';

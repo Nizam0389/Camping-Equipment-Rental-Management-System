@@ -40,7 +40,7 @@ try {
     $cust_id = $customer['cust_id'];
 
     // Insert rent details
-    $stmt = $dbCon->prepare("INSERT INTO Rent (rent_date, return_date, rent_status, cust_id) VALUES (?, ?, ?, ?)");
+    $stmt = $dbCon->prepare("INSERT INTO rent (rent_date, return_date, rent_status, cust_id) VALUES (?, ?, ?, ?)");
     if (!$stmt) {
         throw new Exception("Prepare statement failed: " . $dbCon->error);
     }

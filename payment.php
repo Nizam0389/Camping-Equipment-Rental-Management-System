@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total-price').textContent = `RM ${totalPrice.toFixed(2)}`;
     }
 
-    function saveRentalDetailsAndRedirect() {
+    function saverentaldetailsAndRedirect() {
         const rent_id = localStorage.getItem('rent_id');
         const items = JSON.parse(localStorage.getItem('cart')) || [];
         const startDate = localStorage.getItem('start_date');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const data = { rent_id: rent_id, items: items, start_date: startDate, end_date: endDate };
 
-        fetch('saveRentalDetails.php', {
+        fetch('saverentaldetails.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(data => {
               console.log(data); // Log the response data for debugging
               if (data.success) {
-                  alert('Rental details saved successfully!');
+                  alert('rental details saved successfully!');
                   // Redirect to the selected bank URL
                   const radios = document.getElementsByName('bank');
                   let selectedValue;
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
           });
     }
 
-    document.querySelector('.pay-button').addEventListener('click', saveRentalDetailsAndRedirect);
+    document.querySelector('.pay-button').addEventListener('click', saverentaldetailsAndRedirect);
 });
 </script>
 </head>
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="navbar">
         <ul>
             <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="category.php">RENTAL</a></li>
+            <li><a href="category.php">rentAL</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
             <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>

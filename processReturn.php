@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     try {
         // Update rent status
-        $sql = "UPDATE Rent SET rent_status = FALSE WHERE rent_id = ?";
+        $sql = "UPDATE rent SET rent_status = FALSE WHERE rent_id = ?";
         if ($stmt = mysqli_prepare($dbCon, $sql)) {
             mysqli_stmt_bind_param($stmt, "i", $rentId);
             mysqli_stmt_execute($stmt);
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         // Update item quantity
-        $sql = "SELECT item_id, RD_quantity FROM RentalDetail WHERE rent_id = ?";
+        $sql = "SELECT item_id, RD_quantity FROM rentaldetail WHERE rent_id = ?";
         if ($stmt = mysqli_prepare($dbCon, $sql)) {
             mysqli_stmt_bind_param($stmt, "i", $rentId);
             mysqli_stmt_execute($stmt);

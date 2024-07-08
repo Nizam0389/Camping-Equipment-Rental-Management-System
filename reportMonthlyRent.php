@@ -10,16 +10,16 @@ include 'dbConnect.php';
 $year = isset($_GET['year']) ? $_GET['year'] : date("Y");
 
 // Fetch distinct years from rent_date
-$yearResult = $dbCon->query("SELECT DISTINCT YEAR(rent_date) as year FROM Rent ORDER BY year DESC");
+$yearResult = $dbCon->query("SELECT DISTINCT YEAR(rent_date) as year FROM rent ORDER BY year DESC");
 $years = [];
 while ($row = $yearResult->fetch_assoc()) {
     $years[] = $row['year'];
 }
 
 // Fetch data for the selected year
-$sql = "SELECT MONTH(rent_date) as month, SUM(RD_quantity) as total_quantity, COUNT(DISTINCT Rent.cust_id) as total_customers
-        FROM RentalDetail
-        JOIN Rent ON RentalDetail.rent_id = Rent.rent_id
+$sql = "SELECT MONTH(rent_date) as month, SUM(RD_quantity) as total_quantity, COUNT(DISTINCT rent.cust_id) as total_customers
+        FROM rentaldetail
+        JOIN rent ON rentaldetail.rent_id = rent.rent_id
         WHERE YEAR(rent_date) = $year
         GROUP BY MONTH(rent_date)";
 $result = $dbCon->query($sql);
@@ -39,7 +39,7 @@ $dbCon->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monthly Rent Report</title>
+    <title>Monthly rent Report</title>
     <link rel="stylesheet" href="css/report.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -51,7 +51,7 @@ $dbCon->close();
         </ul>
     </div>
     <div class="main-content">
-        <h2 class="title-page">Monthly Rent Report for <?php echo $year; ?></h2>
+        <h2 class="title-page">Monthly rent Report for <?php echo $year; ?></h2>
         <div class="report-container">
             <div class="chart-container">
                 <form method="GET" action="" class="year-select-form">
@@ -63,15 +63,15 @@ $dbCon->close();
                         ?>
                     </select>
                 </form>
-                <canvas id="monthlyRentChart"></canvas>
+                <canvas id="monthlyrentChart"></canvas>
             </div>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>Month</th>
-                            <th>Total Items Rented</th>
-                            <th>Total Customers Renting</th>
+                            <th>Total Items rented</th>
+                            <th>Total Customers renting</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,13 +90,13 @@ $dbCon->close();
         </div>
     </div>
     <script>
-        const ctx = document.getElementById('monthlyRentChart').getContext('2d');
-        const monthlyRentChart = new Chart(ctx, {
+        const ctx = document.getElementById('monthlyrentChart').getContext('2d');
+        const monthlyrentChart = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                 datasets: [{
-                    label: 'Total Items Rented',
+                    label: 'Total Items rented',
                     data: <?php echo json_encode(array_values($monthlyData)); ?>,
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     borderColor: 'rgba(75, 192, 192, 1)',
@@ -104,7 +104,7 @@ $dbCon->close();
                     fill: false
                 },
                 {
-                    label: 'Total Customers Renting',
+                    label: 'Total Customers renting',
                     data: <?php echo json_encode(array_values($monthlyCustomers)); ?>,
                     backgroundColor: 'rgba(255, 99, 132, 0.2)',
                     borderColor: 'rgba(255, 99, 132, 1)',

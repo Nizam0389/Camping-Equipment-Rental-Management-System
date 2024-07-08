@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Confirm Rental</title>
+    <title>Confirm rental</title>
     <link rel="stylesheet" type="text/css" href="css/payment.css">
     <script src="js/confirmation.js" defer></script>
     <script src="js/rental-calculator.js" defer></script>
@@ -15,17 +15,17 @@
     <div class="navbar">
         <ul>
             <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="category.php">RENTAL</a></li>
+            <li><a href="category.php">rentAL</a></li>
             <li class="logo"><a href="logout.php"><img src="image/logo.png" alt="logo"></a></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
             <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
         </ul>
     </div>
     <div class="main-content">
-        <h2 class="title-page">- CONFIRM RENTAL -</h2>
+        <h2 class="title-page">- CONFIRM rentAL -</h2>
         <div class="cart-container">
             <div class="cart-details">
-                <h3>Rental Details</h3>
+                <h3>rental Details</h3>
                 <div class="rental-dates">
                     <label for="start-date">Start Date:</label>
                     <input type="date" id="start-date" name="start-date" required>

@@ -9,8 +9,8 @@ $username = $_SESSION["username"];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rental Details</title>
-    <link rel="stylesheet" type="text/css" href="css/viewRentalDetail.css">
+    <title>rental Details</title>
+    <link rel="stylesheet" type="text/css" href="css/viewrentaldetail.css">
     <script>
         function confirmLogout() {
             var result = confirm("Do you want to log out?");
@@ -48,7 +48,7 @@ $username = $_SESSION["username"];
         </ul>
     </div>
     <div class="main-content">
-        <h2 class="title-page">- RENTAL DETAILS -</h2>
+        <h2 class="title-page">- rentAL DETAILS -</h2>
         <div class="header-info">
             <?php
             include 'dbConnect.php';
@@ -57,7 +57,7 @@ $username = $_SESSION["username"];
                 $rentId = $_GET['rent_id'];
                 $rentStatus = $_GET['status'];
                 $sql = "SELECT r.rent_id, c.cust_id, c.name, r.rent_date, r.return_date
-                        FROM Rent r
+                        FROM rent r
                         JOIN customer c ON r.cust_id = c.cust_id
                         WHERE r.rent_id = ?";
                 
@@ -74,12 +74,12 @@ $username = $_SESSION["username"];
             }
             ?>
             <div class="left-info">
-                <p>Rent ID: <?php echo $rentId; ?></p>
+                <p>rent ID: <?php echo $rentId; ?></p>
                 <p>Customer ID: <?php echo $custId; ?></p>
                 <p>Customer Name: <?php echo $custName; ?></p>
             </div>
             <div class="right-info">
-                <p>Rent Date: <?php echo $rentDate; ?></p>
+                <p>rent Date: <?php echo $rentDate; ?></p>
                 <p>Return Date: <?php echo $returnDate; ?></p>
             </div>
         </div>
@@ -97,7 +97,7 @@ $username = $_SESSION["username"];
             <tbody>
                 <?php
                 $sql = "SELECT rd.item_id, i.item_name, i.item_type, rd.RD_quantity
-                        FROM RentalDetail rd
+                        FROM rentaldetail rd
                         JOIN Item i ON rd.item_id = i.item_id
                         WHERE rd.rent_id = ?";
                 if ($stmt = mysqli_prepare($dbCon, $sql)) {
