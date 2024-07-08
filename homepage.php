@@ -35,13 +35,13 @@ $username = $_SESSION["username"];
                     <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
                 </a>
                 <div class="dropdown-content">
-                    <a href="customerAccountSetting.php">Profile</a>
+                    <a href="staffAccountSetting.php">Profile</a>
                     <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
                 </div>
             </li>
         </ul>
     </div>
-    <div class="main-content">
+    <div class="main-content" style="z-index:-5">
         <div class="info-box">
             <h1>SYAKIRI CAMPING</h1>
             <p>"SYAKIRI CAMPING" is your one stop destination for all your
