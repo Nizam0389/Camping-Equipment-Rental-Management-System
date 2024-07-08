@@ -59,7 +59,7 @@ $contact = mysqli_fetch_assoc($result);
                     <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
                 </a>
                 <div class="dropdown-content">
-                    <a href="staffAccountSetting.php">Profile</a>
+                    <a href="customerAccountSetting.php">Profile</a>
                     <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
                 </div>
             </li>
