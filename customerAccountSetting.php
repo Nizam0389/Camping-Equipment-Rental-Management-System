@@ -81,17 +81,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Account Setting</title>
     <link rel="stylesheet" href="css/customerAccountSetting.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function confirmSaveChanges(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Save",
+                denyButtonText: `Don't save`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire("Saved!", "", "success").then(() => {
+                        event.target.submit();
+                    });
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        }
+
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Logging Out!',
+                        text: 'You are being logged out.',
+                        icon: 'info',
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    });
+                    setTimeout(() => {
+                        window.location.href = 'logout.php';
+                    }, 1000);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
         <div class="navbar">
             <ul>
                 <li><a href="index.php">HOMEPAGE</a></li>
-                <li><a href="category.php">rentAL</a></li>
+                <li><a href="category.php">RENTAL</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
                 <li class="right"><a href="contactus.php">CONTACT US</a></li>
                 <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
-                <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login"></a></li>
+                <li class="right"><a href="#" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Logout"></a></li>
             </ul>
         </div>
     </header>
@@ -106,7 +152,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                 echo "<p style='color: green;'>$success_message</p>";
             }
             ?>
-            <form method="post" action="">
+            <form method="post" action="" onsubmit="confirmSaveChanges(event)">
                 <input type="hidden" name="update_profile" value="1">
                 <table class="profile-details">
                     <tr>
@@ -141,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                 echo "<p style='color: green;'>$password_success</p>";
             }
             ?>
-            <form method="post" action="">
+            <form method="post" action="" onsubmit="confirmSaveChanges(event)">
                 <input type="hidden" name="change_password" value="1">
                 <table class="password-details">
                     <tr>

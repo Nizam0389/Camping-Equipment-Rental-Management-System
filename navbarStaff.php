@@ -55,10 +55,20 @@ $username = isset($_SESSION["username"]) ? $_SESSION["username"] : 'Guest';
         <div class="hidden w-full md:block md:w-auto" id="navbar-dropdown" style="background-color: #4F6F52;">
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700" style="background-color: #4F6F52;">
                 <li>
-                    <a href="homepage.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Homepage</a>
+                    <a href="adminDashboard.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Homepage</a>
                 </li>
                 <li>
-                    <a href="category.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Rental</a>
+                    <a href="customerList.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Customer</a>
+                </li>
+                <li>
+                    <a href="itemList.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Item</a>
+                </li>
+                <li>
+                    <?php if ($username == 'S001') : ?>
+                        <a href="addStaff.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">
+                            ADD STAFF
+                        </a>
+                    <?php endif; ?>
                 </li>
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="navbar-item flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">
@@ -70,7 +80,7 @@ $username = isset($_SESSION["username"]) ? $_SESSION["username"] : 'Guest';
                     <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
                             <li>
-                                <a href="customerAccountSetting.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
+                                <a href="staffAccountSetting.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
                             </li>
                             <li>
                                 <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" onclick="confirmLogout()">Log Out</a>
@@ -79,7 +89,7 @@ $username = isset($_SESSION["username"]) ? $_SESSION["username"] : 'Guest';
                     </div>
                 </li>
                 <li>
-                    <a href="contactus.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Contact Us</a>
+                    <a href="contactUsAdmin.php" class="navbar-item block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" style="background-color: #4F6F52; color: white">Contact Us</a>
                 </li>
             </ul>
         </div>
