@@ -6,43 +6,18 @@ header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-error_log('Data received: ' . print_r($data, true)); // Debugging line
-
-if (!isset($_SESSION['username']) || !isset($data['start_date']) || !isset($data['end_date']) || !isset($data['items'])) {
-    echo json_encode(['success' => false, 'message' => 'Invalid data or user not logged in']);
+if (!isset($data['rent_id']) || !isset($data['items']) || !isset($data['start_date']) || !isset($data['end_date'])) {
+    echo json_encode(['success' => false, 'message' => 'Invalid data']);
     exit();
 }
 
 $username = $_SESSION['username'];
 $start_date = $data['start_date'];
 $end_date = $data['end_date'];
-$items = $data['items'];
-
-// Debugging lines
-error_log('Username: ' . $username);
-error_log('Start date: ' . $start_date);
-error_log('End date: ' . $end_date);
-error_log('Items: ' . print_r($items, true));
 
 try {
-    $dbCon->begin_transaction();
-
-    // Get customer ID
-    $stmt = $dbCon->prepare("SELECT cust_id FROM customer WHERE username = ?");
-    if (!$stmt) {
-        throw new Exception("Prepare statement failed: " . $dbCon->error);
-    }
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows === 0) {
-        throw new Exception("Customer not found");
-    }
-    $customer = $result->fetch_assoc();
-    $cust_id = $customer['cust_id'];
-
-    // Insert rent details
-    $stmt = $dbCon->prepare("INSERT INTO Rent (rent_date, return_date, rent_status, cust_id) VALUES (?, ?, ?, ?)");
+    // Insert rental details
+    $stmt = $dbCon->prepare("INSERT INTO rentaldetail (RD_quantity, rd_fee, rent_id, item_id) VALUES (?, ?, ?, ?)");
     if (!$stmt) {
         throw new Exception("Prepare statement failed: " . $dbCon->error);
     }
@@ -61,7 +36,16 @@ try {
     foreach ($items as $item) {
         $item_id = $item['item_id'];
         $quantity = $item['quantity'];
-        $stmt->bind_param("iii", $rent_id, $item_id, $quantity);
+        $item_id = $item['product_id'];
+        $item_fee = floatval($item['item_fee']); // Ensure item_fee is a float
+        $days = ceil((strtotime($end_date) - strtotime($start_date)) / (60 * 60 * 24));
+        $rd_fee = $quantity * $item_fee * $days;
+
+        // Log details for debugging
+        error_log("Inserting RentalDetail: Quantity - $quantity, Fee - $rd_fee, Rent ID - $rent_id, Item ID - $item_id");
+
+        $stmt->bind_param("idii", $quantity, $rd_fee, $rent_id, $item_id);
+
         if (!$stmt->execute()) {
             throw new Exception("Execute statement failed: " . $stmt->error);
         }
@@ -71,7 +55,6 @@ try {
 
     echo json_encode(['success' => true, 'rent_id' => $rent_id]);
 } catch (Exception $e) {
-    $dbCon->rollback();
     error_log($e->getMessage()); // Log the error message
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
