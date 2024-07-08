@@ -7,7 +7,7 @@ if (isset($_GET['rent_id']) && isset($_GET['item_id'])) {
 
     $sql = "SELECT p.payment_image_url
             FROM Payment p
-            JOIN RentalDetail rd ON p.rent_id = rd.rent_id
+            JOIN rentaldetail rd ON p.rent_id = rd.rent_id
             WHERE p.rent_id = ? AND rd.item_id = ?";
 
     if ($stmt = mysqli_prepare($dbCon, $sql)) {

@@ -57,7 +57,7 @@ $username = $_SESSION["username"];
         <div class="report-buttons">
             <a href="reportCustomerList.php" class="report-button">Customer List</a>
             <a href="reportStaffList.php" class="report-button">Staff List</a>
-            <a href="reportMonthlyRent.php" class="report-button">Monthly Rent Report</a>
+            <a href="reportMonthlyrent.php" class="report-button">Monthly rent Report</a>
             <a href="reportItem.php" class="report-button">Item Report</a>
         </div>
     </div>

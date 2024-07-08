@@ -31,7 +31,7 @@ if (empty($itemType)) {
     <div class="navbar">
         <ul>
             <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="category.php">RENTAL</a></li>
+            <li><a href="category.php">rentAL</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><span class="username"><?php echo $username; ?></span></li>
             <li class="right"><a href="javascript:void(0);" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Logout" style="height:20%; width:30px;"></a></li>

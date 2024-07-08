@@ -39,8 +39,8 @@ CREATE TABLE `Item` (
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Create Rent table
-CREATE TABLE `Rent` (
+-- Create rent table
+CREATE TABLE `rent` (
   `rent_id` int NOT NULL AUTO_INCREMENT,
   `rent_date` date NOT NULL,
   `return_date` date NOT NULL,
@@ -50,15 +50,15 @@ CREATE TABLE `Rent` (
   FOREIGN KEY (`cust_id`) REFERENCES `customer`(`cust_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Create RentalDetail table
-CREATE TABLE `RentalDetail` (
+-- Create rentaldetail table
+CREATE TABLE `rentaldetail` (
   `RD_id` int NOT NULL AUTO_INCREMENT,
   `RD_quantity` int NOT NULL,
   `rd_fee` double NOT NULL,
   `rent_id` int NOT NULL,
   `item_id` int NOT NULL,
   PRIMARY KEY (`RD_id`),
-  FOREIGN KEY (`rent_id`) REFERENCES `Rent`(`rent_id`),
+  FOREIGN KEY (`rent_id`) REFERENCES `rent`(`rent_id`),
   FOREIGN KEY (`item_id`) REFERENCES `Item`(`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -69,7 +69,7 @@ CREATE TABLE `Payment` (
   `payment_date` date NOT NULL,
   `rent_id` int NOT NULL,
   PRIMARY KEY (`payment_id`),
-  FOREIGN KEY (`rent_id`) REFERENCES `Rent`(`rent_id`)
+  FOREIGN KEY (`rent_id`) REFERENCES `rent`(`rent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- Create contactUS table
