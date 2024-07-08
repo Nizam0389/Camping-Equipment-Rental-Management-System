@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total-price').textContent = `RM ${totalPrice.toFixed(2)}`;
     }
 
-    function saverentaldetailsAndRedirect() {
+    function saveRentalDetailsAndRedirect() {
         const rent_id = localStorage.getItem('rent_id');
         const items = JSON.parse(localStorage.getItem('cart')) || [];
         const startDate = localStorage.getItem('start_date');
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const data = { rent_id: rent_id, items: items, start_date: startDate, end_date: endDate };
 
-        fetch('saverentaldetails.php', {
+        fetch('saveRentalDetails.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -75,7 +75,33 @@ document.addEventListener('DOMContentLoaded', function() {
           .then(data => {
               console.log(data); // Log the response data for debugging
               if (data.success) {
-                  alert('rental details saved successfully!');
+                  savePaymentDetails(); // Save payment details
+              } else {
+                  alert('Failed to save rental details: ' + data.message);
+              }
+          }).catch(error => {
+              console.error('Error:', error);
+              alert('Failed to save rental details.');
+          });
+    }
+
+    function savePaymentDetails() {
+        const rent_id = localStorage.getItem('rent_id');
+        const totalPrice = parseFloat(document.getElementById('total-price').textContent.replace('RM ', ''));
+
+        const data = { rent_id: rent_id, total_fee: totalPrice };
+
+        fetch('savePayment.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+          .then(data => {
+              console.log(data); // Log the response data for debugging
+              if (data.success) {
+                  alert('Payment details saved successfully!');
                   // Redirect to the selected bank URL
                   const radios = document.getElementsByName('bank');
                   let selectedValue;
@@ -91,15 +117,15 @@ document.addEventListener('DOMContentLoaded', function() {
                       alert("Please select a bank.");
                   }
               } else {
-                  alert('Failed to save rental details: ' + data.message);
+                  alert('Failed to save payment details: ' + data.message);
               }
           }).catch(error => {
               console.error('Error:', error);
-              alert('Failed to save rental details.');
+              alert('Failed to save payment details.');
           });
     }
 
-    document.querySelector('.pay-button').addEventListener('click', saverentaldetailsAndRedirect);
+    document.querySelector('.pay-button').addEventListener('click', saveRentalDetailsAndRedirect);
 });
 </script>
 </head>
@@ -107,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="navbar">
         <ul>
             <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="category.php">rentAL</a></li>
+            <li><a href="category.php">RENTAL</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
             <li class="right"><a href="contactus.php">CONTACT US</a></li>
             <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
