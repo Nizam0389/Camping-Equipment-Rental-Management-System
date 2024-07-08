@@ -11,98 +11,96 @@
     <script src="js/cart.js" defer></script>
     <script src="js/rental-calculator.js" defer></script>
     <script>
-function saveRentDetails() {
-    const startDate = document.getElementById('start-date').value;
-    const endDate = document.getElementById('end-date').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const startDate = localStorage.getItem('start_date');
+    const endDate = localStorage.getItem('end_date');
+
+    if (!startDate || !endDate) {
+        alert('Start date and end date must be selected.');
+        window.location.href = 'confirmation.php';
+        return;
+    }
+
+    document.getElementById('num-days').textContent = calculateTotalDays();
+    populateCartItems();
     
-    const items = JSON.parse(localStorage.getItem('cart')) || [];
-    const data = { start_date: startDate, end_date: endDate, items: items };
-    
-    fetch('saveRent.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(response => response.json())
-      .then(data => {
-          console.log(data); // Log the response data for debugging
-          if (data.success) {
-              alert('Rent details saved successfully!');
-              // Store rent details in session and show confirmation modal
-              localStorage.setItem('rent_id', data.rent_id);
-              showConfirmationModal();
-          } else {
-              alert('Failed to save rent: ' + data.message);
-          }
-      }).catch(error => {
-          console.error('Error:', error);
-          alert('Failed to save rent.');
-      });
-}
+    function calculateTotalDays() {
+        const startDate = new Date(localStorage.getItem('start_date'));
+        const endDate = new Date(localStorage.getItem('end_date'));
+        const timeDiff = endDate - startDate;
+        const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        return daysDiff > 0 ? daysDiff : 1;
+    }
 
-function showConfirmationModal() {
-    const confirmationModal = document.getElementById('confirmationModal');
-    const cartItemsContainer = document.getElementById('confirmation-cart-items');
-    cartItemsContainer.innerHTML = ''; // Clear existing items
+    function populateCartItems() {
+        const cartItemsContainer = document.getElementById('cart-items');
+        const items = JSON.parse(localStorage.getItem('cart')) || [];
+        const numDays = calculateTotalDays();
+        let totalPrice = 0;
 
-    const items = JSON.parse(localStorage.getItem('cart')) || [];
+        cartItemsContainer.innerHTML = ''; // Clear existing items
 
-    items.forEach(item => {
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td>${item.item_name}</td>
-            <td>${item.item_fee}</td>
-            <td>${item.quantity}</td>
-            <td>${(item.item_fee * item.quantity).toFixed(2)}</td>
-        `;
-        cartItemsContainer.appendChild(newRow);
-    });
+        items.forEach(item => {
+            const itemTotal = item.item_fee * item.quantity * numDays;
+            totalPrice += itemTotal;
 
-    confirmationModal.style.display = 'block';
-}
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${item.item_name}</td>
+                <td>RM ${item.item_fee.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>RM ${itemTotal.toFixed(2)}</td>
+            `;
+            cartItemsContainer.appendChild(newRow);
+        });
 
-function confirmAndSaveRentalDetails() {
-    const rent_id = localStorage.getItem('rent_id');
-    const items = JSON.parse(localStorage.getItem('cart')) || [];
-    const startDate = document.getElementById('start-date').value;
-    const endDate = document.getElementById('end-date').value;
+        document.getElementById('total-price').textContent = `RM ${totalPrice.toFixed(2)}`;
+    }
 
-    const data = { rent_id: rent_id, items: items, start_date: startDate, end_date: endDate };
+    function saveRentalDetailsAndRedirect() {
+        const rent_id = localStorage.getItem('rent_id');
+        const items = JSON.parse(localStorage.getItem('cart')) || [];
+        const startDate = localStorage.getItem('start_date');
+        const endDate = localStorage.getItem('end_date');
 
-    fetch('saveRentalDetails.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    }).then(response => response.json())
-      .then(data => {
-          console.log(data); // Log the response data for debugging
-          if (data.success) {
-              alert('Rental details saved successfully!');
-              // Redirect to the selected bank URL
-              const radios = document.getElementsByName('bank');
-              let selectedValue;
-              for (let i = 0; i < radios.length; i++) {
-                  if (radios[i].checked) {
-                      selectedValue = radios[i].value;
-                      break;
+        const data = { rent_id: rent_id, items: items, start_date: startDate, end_date: endDate };
+
+        fetch('saveRentalDetails.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(response => response.json())
+          .then(data => {
+              console.log(data); // Log the response data for debugging
+              if (data.success) {
+                  alert('Rental details saved successfully!');
+                  // Redirect to the selected bank URL
+                  const radios = document.getElementsByName('bank');
+                  let selectedValue;
+                  for (let i = 0; i < radios.length; i++) {
+                      if (radios[i].checked) {
+                          selectedValue = radios[i].value;
+                          break;
+                      }
                   }
-              }
-              if (selectedValue) {
-                  window.location.href = selectedValue;
+                  if (selectedValue) {
+                      window.location.href = selectedValue;
+                  } else {
+                      alert("Please select a bank.");
+                  }
               } else {
-                  alert("Please select a bank.");
+                  alert('Failed to save rental details: ' + data.message);
               }
-          } else {
-              alert('Failed to save rental details: ' + data.message);
-          }
-      }).catch(error => {
-          console.error('Error:', error);
-          alert('Failed to save rental details.');
-      });
-}
+          }).catch(error => {
+              console.error('Error:', error);
+              alert('Failed to save rental details.');
+          });
+    }
+
+    document.querySelector('.pay-button').addEventListener('click', saveRentalDetailsAndRedirect);
+});
 </script>
 </head>
 <body>
@@ -116,20 +114,10 @@ function confirmAndSaveRentalDetails() {
         </ul>
     </div>
     <div class="main-content">
-        <h2 class="title-page">- CART -</h2>
+        <h2 class="title-page">- PAYMENT -</h2>
         <div class="cart-container">
             <div class="cart-details">
                 <h3>Payment</h3>
-                <div class="rental-dates">
-                    <label for="start-date">Start Date:</label>
-                    <input type="date" id="start-date" name="start-date" required>
-                    
-                    <label for="end-date">Return Date:</label>
-                    <input type="date" id="end-date" name="end-date" required>
-                </div>
-                <div class="rental-summary">
-                    <p>Number of days: <span id="num-days">0</span></p>
-                </div>
                 <table class="cart-table">
                     <thead>
                         <tr>
@@ -143,7 +131,9 @@ function confirmAndSaveRentalDetails() {
                         <!-- Cart items will be populated here -->
                     </tbody>
                 </table>
-                <button type="button" class="save-rent-button" onclick="saveRentDetails()">Save Rent Details</button>
+                <div class="rental-summary">
+                    <p>Number of days: <span id="num-days">0</span></p>
+                </div>
             </div>
             <div class="payment-details">
                 <h3>Payment</h3>
@@ -177,31 +167,9 @@ function confirmAndSaveRentalDetails() {
                         <input type="radio" name="bank" value="https://www.ambank.com.my/eng/online-banking/faq-get-started-Log-In-to-AmOnline" required>
                         <img src="image/bank/ambank.png" alt="AmBank">
                     </label><br>
-                    <button type="button" class="pay-button" onclick="saveRentDetails()">Pay Now</button>
+                    <button type="button" class="pay-button">Pay Now</button>
                 </form>
             </div>
-        </div>
-    </div>
-    
-    <!-- Confirmation Modal -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="document.getElementById('confirmationModal').style.display='none'">&times;</span>
-            <h2>Confirm Rental Details</h2>
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>PRODUCT</th>
-                        <th>PRICE PER DAY</th>
-                        <th>QUANTITY</th>
-                        <th>TOTAL</th>
-                    </tr>
-                </thead>
-                <tbody id="confirmation-cart-items">
-                    <!-- Confirmation cart items will be populated here -->
-                </tbody>
-            </table>
-            <button type="button" class="confirm-rent-button" onclick="confirmAndSaveRentalDetails()">Confirm and Save Rental Details</button>
         </div>
     </div>
 </body>

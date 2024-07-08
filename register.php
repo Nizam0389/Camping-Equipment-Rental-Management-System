@@ -84,10 +84,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_address = $address;
             
             if (mysqli_stmt_execute($stmt)) {
-                echo "<script> alert('Registration successful!'); </script>";
-                echo "<script> location.href='login.php'; </script>";
+                echo "<script>
+                window.onload = function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Registration successful!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        window.location.href = 'login.php';
+                    });
+                }
+                </script>";
             } else {
-                echo "Something went wrong. Please try again later.";
+                echo "<script>
+                window.onload = function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'erro',
+                        title: 'Something went wrong!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        window.location.href = 'login.php';
+                    });
+                }
+                </script>";
             }
         }
         mysqli_stmt_close($stmt);
@@ -96,7 +119,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,15 +126,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="css/register.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 <body>
     <header>
         <div class="navbar">
             <ul>
-                <li><a href="index.html">HOMEPAGE</a></li>
-                <li><a href="category.html">RENTAL</a></li>
+                <li><a href="index.php">HOMEPAGE</a></li>
                 <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.html">CONTACT US</a></li>
+                <li class="right"><a href="contactUsGuest.php">CONTACT US</a></li>
                 <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
             </ul>
         </div>

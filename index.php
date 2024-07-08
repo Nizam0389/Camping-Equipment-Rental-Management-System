@@ -17,7 +17,7 @@ $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
             <li><a href="<?php echo $loggedin ? 'category.php' : '#'; ?>" <?php if(!$loggedin) echo 'onclick="showLoginPopup(event)"'; ?>>RENTAL</a></li>
             <li><a href="contactUsGuest.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><a href="<?php echo $loggedin ? 'profile.php' : 'login.php'; ?>"><img src="image/profilebg.png" alt="Profile" style="height:20px; width:30px;"></a></li>
+            <li class="right"><a href="<?php echo $loggedin ? 'profile.php' : 'login.php'; ?>"><img src="image/profilebg.png" alt="Profile"></a></li>
         </ul>
     </div>
 
@@ -38,8 +38,8 @@ $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
             <p>You need to login first to access this section.</p>
             <p>
                 <button class="button" onclick="closePopup()">Close</button>
-                <a href="login.php" class="button">Login</a>
-            </p>
+                <button class="button" onclick="window.location.href='login.php';">Login</button>
+                </p>
         </div>
     </div>
 

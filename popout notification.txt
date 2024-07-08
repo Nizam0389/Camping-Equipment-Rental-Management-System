@@ -1,0 +1,189 @@
+1. Basic Popup
+<button class="button" data-for="js_basic-popup">Show basic popup</button>
+<div class="popup js_basic-popup">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+        <h3 class="popup__content__title">Sample Popup</h3>
+        <p>Lorem Ipsum dolor sit amet!</p>
+        <button class="button" data-for="js_basic-popup">Hide Popup</button>
+    </div>
+</div>
+const addButtonTrigger = (el) => {
+    el.addEventListener('click', () => {
+        const popupEl = document.querySelector(`.${el.dataset.for}`);
+        popupEl.classList.toggle('popup--visible');
+    });
+};
+document.querySelectorAll('button[data-for="js_basic-popup"]').forEach(addButtonTrigger);
+
+
+2. Question Popup
+<button class="button button--warning" data-for="js_question-popup">Show question popup</button>
+<div class="popup popup--icon -question js_question-popup">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+        <h3 class="popup__content__title">Question Popup</h3>
+        <p>Lorem Ipsum dolor sit amet?</p>
+        <button class="button button--warning" data-for="js_question-popup">Hide Popup</button>
+    </div>
+</div>
+document.querySelectorAll('button[data-for="js_question-popup"]').forEach(addButtonTrigger);
+
+
+3. Success Popup
+<button class="button button--success" data-for="js_success-popup">Show success popup</button>
+<div class="popup popup--icon -success js_success-popup">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+        <h3 class="popup__content__title">Success Popup</h3>
+        <p>Lorem Ipsum dolor sit amet!</p>
+        <button class="button button--success" data-for="js_success-popup">Hide Popup</button>
+    </div>
+</div>
+document.querySelectorAll('button[data-for="js_success-popup"]').forEach(addButtonTrigger);
+
+
+4. Error Popup
+<button class="button button--error" data-for="js_error-popup">Show error popup</button>
+<div class="popup popup--icon -error js_error-popup">
+    <div class="popup__background"></div>
+    <div class="popup__content">
+        <h3 class="popup__content__title">Error Popup</h3>
+        <p>Lorem Ipsum dolor sit amet!</p>
+        <button class="button button--error" data-for="js_error-popup">Hide Popup</button>
+    </div>
+</div>
+document.querySelectorAll('button[data-for="js_error-popup"]').forEach(addButtonTrigger);
+
+Shared CSS for All Popups
+/* General popup styles */
+.popup {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    transition: visibility 0s linear 0.3s;
+}
+
+.popup--visible {
+    visibility: visible;
+    transition-delay: 0s;
+}
+
+.popup__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup--visible .popup__background {
+    opacity: 1;
+}
+
+.popup__content {
+    position: relative;
+    background: #fff;
+    border-radius: 3px;
+    padding: 25px 50px;
+    min-width: 300px;
+    max-width: 90%;
+    text-align: center;
+    transform: scale(0.7);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.popup--visible .popup__content {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.button {
+    padding: 8px 12px;
+    border-radius: 3px;
+    background: #4FA0D0; /* Default color, change as needed */
+    border: 1px solid #75B9E1; /* Default border color */
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: none;
+}
+
+Specific CSS for Each Button and Popup Type
+/* Button modifiers */
+.button--warning {
+    background: #FF9800;
+    border-color: #FFB039;
+}
+
+.button--success {
+    background: #4AD890;
+    border-color: #71E6AB;
+}
+
+.button--error {
+    background: #EF5289;
+    border-color: #F578A4;
+}
+
+/* Popup icon adjustments */
+.popup--icon {
+    padding-top: 130px;
+}
+
+.popup--icon:before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    height: 90px;
+    width: 90px;
+    border: 3px solid currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateX(-50%) scale(1, 0);
+    animation: show-icon-circle 0.3s forwards 0.15s;
+}
+
+.popup--icon:after {
+    content: '\2713'; /* Default icon, change in specific types below */
+    position: absolute;
+    top: calc(25px + 22.5px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    height: 45px;
+    font-size: 45px;
+    line-height: 45px;
+    opacity: 0;
+    transform: translateX(-50%) scale(0);
+    animation: show-icon 0.3s forwards 0.3s;
+}
+
+.popup.-question:after {
+    content: '?';
+    color: #FF9800;
+}
+
+.popup.-success:after {
+    content: '\2713';
+    color: #4AD890;
+}
+
+.popup.-error:after {
+    content: '\2717';
+    color: #EF5289;
+}
