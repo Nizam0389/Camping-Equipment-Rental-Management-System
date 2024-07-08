@@ -9,36 +9,42 @@ document.addEventListener('DOMContentLoaded', function() {
     startDateInput.value = today;
     endDateInput.value = tomorrow;
 
-    // Set min attributes to prevent selecting dates before today
+    // Disable past dates for start date
     startDateInput.setAttribute('min', today);
-    endDateInput.setAttribute('min', tomorrow);
 
     // Calculate total days
     const calculateTotalDays = () => {
         const startDate = new Date(startDateInput.value);
         const endDate = new Date(endDateInput.value);
+
+        // Check if return date is before start date
+        if (endDate < startDate) {
+            alert("Return date cannot be before the start date.");
+            endDateInput.value = startDateInput.value; // Reset the return date to start date
+            totalDaysSpan.textContent = 1;
+            return 1;
+        }
+
         const timeDiff = endDate - startDate;
         const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
         totalDaysSpan.textContent = daysDiff;
-    };
-
-    // Ensure end date is not before start date
-    const validateEndDate = () => {
-        const startDate = new Date(startDateInput.value);
-        const minEndDate = new Date(startDate);
-        minEndDate.setDate(startDate.getDate() + 1);
-        const minEndDateString = minEndDate.toISOString().split('T')[0];
-        endDateInput.setAttribute('min', minEndDateString);
-        if (new Date(endDateInput.value) < minEndDate) {
-            endDateInput.value = minEndDateString;
-        }
-        calculateTotalDays();
+        return daysDiff;
     };
 
     startDateInput.addEventListener('change', () => {
-        validateEndDate();
+        const selectedStartDate = new Date(startDateInput.value);
+        if (selectedStartDate < new Date(today)) {
+            alert("Start date cannot be in the past.");
+            startDateInput.value = today; // Reset the start date to today
+        }
         calculateTotalDays();
+        updateCartItems(); // Update cart items on date change
     });
-    endDateInput.addEventListener('change', calculateTotalDays);
+
+    endDateInput.addEventListener('change', () => {
+        calculateTotalDays();
+        updateCartItems(); // Update cart items on date change
+    });
+
     calculateTotalDays(); // Initial calculation
 });

@@ -156,6 +156,12 @@ const calculateTotalDays = () => {
 
     const startDate = new Date(startDateInput.value);
     const endDate = new Date(endDateInput.value);
+    if (endDate < startDate) {
+        alert("Return date cannot be before the start date.");
+        endDateInput.value = startDateInput.value; // Reset the return date to start date
+        document.getElementById('num-days').textContent = 1;
+        return 1;
+    }
     const timeDiff = endDate - startDate;
     const daysDiff = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
     document.getElementById('num-days').textContent = daysDiff;
@@ -206,5 +212,28 @@ if (startDateInput && endDateInput) {
         calculateTotalDays();
         addCartToHTML();
         populateCartItems();
+    });
+}
+
+function saveRent() {
+    const startDate = document.getElementById('start-date').value;
+    const endDate = document.getElementById('end-date').value;
+    const rentStatus = 1; // Assume rentStatus is true for active rent
+
+    fetch('saveRent.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ startDate, endDate, rentStatus, cart })
+    }).then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('paymentModal').style.display = 'block';
+        } else {
+            alert('Failed to save rent: ' + data.error);
+        }
+    }).catch(error => {
+        alert('Error: ' + error);
     });
 }
