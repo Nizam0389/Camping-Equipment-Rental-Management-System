@@ -1,4 +1,4 @@
---customer
+-- customer
 INSERT INTO `customer` (`name`, `username`, `password`, `email`, `phone_no`, `address`) VALUES
 ('Ahmad Najmi', 'ahmadnajmi', '200820e3227815ed1756a6b531e7e0d2', 'ahmad.najmi@gmail.com', '0123456789', 'No 1, Jalan ABC, Kuala Lumpur'),
 ('Lim Wei Sheng', 'limweisheng', '200820e3227815ed1756a6b531e7e0d2', 'lim.weisheng@gmail.com', '0123456790', 'No 2, Jalan DEF, Petaling Jaya'),
@@ -32,7 +32,7 @@ INSERT INTO `customer` (`name`, `username`, `password`, `email`, `phone_no`, `ad
 ('Joshua Harris', 'joshuaharris', '200820e3227815ed1756a6b531e7e0d2', 'joshua.harris@gmail.com', '0123456718', '107 Redwood St, San Diego');
 
 
---staff
+-- staff
 INSERT INTO `staff` (`name`, `username`, `password`, `email`, `phone_no`, `address`) VALUES
 ('Admin', 'S001', '200820e3227815ed1756a6b531e7e0d2', 'admin@gmail.com', '0111111111', 'Admin'),
 ('Ali Bin Hassan', 'staff1', '200820e3227815ed1756a6b531e7e0d2', 'ali.hassan@gmail.com', '0123456781', 'No 1, Jalan XYZ, Kuala Lumpur'),
@@ -41,7 +41,7 @@ INSERT INTO `staff` (`name`, `username`, `password`, `email`, `phone_no`, `addre
 ('Fatimah Binti Ali', 'staff4', '200820e3227815ed1756a6b531e7e0d2', 'fatimah.ali@gmail.com', '0123456784', 'No 3, Jalan RST, Shah Alam'),
 ('Lim Mei Yeng', 'staff5', '200820e3227815ed1756a6b531e7e0d2', 'lim.meiyeng@gmail.com', '0123456785', '456 Elm St, Los Angeles');
 
---item
+-- item
 INSERT INTO `Item` (`item_name`, `item_type`, `item_fee`, `item_quantity`, `item_image_url`) VALUES
 ('Foldable Aluminum Table', 'table', 40, 20, 'upload/Foldable_aluminium_table.png'),
 ('Foldable Aluminium Alloy Table', 'table', 40, 20, 'upload/Foldable_aluminium_alloy_table.png'),
@@ -70,272 +70,453 @@ INSERT INTO `Item` (`item_name`, `item_type`, `item_fee`, `item_quantity`, `item
 ('5-8 Person Camping Tent', 'tent', 200, 10, 'upload/5_8_person_tent.png');
 
 
---rent table
+-- rent table
 INSERT INTO `Rent` (`rent_date`, `return_date`, `rent_status`, `cust_id`) VALUES
-('2023-01-10', '2023-01-12', false, 1),
-('2023-02-15', '2023-02-18', false, 2),
-('2023-03-05', '2023-03-09', true, 3),
-('2023-04-01', '2023-04-03', false, 4),
-('2023-05-20', '2023-05-27', false, 5),
-('2023-06-10', '2023-06-14', false, 6),
-('2023-07-15', '2023-07-23', true, 7),
-('2023-08-05', '2023-08-13', false, 8),
-('2023-09-01', '2023-09-04', false, 9),
-('2023-10-20', '2023-10-22', true, 10),
-('2023-11-10', '2023-11-19', false, 11),
-('2023-12-15', '2023-12-18', false, 12),
-('2024-01-10', '2024-01-12', false, 13),
-('2024-02-15', '2024-02-20', false, 14),
-('2024-03-05', '2024-03-10', true, 15),
-('2024-04-01', '2024-04-07', false, 16),
-('2024-05-20', '2024-05-25', false, 17),
-('2024-06-10', '2024-06-19', false, 18),
-('2024-07-15', '2024-07-17', true, 19),
-('2024-08-05', '2024-08-08', false, 20),
-('2024-09-01', '2024-09-10', false, 1),
-('2024-10-20', '2024-10-25', true, 2),
-('2024-11-10', '2024-11-18', false, 3),
-('2024-12-15', '2024-12-23', false, 4),
-('2025-01-10', '2025-01-15', false, 5),
-('2025-02-15', '2025-02-21', false, 6),
-('2025-03-05', '2025-03-09', true, 7),
-('2025-04-01', '2025-04-06', false, 8),
-('2025-05-20', '2025-05-28', false, 9),
-('2025-06-10', '2025-06-13', false, 10),
-('2025-07-15', '2025-07-22', true, 11),
-('2025-08-05', '2025-08-12', false, 12),
-('2025-09-01', '2025-09-04', false, 13),
-('2025-10-20', '2025-10-22', true, 14),
-('2025-11-10', '2025-11-16', false, 15),
-('2025-12-15', '2025-12-19', false, 16),
-('2026-01-10', '2026-01-14', false, 17),
-('2026-02-15', '2026-02-24', false, 18),
-('2026-03-05', '2026-03-07', true, 19),
-('2026-04-01', '2026-04-06', false, 20),
-('2026-05-20', '2026-05-25', false, 1),
-('2026-06-10', '2026-06-17', false, 2),
-('2026-07-15', '2026-07-19', true, 3),
-('2026-08-05', '2026-08-09', false, 4),
-('2026-09-01', '2026-09-03', false, 5),
-('2026-10-20', '2026-10-27', true, 6),
-('2026-11-10', '2026-11-14', false, 7),
-('2026-12-15', '2026-12-20', false, 8);
+('2023-01-10', '2023-01-12', false, 2),
+('2023-02-15', '2023-02-18', false, 123),
+('2023-03-05', '2023-03-09', true, 212),
+('2023-04-01', '2023-04-03', false, 213),
+('2023-05-20', '2023-05-27', false, 214),
+('2023-06-10', '2023-06-14', false, 215),
+('2023-07-15', '2023-07-23', true, 216),
+('2023-08-05', '2023-08-13', false, 217),
+('2023-09-01', '2023-09-04', false, 218),
+('2023-10-20', '2023-10-22', true, 219),
+('2023-11-10', '2023-11-19', false, 220),
+('2023-12-15', '2023-12-18', false, 221),
+('2024-01-10', '2024-01-12', false, 222),
+('2024-02-15', '2024-02-20', false, 223),
+('2024-03-05', '2024-03-10', true, 224),
+('2024-04-01', '2024-04-07', false, 225),
+('2024-05-20', '2024-05-25', false, 226),
+('2024-06-10', '2024-06-19', false, 227),
+('2024-07-15', '2024-07-17', true, 228),
+('2024-08-05', '2024-08-08', false, 229),
+('2024-09-01', '2024-09-10', false, 2),
+('2024-10-20', '2024-10-25', true, 123),
+('2024-11-10', '2024-11-18', false, 212),
+('2024-12-15', '2024-12-23', false, 213),
+('2025-01-10', '2025-01-15', false, 214),
+('2025-02-15', '2025-02-21', false, 215),
+('2025-03-05', '2025-03-09', true, 216),
+('2025-04-01', '2025-04-06', false, 217),
+('2025-05-20', '2025-05-28', false, 218),
+('2025-06-10', '2025-06-13', false, 219),
+('2025-07-15', '2025-07-22', true, 220),
+('2025-08-05', '2025-08-12', false, 221),
+('2025-09-01', '2025-09-04', false, 222),
+('2025-10-20', '2025-10-22', true, 223),
+('2025-11-10', '2025-11-16', false, 224),
+('2025-12-15', '2025-12-19', false, 225),
+('2026-01-10', '2026-01-14', false, 226),
+('2026-02-15', '2026-02-24', false, 227),
+('2026-03-05', '2026-03-07', true, 228),
+('2026-04-01', '2026-04-06', false, 229),
+('2026-05-20', '2026-05-25', false, 2),
+('2026-06-10', '2026-06-17', false, 123),
+('2026-07-15', '2026-07-19', true, 212),
+('2026-08-05', '2026-08-09', false, 213),
+('2026-09-01', '2026-09-03', false, 214),
+('2026-10-20', '2026-10-27', true, 215),
+('2026-11-10', '2026-11-14', false, 216),
+('2026-12-15', '2026-12-20', false, 217);
 
+-- rentaldetail
+-- Update the RentalDetail table based on the provided rent_id values
 
---rentaldetail
--- Create RentalDetail dataset
 INSERT INTO `RentalDetail` (`RD_quantity`, `rd_fee`, `rent_id`, `item_id`) VALUES
--- Rent 1
-(2, 80, 1, 1), -- Foldable Aluminum Table (2 * 40)
-(1, 10, 1, 6), -- Camping Air Basic 1 Person (1 * 10)
+-- Rent 55
+(2, 80, 55, 1), -- Foldable Aluminum Table (2 * 40)
+(1, 10, 55, 6), -- Camping Air Basic 1 Person (1 * 10)
 
--- Rent 2
-(1, 40, 2, 3), -- Wooden Eggroll Table (1 * 40)
-(1, 15, 2, 13), -- Large Folding Camping Chair (1 * 15)
-(3, 6, 2, 17), -- Multipurpose Rope(10m) (3 * 2)
+-- Rent 56
+(1, 40, 56, 3), -- Wooden Eggroll Table (1 * 40)
+(1, 15, 56, 13), -- Large Folding Camping Chair (1 * 15)
+(3, 6, 56, 17), -- Multipurpose Rope(10m) (3 * 2)
 
--- Rent 3
-(1, 40, 3, 1), -- Foldable Aluminum Table (1 * 40)
-(2, 20, 3, 15), -- Torch Light (2 * 1)
-(1, 50, 3, 18), -- Portable Mini Stove (1 * 2)
+-- Rent 57
+(1, 40, 57, 1), -- Foldable Aluminum Table (1 * 40)
+(2, 20, 57, 15), -- Torch Light (2 * 1)
+(1, 50, 57, 18), -- Portable Mini Stove (1 * 2)
 
--- Rent 4
-(3, 60, 4, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 180, 4, 24), -- 3-5 Person Camping Tent (1 * 180)
+-- Rent 58
+(3, 60, 58, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 180, 58, 24), -- 3-5 Person Camping Tent (1 * 180)
 
--- Rent 5
-(2, 50, 5, 9), -- Laybed (2 * 25)
-(1, 20, 5, 10), -- Family Sleeping Bag (1 * 20)
-(3, 15, 5, 14), -- Camping Lamp Rechargeable (3 * 5)
+-- Rent 59
+(2, 50, 59, 9), -- Laybed (2 * 25)
+(1, 20, 59, 10), -- Family Sleeping Bag (1 * 20)
+(3, 15, 59, 14), -- Camping Lamp Rechargeable (3 * 5)
 
--- Rent 6
-(1, 10, 6, 12), -- Low Folding Camping Chair (1 * 10)
-(2, 20, 6, 7), -- Camping Air Basic 2 Person (2 * 10)
+-- Rent 60
+(1, 10, 60, 12), -- Low Folding Camping Chair (1 * 10)
+(2, 20, 60, 7), -- Camping Air Basic 2 Person (2 * 10)
 
--- Rent 7
-(3, 30, 7, 11), -- Groundsheet (3 * 10)
-(2, 6, 7, 20), -- Cooking Utensil (2 * 3)
+-- Rent 61
+(3, 30, 61, 11), -- Groundsheet (3 * 10)
+(2, 6, 61, 20), -- Cooking Utensil (2 * 3)
 
--- Rent 8
-(1, 20, 8, 4), -- Multifunction Folding Table (1 * 20)
-(3, 15, 8, 22), -- Titanium Pot and Cup (3 * 5)
-(2, 4, 8, 19), -- Camp Cook Set (2 * 2)
+-- Rent 62
+(1, 20, 62, 4), -- Multifunction Folding Table (1 * 20)
+(3, 15, 62, 22), -- Titanium Pot and Cup (3 * 5)
+(2, 4, 62, 19), -- Camp Cook Set (2 * 2)
 
--- Rent 9
-(1, 40, 9, 3), -- Wooden Eggroll Table (1 * 40)
-(2, 50, 9, 18), -- Portable Mini Stove (2 * 25)
-(2, 6, 9, 15), -- Torch Light (2 * 3)
+-- Rent 63
+(1, 40, 63, 3), -- Wooden Eggroll Table (1 * 40)
+(2, 50, 63, 18), -- Portable Mini Stove (2 * 25)
+(2, 6, 63, 15), -- Torch Light (2 * 3)
 
--- Rent 10
-(1, 200, 10, 25), -- 5-8 Person Camping Tent (1 * 200)
-(1, 2, 10, 20), -- Cooking Utensil (1 * 2)
+-- Rent 64
+(1, 200, 64, 25), -- 5-8 Person Camping Tent (1 * 200)
+(1, 2, 64, 20), -- Cooking Utensil (1 * 2)
 
--- Rent 11
-(2, 30, 11, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 10, 11, 16), -- Multipurpose Rope(10m) (1 * 10)
+-- Rent 65
+(2, 30, 65, 13), -- Large Folding Camping Chair (2 * 15)
+(1, 10, 65, 16), -- Multipurpose Rope(10m) (1 * 10)
 
--- Rent 12
-(2, 20, 12, 12), -- Low Folding Camping Chair (2 * 10)
-(1, 20, 12, 10), -- Family Sleeping Bag (1 * 20)
+-- Rent 66
+(2, 20, 66, 12), -- Low Folding Camping Chair (2 * 10)
+(1, 20, 66, 10), -- Family Sleeping Bag (1 * 20)
 
--- Rent 13
-(1, 55, 13, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(1, 1, 13, 15), -- Torch Light (1 * 1)
+-- Rent 67
+(1, 55, 67, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 1, 67, 15), -- Torch Light (1 * 1)
 
--- Rent 14
-(2, 40, 14, 8), -- Single Sleeping Bag (2 * 20)
-(1, 40, 14, 3), -- Wooden Eggroll Table (1 * 40)
-(1, 25, 14, 24), -- 3-5 Person Camping Tent (1 * 180)
+-- Rent 68
+(2, 40, 68, 8), -- Single Sleeping Bag (2 * 20)
+(1, 40, 68, 3), -- Wooden Eggroll Table (1 * 40)
+(1, 25, 68, 24), -- 3-5 Person Camping Tent (1 * 180)
 
--- Rent 15
-(1, 5, 15, 14), -- Camping Lamp Rechargeable (1 * 5)
-(1, 15, 15, 22), -- Titanium Pot and Cup (1 * 15)
-(1, 2, 15, 19), -- Camp Cook Set (1 * 2)
+-- Rent 69
+(1, 5, 69, 14), -- Camping Lamp Rechargeable (1 * 5)
+(1, 15, 69, 22), -- Titanium Pot and Cup (1 * 15)
+(1, 2, 69, 19), -- Camp Cook Set (1 * 2)
 
--- Rent 16
-(1, 200, 16, 25), -- 5-8 Person Camping Tent (1 * 200)
-(2, 30, 16, 13), -- Large Folding Camping Chair (2 * 15)
+-- Rent 70
+(1, 200, 70, 25), -- 5-8 Person Camping Tent (1 * 200)
+(2, 30, 70, 13), -- Large Folding Camping Chair (2 * 15)
 
--- Rent 17
-(1, 20, 17, 6), -- Camping Air Basic 1 Person (1 * 20)
-(1, 40, 17, 1), -- Foldable Aluminum Table (1 * 40)
+-- Rent 71
+(1, 20, 71, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 40, 71, 1), -- Foldable Aluminum Table (1 * 40)
 
--- Rent 18
-(2, 20, 18, 12), -- Low Folding Camping Chair (2 * 10)
-(1, 25, 18, 9), -- Laybed (1 * 25)
+-- Rent 72
+(2, 20, 72, 12), -- Low Folding Camping Chair (2 * 10)
+(1, 25, 72, 9), -- Laybed (1 * 25)
 
--- Rent 19
-(1, 55, 19, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(1, 2, 19, 20), -- Cooking Utensil (1 * 2)
+-- Rent 73
+(1, 55, 73, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 2, 73, 20), -- Cooking Utensil (1 * 2)
 
--- Rent 20
-(3, 75, 20, 9), -- Laybed (3 * 25)
-(2, 30, 20, 7), -- Camping Air Basic 2 Person (2 * 15)
+-- Rent 74
+(3, 75, 74, 9), -- Laybed (3 * 25)
+(2, 30, 74, 7), -- Camping Air Basic 2 Person (2 * 15)
 
--- Rent 21
-(1, 10, 21, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 40, 21, 4), -- Multifunction Folding Table (1 * 40)
+-- Rent 75
+(1, 10, 75, 12), -- Low Folding Camping Chair (1 * 10)
+(1, 40, 75, 4), -- Multifunction Folding Table (1 * 40)
 
--- Rent 22
-(2, 20, 22, 10), -- Family Sleeping Bag (2 * 20)
-(1, 40, 22, 3), -- Wooden Eggroll Table (1 * 40)
+-- Rent 76
+(2, 20, 76, 10), -- Family Sleeping Bag (2 * 20)
+(1, 40, 76, 3), -- Wooden Eggroll Table (1 * 40)
 
--- Rent 23
-(1, 55, 23, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 10, 23, 14), -- Camping Lamp Rechargeable (2 * 5)
+-- Rent 77
+(1, 55, 77, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 10, 77, 14), -- Camping Lamp Rechargeable (2 * 5)
 
--- Rent 24
-(3, 30, 24, 12), -- Low Folding Camping Chair (3 * 10)
-(1, 20, 24, 6), -- Camping Air Basic 1 Person (1 * 20)
+-- Rent 78
+(3, 30, 78, 12), -- Low Folding Camping Chair (3 * 10)
+(1, 20, 78, 6), -- Camping Air Basic 1 Person (1 * 20)
 
--- Rent 25
-(1, 15, 25, 13), -- Large Folding Camping Chair (1 * 15)
-(1, 5, 25, 14), -- Camping Lamp Rechargeable (1 * 5)
+-- Rent 79
+(1, 15, 79, 13), -- Large Folding Camping Chair (1 * 15)
+(1, 5, 79, 14), -- Camping Lamp Rechargeable (1 * 5)
 
--- Rent 26
-(2, 40, 26, 8), -- Single Sleeping Bag (2 * 20)
-(1, 55, 26, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+-- Rent 80
+(2, 40, 80, 8), -- Single Sleeping Bag (2 * 20)
+(1, 55, 80, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
 
--- Rent 27
-(1, 15, 27, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 10, 27, 12), -- Low Folding Camping Chair (2 * 10)
+-- Rent 81
+(1, 15, 81, 13), -- Large Folding Camping Chair (1 * 15)
+(2, 10, 81, 12), -- Low Folding Camping Chair (2 * 10)
 
--- Rent 28
-(3, 60, 28, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 20, 28, 6), -- Camping Air Basic 1 Person (1 * 20)
+-- Rent 82
+(3, 60, 82, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 20, 82, 6), -- Camping Air Basic 1 Person (1 * 20)
 
--- Rent 29
-(2, 40, 29, 4), -- Multifunction Folding Table (2 * 20)
-(1, 15, 29, 22), -- Titanium Pot and Cup (1 * 15)
+-- Rent 83
+(2, 40, 83, 4), -- Multifunction Folding Table (2 * 20)
+(1, 15, 83, 22), -- Titanium Pot and Cup (1 * 15)
 
--- Rent 30
-(1, 5, 30, 14), -- Camping Lamp Rechargeable (1 * 5)
-(2, 2, 30, 20), -- Cooking Utensil (2 * 2)
+-- Rent 84
+(1, 5, 84, 14), -- Camping Lamp Rechargeable (1 * 5)
+(2, 2, 84, 20), -- Cooking Utensil (2 * 2)
 
--- Rent 31
-(1, 20, 31, 10), -- Family Sleeping Bag (1 * 20)
-(1, 10, 31, 12), -- Low Folding Camping Chair (1 * 10)
+-- Rent 85
+(1, 20, 85, 10), -- Family Sleeping Bag (1 * 20)
+(1, 10, 85, 12), -- Low Folding Camping Chair (1 * 10)
 
--- Rent 32
-(2, 80, 32, 1), -- Foldable Aluminum Table (2 * 40)
-(1, 5, 32, 14), -- Camping Lamp Rechargeable (1 * 5)
+-- Rent 86
+(2, 80, 86, 1), -- Foldable Aluminum Table (2 * 40)
+(1, 5, 86, 14), -- Camping Lamp Rechargeable (1 * 5)
 
--- Rent 33
-(1, 55, 33, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(1, 2, 33, 20), -- Cooking Utensil (1 * 2)
+-- Rent 87
+(1, 55, 87, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(1, 2, 87, 20), -- Cooking Utensil (1 * 2)
 
--- Rent 34
-(2, 40, 34, 7), -- Camping Air Basic 2 Person (2 * 20)
-(1, 25, 34, 9), -- Laybed (1 * 25)
+-- Rent 88
+(2, 40, 88, 7), -- Camping Air Basic 2 Person (2 * 20)
+(1, 25, 88, 9), -- Laybed (1 * 25)
 
--- Rent 35
-(1, 40, 35, 3), -- Wooden Eggroll Table (1 * 40)
-(1, 15, 35, 22), -- Titanium Pot and Cup (1 * 15)
-(1, 10, 35, 10), -- Family Sleeping Bag (1 * 20)
-(2, 6, 35, 17), -- Multipurpose Rope(10m) (3 * 2)
+-- Rent 89
+(1, 40, 89, 3), -- Wooden Eggroll Table (1 * 40)
+(1, 15, 89, 22), -- Titanium Pot and Cup (1 * 15)
 
--- Rent 36
-(1, 55, 36, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 20, 36, 19), -- Camp Cook Set (2 * 10)
+-- Rent 90
+(1, 10, 90, 10), -- Family Sleeping Bag (1 * 10)
+(3, 6, 90, 17), -- Multipurpose Rope(10m) (3 * 2)
 
--- Rent 37
-(2, 40, 37, 8), -- Single Sleeping Bag (2 * 20)
-(1, 200, 37, 25), -- 5-8 Person Camping Tent (1 * 200)
+-- Rent 91
+(1, 55, 91, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 20, 91, 19), -- Camp Cook Set (2 * 10)
 
--- Rent 38
-(1, 20, 38, 6), -- Camping Air Basic 1 Person (1 * 20)
-(1, 5, 38, 14), -- Camping Lamp Rechargeable (1 * 5)
+-- Rent 92
+(2, 40, 92, 8), -- Single Sleeping Bag (2 * 20)
+(1, 200, 92, 25), -- 5-8 Person Camping Tent (1 * 200)
 
--- Rent 39
-(2, 30, 39, 13), -- Large Folding Camping Chair (2 * 15)
-(1, 20, 39, 10), -- Family Sleeping Bag (1 * 20)
+-- Rent 93
+(1, 20, 93, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 5, 93, 14), -- Camping Lamp Rechargeable (1 * 5)
 
--- Rent 40
-(1, 10, 40, 12), -- Low Folding Camping Chair (1 * 10)
-(1, 15, 40, 22), -- Titanium Pot and Cup (1 * 15)
+-- Rent 94
+(2, 30, 94, 13), -- Large Folding Camping Chair (2 * 15)
+(1, 20, 94, 10), -- Family Sleeping Bag (1 * 20)
 
--- Rent 41
-(1, 20, 41, 10), -- Family Sleeping Bag (1 * 20)
-(2, 50, 41, 18), -- Portable Mini Stove (2 * 25)
+-- Rent 95
+(1, 10, 95, 12), -- Low Folding Camping Chair (1 * 10)
+(1, 15, 95, 22), -- Titanium Pot and Cup (1 * 15)
 
--- Rent 42
-(1, 40, 42, 1), -- Foldable Aluminum Table (1 * 40)
-(1, 3, 42, 20), -- Cooking Utensil (1 * 2)
+-- Rent 96
+(1, 20, 96, 10), -- Family Sleeping Bag (1 * 20)
+(2, 50, 96, 18), -- Portable Mini Stove (2 * 25)
 
--- Rent 43
-(2, 80, 43, 4), -- Multifunction Folding Table (2 * 20)
-(1, 180, 43, 24), -- 3-5 Person Camping Tent (1 * 180)
+-- Rent 97
+(1, 40, 97, 1), -- Foldable Aluminum Table (1 * 40)
+(1, 3, 97, 20), -- Cooking Utensil (1 * 2)
 
--- Rent 44
-(1, 15, 44, 13), -- Large Folding Camping Chair (1 * 15)
-(2, 4, 44, 19), -- Camp Cook Set (2 * 2)
+-- Rent 98
+(2, 80, 98, 4), -- Multifunction Folding Table (2 * 20)
+(1, 180, 98, 24), -- 3-5 Person Camping Tent (1 * 180)
 
--- Rent 45
-(1, 20, 45, 6), -- Camping Air Basic 1 Person (1 * 20)
-(2, 10, 45, 12), -- Low Folding Camping Chair (2 * 10)
+-- Rent 99
+(1, 15, 99, 13), -- Large Folding Camping Chair (1 * 15)
+(2, 4, 99, 19), -- Camp Cook Set (2 * 2)
 
--- Rent 46
-(2, 40, 46, 3), -- Wooden Eggroll Table (2 * 40)
-(1, 2, 46, 20), -- Cooking Utensil (1 * 2)
+-- Rent 100
+(1, 20, 100, 6), -- Camping Air Basic 1 Person (1 * 20)
+(2, 10, 100, 12), -- Low Folding Camping Chair (2 * 10)
 
--- Rent 47
-(1, 55, 47, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
-(2, 6, 47, 15), -- Torch Light (2 * 3)
+-- Rent 101
+(2, 40, 101, 3), -- Wooden Eggroll Table (2 * 40)
+(1, 2, 101, 20), -- Cooking Utensil (1 * 2)
 
--- Rent 48
-(3, 60, 48, 2), -- Foldable Aluminium Alloy Table (3 * 20)
-(1, 10, 48, 10), -- Family Sleeping Bag (1 * 10)
+-- Rent 102
+(1, 55, 102, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 6, 102, 15), -- Torch Light (2 * 3)
 
--- Rent 49
-(1, 20, 49, 8), -- Single Sleeping Bag (1 * 20)
-(2, 10, 49, 12), -- Low Folding Camping Chair (2 * 10)
+-- Rent 103
+(3, 60, 103, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 10, 103, 10), -- Family Sleeping Bag (1 * 10)
 
--- Rent 50
-(1, 40, 50, 3), -- Wooden Eggroll Table (1 * 40)
-(2, 30, 50, 18), -- Portable Mini Stove (2 * 15);
+-- Rent 104
+(1, 20, 104, 8), -- Single Sleeping Bag (1 * 20)
+(2, 10, 104, 12), -- Low Folding Camping Chair (2 * 10)
 
+-- Rent 105
+(1, 40, 105, 3), -- Wooden Eggroll Table (1 * 40)
+(2, 30, 105, 18), -- Portable Mini Stove (2 * 15)
 
---payment
+-- Rent 106
+(1, 10, 106, 10), -- Family Sleeping Bag (1 * 20)
+(3, 6, 106, 17), -- Multipurpose Rope(10m) (3 * 2)
+
+-- Rent 107
+(1, 55, 107, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 20, 107, 19), -- Camp Cook Set (2 * 10)
+
+-- Rent 108
+(2, 40, 108, 8), -- Single Sleeping Bag (2 * 20)
+(1, 200, 108, 25), -- 5-8 Person Camping Tent (1 * 200)
+
+-- Rent 109
+(1, 20, 109, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 5, 109, 14), -- Camping Lamp Rechargeable (1 * 5)
+
+-- Rent 110
+(2, 30, 110, 13), -- Large Folding Camping Chair (2 * 15)
+(1, 20, 110, 10), -- Family Sleeping Bag (1 * 20)
+
+-- Rent 111
+(1, 10, 111, 12), -- Low Folding Camping Chair (1 * 10)
+(1, 15, 111, 22), -- Titanium Pot and Cup (1 * 15)
+
+-- Rent 112
+(1, 20, 112, 10), -- Family Sleeping Bag (1 * 20)
+(2, 50, 112, 18), -- Portable Mini Stove (2 * 25)
+
+-- Rent 113
+(1, 40, 113, 1), -- Foldable Aluminum Table (1 * 40)
+(1, 3, 113, 20), -- Cooking Utensil (1 * 2)
+
+-- Rent 114
+(2, 80, 114, 4), -- Multifunction Folding Table (2 * 20)
+(1, 180, 114, 24), -- 3-5 Person Camping Tent (1 * 180)
+
+-- Rent 115
+(1, 15, 115, 13), -- Large Folding Camping Chair (1 * 15)
+(2, 4, 115, 19), -- Camp Cook Set (2 * 2)
+
+-- Rent 116
+(1, 20, 116, 6), -- Camping Air Basic 1 Person (1 * 20)
+(2, 10, 116, 12), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 117
+(2, 40, 117, 3), -- Wooden Eggroll Table (2 * 40)
+(1, 2, 117, 20), -- Cooking Utensil (1 * 2)
+
+-- Rent 118
+(1, 55, 118, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 6, 118, 15), -- Torch Light (2 * 3)
+
+-- Rent 119
+(3, 60, 119, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 10, 119, 10), -- Family Sleeping Bag (1 * 10)
+
+-- Rent 120
+(1, 20, 120, 8), -- Single Sleeping Bag (1 * 20)
+(2, 10, 120, 12), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 121
+(1, 40, 121, 3), -- Wooden Eggroll Table (1 * 40)
+(2, 30, 121, 18), -- Portable Mini Stove (2 * 15)
+
+-- Rent 122
+(1, 10, 122, 10), -- Family Sleeping Bag (1 * 20)
+(3, 6, 122, 17), -- Multipurpose Rope(10m) (3 * 2)
+
+-- Rent 123
+(1, 55, 123, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 20, 123, 19), -- Camp Cook Set (2 * 10)
+
+-- Rent 124
+(2, 40, 124, 8), -- Single Sleeping Bag (2 * 20)
+(1, 200, 124, 25), -- 5-8 Person Camping Tent (1 * 200)
+
+-- Rent 125
+(1, 20, 125, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 5, 125, 14), -- Camping Lamp Rechargeable (1 * 5)
+
+-- Rent 126
+(2, 30, 126, 13), -- Large Folding Camping Chair (2 * 15)
+(1, 20, 126, 10), -- Family Sleeping Bag (1 * 20)
+
+-- Rent 127
+(1, 10, 127, 12), -- Low Folding Camping Chair (1 * 10)
+(1, 15, 127, 22), -- Titanium Pot and Cup (1 * 15)
+
+-- Rent 128
+(1, 20, 128, 10), -- Family Sleeping Bag (1 * 20)
+(2, 50, 128, 18), -- Portable Mini Stove (2 * 25)
+
+-- Rent 129
+(1, 40, 129, 1), -- Foldable Aluminum Table (1 * 40)
+(1, 3, 129, 20), -- Cooking Utensil (1 * 2)
+
+-- Rent 130
+(2, 80, 130, 4), -- Multifunction Folding Table (2 * 20)
+(1, 180, 130, 24), -- 3-5 Person Camping Tent (1 * 180)
+
+-- Rent 131
+(1, 15, 131, 13), -- Large Folding Camping Chair (1 * 15)
+(2, 4, 131, 19), -- Camp Cook Set (2 * 2)
+
+-- Rent 132
+(1, 20, 132, 6), -- Camping Air Basic 1 Person (1 * 20)
+(2, 10, 132, 12), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 133
+(2, 40, 133, 3), -- Wooden Eggroll Table (2 * 40)
+(1, 2, 133, 20), -- Cooking Utensil (1 * 2)
+
+-- Rent 134
+(1, 55, 134, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 6, 134, 15), -- Torch Light (2 * 3)
+
+-- Rent 135
+(3, 60, 135, 2), -- Foldable Aluminium Alloy Table (3 * 20)
+(1, 10, 135, 10), -- Family Sleeping Bag (1 * 10)
+
+-- Rent 136
+(1, 20, 136, 8), -- Single Sleeping Bag (1 * 20)
+(2, 10, 136, 12), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 137
+(1, 40, 137, 3), -- Wooden Eggroll Table (1 * 40)
+(2, 30, 137, 18), -- Portable Mini Stove (2 * 15)
+
+-- Rent 138
+(1, 10, 138, 10), -- Family Sleeping Bag (1 * 20)
+(3, 6, 138, 17), -- Multipurpose Rope(10m) (3 * 2)
+
+-- Rent 139
+(1, 55, 139, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 20, 139, 19), -- Camp Cook Set (2 * 10)
+
+-- Rent 140
+(2, 40, 140, 8), -- Single Sleeping Bag (2 * 20)
+(1, 200, 140, 25), -- 5-8 Person Camping Tent (1 * 200)
+
+-- Rent 141
+(1, 20, 141, 6), -- Camping Air Basic 1 Person (1 * 20)
+(1, 5, 141, 14), -- Camping Lamp Rechargeable (1 * 5)
+
+-- Rent 142
+(2, 30, 142, 13), -- Large Folding Camping Chair (2 * 15)
+(1, 20, 142, 10), -- Family Sleeping Bag (1 * 20)
+
+-- Rent 143
+(1, 10, 143, 12), -- Low Folding Camping Chair (1 * 10)
+(1, 15, 143, 22), -- Titanium Pot and Cup (1 * 15)
+
+-- Rent 144
+(1, 20, 144, 10), -- Family Sleeping Bag (1 * 20)
+(2, 50, 144, 18), -- Portable Mini Stove (2 * 25)
+
+-- Rent 145
+(1, 40, 145, 1), -- Foldable Aluminum Table (1 * 40)
+(1, 3, 145, 20), -- Cooking Utensil (1 * 2)
+
+-- Rent 146
+(2, 80, 146, 4), -- Multifunction Folding Table (2 * 20)
+(1, 180, 146, 24), -- 3-5 Person Camping Tent (1 * 180)
+
+-- Rent 147
+(1, 15, 147, 13), -- Large Folding Camping Chair (1 * 15)
+(2, 4, 147, 19), -- Camp Cook Set (2 * 2)
+
+-- Rent 148
+(1, 20, 148, 6), -- Camping Air Basic 1 Person (1 * 20)
+(2, 10, 148, 12), -- Low Folding Camping Chair (2 * 10)
+
+-- Rent 149
+(2, 40, 149, 3), -- Wooden Eggroll Table (2 * 40)
+(1, 2, 149, 20), -- Cooking Utensil (1 * 2)
+
+-- Rent 150
+(1, 55, 150, 21), -- Compact 2 Person Pop-up Tent (1 * 55)
+(2, 6, 150, 15); -- Torch Light (2 * 3)
+
+-- payment
 -- Assuming Rent table has been populated and contains 50 rows as per the previous steps.
 
 -- Calculate total_fee for each rent_id
@@ -343,53 +524,100 @@ INSERT INTO `RentalDetail` (`RD_quantity`, `rd_fee`, `rent_id`, `item_id`) VALUE
 -- Below is a simplified example based on assumed rd_fee values for illustration purposes
 
 INSERT INTO `Payment` (`total_fee`, `payment_date`, `rent_id`) VALUES
-(90.00, '2023-01-10', 1),
-(65.00, '2023-02-15', 2),
-(110.00, '2023-03-05', 3),
-(240.00, '2023-04-01', 4),
-(85.00, '2023-05-20', 5),
-(30.00, '2023-06-10', 6),
-(36.00, '2023-07-15', 7),
-(39.00, '2023-08-05', 8),
-(96.00, '2023-09-01', 9),
-(202.00, '2023-10-20', 10),
-(40.00, '2023-11-10', 11),
-(40.00, '2023-12-15', 12),
-(56.00, '2024-01-10', 13),
-(105.00, '2024-02-15', 14),
-(22.00, '2024-03-05', 15),
-(230.00, '2024-04-01', 16),
-(60.00, '2024-05-20', 17),
-(45.00, '2024-06-10', 18),
-(57.00, '2024-07-15', 19),
-(105.00, '2024-08-05', 20),
-(50.00, '2024-09-01', 21),
-(60.00, '2024-10-20', 22),
-(20.00, '2024-11-10', 23),
-(60.00, '2024-12-15', 24),
-(20.00, '2025-01-10', 25),
-(95.00, '2025-02-15', 26),
-(25.00, '2025-03-05', 27),
-(60.00, '2025-04-01', 28),
-(55.00, '2025-05-20', 29),
-(9.00, '2025-06-10', 30),
-(30.00, '2025-07-15', 31),
-(85.00, '2025-08-05', 32),
-(57.00, '2025-09-01', 33),
-(65.00, '2025-10-20', 34),
-(76.00, '2025-11-10', 35),
-(75.00, '2025-12-15', 36),
-(230.00, '2026-01-10', 37),
-(25.00, '2026-02-15', 38),
-(70.00, '2026-03-05', 39),
-(25.00, '2026-04-01', 40),
-(70.00, '2026-05-20', 41),
-(43.00, '2026-06-10', 42),
-(260.00, '2026-07-15', 43),
-(19.00, '2026-08-05', 44),
-(70.00, '2026-09-01', 45),
-(82.00, '2026-10-20', 46),
-(66.00, '2026-11-10', 47),
-(90.00, '2026-12-15', 48),
-(30.00, '2026-01-10', 49),
-(105.00, '2026-02-15', 50);
+INSERT INTO `Payment` (`total_fee`, `payment_date`, `rent_id`) VALUES
+(90.00, '2023-01-10', 55),
+(61.00, '2023-02-15', 56),
+(110.00, '2023-03-05', 57),
+(240.00, '2023-04-01', 58),
+(85.00, '2023-05-20', 59),
+(30.00, '2023-06-10', 60),
+(36.00, '2023-07-15', 61),
+(39.00, '2023-08-05', 62),
+(96.00, '2023-09-01', 63),
+(202.00, '2023-10-20', 64),
+(40.00, '2023-11-10', 65),
+(40.00, '2023-12-15', 66),
+(56.00, '2024-01-10', 67),
+(105.00, '2024-02-15', 68),
+(22.00, '2024-03-05', 69),
+(230.00, '2024-04-01', 70),
+(60.00, '2024-05-20', 71),
+(45.00, '2024-06-10', 72),
+(57.00, '2024-07-15', 73),
+(105.00, '2024-08-05', 74),
+(50.00, '2024-09-01', 75),
+(60.00, '2024-10-20', 76),
+(60.00, '2024-11-10', 77),
+(50.00, '2024-12-15', 78),
+(50.00, '2025-01-10', 79),
+(70.00, '2025-02-15', 80),
+(40.00, '2025-03-05', 81),
+(80.00, '2025-04-01', 82),
+(55.00, '2025-05-20', 83),
+(11.00, '2025-06-10', 84),
+(30.00, '2025-07-15', 85),
+(85.00, '2025-08-05', 86),
+(57.00, '2025-09-01', 87),
+(65.00, '2025-10-20', 88),
+(76.00, '2025-11-10', 89),
+(66.00, '2025-12-15', 90),
+(75.00, '2026-01-10', 91),
+(240.00, '2026-02-15', 92),
+(25.00, '2026-03-05', 93),
+(70.00, '2026-04-01', 94),
+(35.00, '2026-05-20', 95),
+(70.00, '2026-06-10', 96),
+(82.00, '2026-07-15', 97),
+(95.00, '2026-08-05', 98),
+(72.00, '2026-09-01', 99),
+(91.00, '2026-10-20', 100),
+(76.00, '2026-11-10', 101),
+(30.00, '2026-12-15', 102),
+(90.00, '2023-01-10', 103),
+(61.00, '2023-02-15', 104),
+(110.00, '2023-03-05', 105),
+(240.00, '2023-04-01', 106),
+(85.00, '2023-05-20', 107),
+(30.00, '2023-06-10', 108),
+(36.00, '2023-07-15', 109),
+(39.00, '2023-08-05', 110),
+(96.00, '2023-09-01', 111),
+(202.00, '2023-10-20', 112),
+(40.00, '2023-11-10', 113),
+(40.00, '2023-12-15', 114),
+(56.00, '2024-01-10', 115),
+(105.00, '2024-02-15', 116),
+(22.00, '2024-03-05', 117),
+(230.00, '2024-04-01', 118),
+(60.00, '2024-05-20', 119),
+(45.00, '2024-06-10', 120),
+(57.00, '2024-07-15', 121),
+(105.00, '2024-08-05', 122),
+(50.00, '2024-09-01', 123),
+(60.00, '2024-10-20', 124),
+(60.00, '2024-11-10', 125),
+(50.00, '2024-12-15', 126),
+(50.00, '2025-01-10', 127),
+(70.00, '2025-02-15', 128),
+(40.00, '2025-03-05', 129),
+(80.00, '2025-04-01', 130),
+(55.00, '2025-05-20', 131),
+(11.00, '2025-06-10', 132),
+(30.00, '2025-07-15', 133),
+(85.00, '2025-08-05', 134),
+(57.00, '2025-09-01', 135),
+(65.00, '2025-10-20', 136),
+(76.00, '2025-11-10', 137),
+(66.00, '2025-12-15', 138),
+(75.00, '2026-01-10', 139),
+(240.00, '2026-02-15', 140),
+(25.00, '2026-03-05', 141),
+(70.00, '2026-04-01', 142),
+(35.00, '2026-05-20', 143),
+(70.00, '2026-06-10', 144),
+(82.00, '2026-07-15', 145),
+(95.00, '2026-08-05', 146),
+(72.00, '2026-09-01', 147),
+(91.00, '2026-10-20', 148),
+(76.00, '2026-11-10', 149),
+(30.00, '2026-12-15', 150);
