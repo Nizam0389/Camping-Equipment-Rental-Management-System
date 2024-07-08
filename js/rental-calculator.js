@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
     startDateInput.value = today;
     endDateInput.value = tomorrow;
 
+    // Set min attributes to prevent selecting dates before today
+    startDateInput.setAttribute('min', today);
+    endDateInput.setAttribute('min', tomorrow);
+
     // Calculate total days
     const calculateTotalDays = () => {
         const startDate = new Date(startDateInput.value);
@@ -18,7 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
         totalDaysSpan.textContent = daysDiff;
     };
 
-    startDateInput.addEventListener('change', calculateTotalDays);
+    // Ensure end date is not before start date
+    const validateEndDate = () => {
+        const startDate = new Date(startDateInput.value);
+        const minEndDate = new Date(startDate);
+        minEndDate.setDate(startDate.getDate() + 1);
+        const minEndDateString = minEndDate.toISOString().split('T')[0];
+        endDateInput.setAttribute('min', minEndDateString);
+        if (new Date(endDateInput.value) < minEndDate) {
+            endDateInput.value = minEndDateString;
+        }
+        calculateTotalDays();
+    };
+
+    startDateInput.addEventListener('change', () => {
+        validateEndDate();
+        calculateTotalDays();
+    });
     endDateInput.addEventListener('change', calculateTotalDays);
     calculateTotalDays(); // Initial calculation
 });
