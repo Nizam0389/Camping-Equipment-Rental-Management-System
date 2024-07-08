@@ -1,6 +1,8 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+$username = isset($_SESSION["username"]) ? $_SESSION["username"] : 'Guest';
 ?>
 
 <!DOCTYPE html>
@@ -130,20 +132,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="category.php">RENTAL</a></li>
-            <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><a href="contactus.php">CONTACT US</a></li>
-            <li class="right"><a href="login.php"><img src="image/profilebg.png" alt="Login" style="height:20%; width:30px;"></a></li>
-        </ul>
-    </div>
+    <?php include 'navbar.php'; ?>
     <div class="main-content">
-        <h2 class="title-page">- PAYMENT -</h2>
+        <h2 style="text-align: center; margin-top: 0;font-size: 24px; color: #4F6F52;">- PAYMENT -</h2>
         <div class="cart-container">
             <div class="cart-details">
-                <h3>Payment</h3>
+                <h3 style="margin-top: 0; color: #4F6F52; padding: 5px">Payment</h3>
                 <table class="cart-table">
                     <thead>
                         <tr>
@@ -157,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <!-- Cart items will be populated here -->
                     </tbody>
                 </table>
+                <br>
                 <div class="rental-summary">
                     <p>Number of days: <span id="num-days">0</span></p>
                 </div>
@@ -193,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <input type="radio" name="bank" value="https://www.ambank.com.my/eng/online-banking/faq-get-started-Log-In-to-AmOnline" required>
                         <img src="image/bank/ambank.png" alt="AmBank">
                     </label><br>
-                    <button type="button" class="pay-button">Pay Now</button>
+                    <button type="button" class="pay-button" style="background-color: #34A853;">Pay Now</button>
                 </form>
             </div>
         </div>

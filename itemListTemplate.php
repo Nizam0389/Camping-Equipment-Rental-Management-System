@@ -54,33 +54,15 @@ if (empty($itemType)) {
 </head>
 <body class="">
 
-<div class="navbar1">
-    <div class="navbar">
-        <ul>
-            <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="category.php">RENTAL</a></li>
-            <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><span class="username"><?php echo $username; ?></span></li>
-            <li class="right profile-dropdown">
-                <a href="javascript:void(0);">
-                    <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
-                </a>
-                <div class="dropdown-content">
-                    <a href="staffAccountSetting.php">Profile</a>
-                    <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+<?php include 'navbar.php'; ?>
 
 <div class="container">
     <header>
         <div class="title"><?php echo ucfirst($itemType); ?> List</div>
         
         <div class="dropdown">
-            <a class="icon">Category
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
+            <a class="icon" style="display: flex">Category
+                <svg style="margin-top: 10px" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-square-fill" viewBox="0 0 16 16">
                     <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm4 4a.5.5 0 0 0-.374.832l4 4.5a.5.5 0 0 0 .748 0l4-4.5A.5.5 0 0 0 12 6z"/>
                 </svg>
             </a>
@@ -110,8 +92,8 @@ if (empty($itemType)) {
         
     </div>
     <div class="btn">
-        <button class="close">CLOSE</button>
-        <button>
+        <button class="close" style="color: black">Close</button>
+        <button style="color: black">
             <a class="checkOut" href="confirmation.php">Check Out</a>
         </button>
     </div>

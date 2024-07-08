@@ -1,15 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    background-color: #F5EFE6; /* Set a background color for the body */
+    background-color: #F5EFE6; /* Setting a background color for the body */
 }
 
 .navbar {
     background-color: #4F6F52;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a slight shadow to the navbar */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a slight shadow to the navbar */
 }
 
 .navbar ul {
@@ -30,7 +29,7 @@ body {
     text-decoration: none;
     font-size: 18px;
     position: relative;
-    transition: color 0.3s ease; /* Add a transition effect for color */
+    transition: color 0.3s ease; /* Adding a transition effect for color */
 }
 
 .navbar li a::after {
@@ -77,15 +76,15 @@ body {
 .title-page {
     text-align: center;
     margin-top: 0;
-    font-size: 24px; /* Make the title slightly larger */
-    color: #4F6F52; /* Use the main color for the title */
+    font-size: 24px; /* Making the title slightly larger */
+    color: #4F6F52; /* Using the main color for the title */
 }
 
 .cart-container {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    gap: 20px; /* Add space between the two sections */
+    gap: 20px; /* Adding space between the two sections */
 }
 
 .cart-details {
@@ -93,7 +92,7 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 1; /* Allow the cart details to take up more space */
+    flex: 1; /* Allowing the cart details to take up more space */
 }
 
 .payment-details {
@@ -101,12 +100,12 @@ body {
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 30%; /* Make the payment details section smaller */
+    width: 30%; /* Making the payment details section smaller */
 }
 
 .cart-details h3, .payment-details h3 {
     margin-top: 0;
-    color: #4F6F52; /* Use the main color for the headings */
+    color: #4F6F52; /* Using the main color for the headings */
 }
 
 .cart-table {
@@ -136,7 +135,7 @@ body {
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: bold;
-    color: #4F6F52; /* Use the main color for the total */
+    color: #4F6F52; /* Using the main color for the total */
 }
 
 form label {
@@ -159,7 +158,6 @@ form label img {
     border: 1px solid #8B5E3C;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 10px; /* Add margin between radio buttons */
 }
 
 .radio-container input[type="radio"] {
@@ -168,13 +166,13 @@ form label img {
 }
 
 .radio-container img {
-    margin-left: auto;
+    margin: auto;
 }
 
 .pay-button {
     display: block;
-    margin: 20px auto 0; /* Add margin for spacing */
-    width: 70%;
+    margin: auto;
+    width: 30%;
     padding: 10px;
     background-color: #34A853;
     color: white;
@@ -187,5 +185,5 @@ form label img {
 }
 
 .pay-button:hover {
-    background-color: #3E5643;
+    background-color: #1b582b;
 }

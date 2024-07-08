@@ -45,23 +45,7 @@ $username = $_SESSION['username'];
     </script>
 </head>
 <body>
-    <div class="navbar">
-        <ul>
-            <li><a href="homepage.php">HOMEPAGE</a></li>
-            <li><a href="contactus.php">CONTACT US</a></li>
-            <li class="logo" style="margin-right: 150px;" ><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><span class="username"><?php echo $username; ?></span></li>
-            <li class="right profile-dropdown">
-                <a href="javascript:void(0);">
-                    <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
-                </a>
-                <div class="dropdown-content">
-                    <a href="staffAccountSetting.php">Profile</a>
-                    <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+    <?php include 'navbar.php'; ?>
     <div class="main-content">
         <div class="category-container">
             <h2>- CATEGORY -</h2>
