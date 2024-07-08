@@ -182,27 +182,5 @@ function confirmAndSaveRentalDetails() {
             </div>
         </div>
     </div>
-    
-    <!-- Confirmation Modal -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="document.getElementById('confirmationModal').style.display='none'">&times;</span>
-            <h2>Confirm Rental Details</h2>
-            <table class="cart-table">
-                <thead>
-                    <tr>
-                        <th>PRODUCT</th>
-                        <th>PRICE PER DAY</th>
-                        <th>QUANTITY</th>
-                        <th>TOTAL</th>
-                    </tr>
-                </thead>
-                <tbody id="confirmation-cart-items">
-                    <!-- Confirmation cart items will be populated here -->
-                </tbody>
-            </table>
-            <button type="button" class="confirm-rent-button" onclick="confirmAndSaveRentalDetails()">Confirm and Save Rental Details</button>
-        </div>
-    </div>
 </body>
 </html>
