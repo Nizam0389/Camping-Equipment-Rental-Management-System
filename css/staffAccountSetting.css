@@ -1,0 +1,160 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #F5EFE6;
+}
+
+.navbar {
+    background-color: #4F6F52;
+    overflow: hidden;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+.navbar li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: transparent;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar li a:hover::after {
+    background-color: white;
+    transform: scaleX(1);
+}
+
+.navbar li.logo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.navbar li.logo img {
+    border-radius: 50%;
+    padding: 5px;
+    background-color: #fff;
+    height: 30px;
+}
+
+.navbar li.cart img {
+    border-radius: 50%;
+    padding: 5px;
+    height: 30px;
+}
+
+.navbar li.right img {
+    height: 30px;
+    width: auto;
+}
+
+.profile-container {
+    background-color: #FFF5F5;
+    width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container h2, .profile-container h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.profile-details, .password-details {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.label-column {
+    text-align: left;
+    padding-right: 10px;
+}
+
+.value-column {
+    text-align: left;
+}
+
+.profile-details td, .password-details td {
+    padding: 10px 0;
+}
+
+.profile-details input, .password-details input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.save-btn {
+    background-color: #4d704d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+    margin: 10px 0;
+}
+
+.confirm-btn {
+    background-color: #607C61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+.change-password {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.change-password label {
+    margin: 10px 0 5px 0;
+    font-weight: bold;
+}
+
+.change-password input {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}

@@ -24,7 +24,6 @@ $dbCon->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="css/adminDashboard.css">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         function confirmLogout() {
@@ -56,7 +55,7 @@ $dbCon->close();
                     <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
                 </a>
                 <div class="dropdown-content">
-                    <a href="staffDetail.php">Profile</a>
+                    <a href="staffAccountSetting.php">Profile</a>
                     <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
                 </div>
             </li>
