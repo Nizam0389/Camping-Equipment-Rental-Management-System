@@ -58,7 +58,6 @@ $username = $_SESSION["username"];
             <a href="reportCustomerList.php" class="report-button">Customer List</a>
             <a href="reportStaffList.php" class="report-button">Staff List</a>
             <a href="reportMonthlyrent.php" class="report-button">Monthly rent Report</a>
-            <a href="reportItem.php" class="report-button">Item Report</a>
         </div>
     </div>
 </body>

@@ -11,12 +11,31 @@ $username = $_SESSION["username"];
 <head>
     <title>Item List</title>
     <link rel="stylesheet" type="text/css" href="css/itemList2.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         function confirmLogout() {
-            var result = confirm("Do you want to log out?");
-            if (result) {
-                window.location.href = 'logout.php';
-            }
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Logging Out!',
+                        text: 'You are being logged out.',
+                        icon: 'info',
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    });
+                    setTimeout(() => {
+                        window.location.href = 'logout.php';
+                    }, 1000);
+                }
+            });
         }
     </script>
 </head>
@@ -41,7 +60,7 @@ $username = $_SESSION["username"];
                     <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
                 </a>
                 <div class="dropdown-content">
-                    <a href="staffDetail.php">Profile</a>
+                    <a href="staffAccountSetting.php">Profile</a>
                     <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
                 </div>
             </li>
