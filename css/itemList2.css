@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     box-sizing: border-box;
+    background-color: #9FB8A0;
 }
 
 .navbar {
@@ -151,12 +152,13 @@ body {
 
 .item-table th,
 .item-table td {
-    border: 1px solid #ddd;
+    border: 1px solid #5f5e5e;
     padding: 8px;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    background-color: #f7f7f7ce;
 }
 
 .item-table th {
