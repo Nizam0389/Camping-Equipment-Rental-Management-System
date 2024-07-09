@@ -3,6 +3,18 @@ session_start();
 $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
 $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
 $usertype = $loggedin ? htmlspecialchars($_SESSION["user_type"]) : "";
+
+// Redirect logic based on user type
+if ($usertype === 'guest') {
+    header("Location: index.php");
+    exit;
+} elseif ($usertype === 'staff') {
+    header("Location: adminDashboard.php");
+    exit;
+} elseif ($usertype === 'customer') {
+    header("Location: homepage.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
