@@ -93,8 +93,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                 denyButtonText: `Don't save`
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Swal.fire("Saved!", "", "success").then(() => {
-                        event.target.submit();
+                    Swal.fire({
+                        title: 'Saved!',
+                        text: 'Your changes have been saved.',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        willClose: () => {
+                            event.target.submit();
+                        }
                     });
                 } else if (result.isDenied) {
                     Swal.fire("Changes are not saved", "", "info");
@@ -102,27 +110,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
             });
         }
 
-        function confirmLogout() {
+        function confirmPasswordChange(event) {
+            event.preventDefault();
             Swal.fire({
-                title: 'Are you sure?',
-                text: 'You will be logged out',
-                icon: 'warning',
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, logout!'
+                confirmButtonText: "Save",
+                denyButtonText: `Don't save`
             }).then((result) => {
                 if (result.isConfirmed) {
                     Swal.fire({
-                        title: 'Logging Out!',
-                        text: 'You are being logged out.',
-                        icon: 'info',
+                        title: 'Saved!',
+                        text: 'Your changes have been saved.',
+                        icon: 'success',
                         showConfirmButton: false,
-                        allowOutsideClick: false
+                        timer: 1000,
+                        timerProgressBar: true,
+                        willClose: () => {
+                            event.target.submit();
+                        }
                     });
-                    setTimeout(() => {
-                        window.location.href = 'logout.php';
-                    }, 1000);
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
                 }
             });
         }
@@ -130,16 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <ul>
-                <li><a href="index.php">HOMEPAGE</a></li>
-                <li><a href="category.php">RENTAL</a></li>
-                <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.php">CONTACT US</a></li>
-                <li class="cart"><a href="#"><img src="image/cart1.png" alt="Cart"></a></li>
-                <li class="right"><a href="#" onclick="confirmLogout()"><img src="image/profilebg.png" alt="Logout"></a></li>
-            </ul>
-        </div>
+        <?php include 'navbar.php'; ?>
     </header>
     <main>
         <div class="profile-container">
@@ -176,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                         <td class="value-column"><input type="text" id="address" name="address" value="<?php echo htmlspecialchars($customer['address']); ?>" required></td>
                     </tr>
                 </table>
-                <button type="submit" class="save-btn">Save</button>
+                <button type="submit" class="save-btn" style="background-color: green">Save</button>
             </form>
             <h3>Change Password</h3>
             <?php 
@@ -187,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                 echo "<p style='color: green;'>$password_success</p>";
             }
             ?>
-            <form method="post" action="" onsubmit="confirmSaveChanges(event)">
+            <form method="post" action="" onsubmit="confirmPasswordChange(event)">
                 <input type="hidden" name="change_password" value="1">
                 <table class="password-details">
                     <tr>
@@ -199,7 +200,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                         <td class="value-column"><input type="password" id="confirm_password" name="confirm_password" placeholder="Password Confirmation" required></td>
                     </tr>
                 </table>
-                <button type="submit" class="confirm-btn">Confirm</button>
+                <button type="submit" class="confirm-btn" style="background-color: green">Confirm</button>
             </form>
         </div>
     </main>

@@ -52,6 +52,32 @@ $dbCon->close();
             });
         }
     </script>
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #3E5443;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -97,7 +123,7 @@ $dbCon->close();
                     <div class="stat-value"><?php echo $available_equipment; ?></div>
                 </div>
                 <div class="stat">
-                    <div class="stat-title">rentED EQUIPMENT</div>
+                    <div class="stat-title">RENTED EQUIPMENT</div>
                     <div class="stat-value"><?php echo $rented_equipment; ?></div>
                 </div>
             </div>
