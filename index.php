@@ -2,7 +2,9 @@
 session_start();
 $loggedin = isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true;
 $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
+$usertype = $loggedin ? htmlspecialchars($_SESSION["user_type"]) : "";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,7 @@ $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
             <li><a href="<?php echo $loggedin ? 'category.php' : '#'; ?>" <?php if(!$loggedin) echo 'onclick="showLoginPopup(event)"'; ?>>RENTAL</a></li>
             <li><a href="contactUsGuest.php">CONTACT US</a></li>
             <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><a href="<?php echo $loggedin ? 'profile.php' : 'login.php'; ?>"><img src="image/profilebg.png" alt="Profile"></a></li>
+            <li class="right"><a href="<?php echo $loggedin ? ($usertype === 'staff' ? 'adminDashboard.php' : 'homepage.php') : 'login.php'; ?>"><img src="image/profilebg.png" alt="Profile"></a></li>
         </ul>
     </div>
 
@@ -39,7 +41,7 @@ $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
             <p>
                 <button class="button" onclick="closePopup()">Close</button>
                 <button class="button" onclick="window.location.href='login.php';">Login</button>
-                </p>
+            </p>
         </div>
     </div>
 
@@ -53,8 +55,8 @@ $username = $loggedin ? htmlspecialchars($_SESSION["username"]) : "";
             document.querySelector('.js_basic-popup').classList.remove('popup--visible');
         }
 
-        $(document).ready(function() {
-            $('.popup__background').click(closePopup);
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.popup__background').addEventListener('click', closePopup);
         });
     </script>
 </body>

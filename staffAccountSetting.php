@@ -105,36 +105,134 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
                 }
             });
         }
+
+        function confirmSaveChanges(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Save",
+                denyButtonText: `Don't save`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Saved!',
+                        text: 'Your changes have been saved.',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        willClose: () => {
+                            event.target.submit();
+                        }
+                    });
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        }
+
+        function confirmPasswordChange(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: "Do you want to save the changes?",
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Save",
+                denyButtonText: `Don't save`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Saved!',
+                        text: 'Your changes have been saved.',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1000,
+                        timerProgressBar: true,
+                        willClose: () => {
+                            event.target.submit();
+                        }
+                    });
+                } else if (result.isDenied) {
+                    Swal.fire("Changes are not saved", "", "info");
+                }
+            });
+        }
+
+        // Dropdown functionality
+        document.addEventListener("DOMContentLoaded", function() {
+            var profileDropdown = document.querySelector(".profile-dropdown");
+            var dropdownContent = document.querySelector(".dropdown-content");
+
+            profileDropdown.addEventListener("click", function() {
+                dropdownContent.classList.toggle("show");
+            });
+
+            window.addEventListener("click", function(event) {
+                if (!event.target.matches('.profile-dropdown, .profile-dropdown *')) {
+                    if (dropdownContent.classList.contains('show')) {
+                        dropdownContent.classList.remove('show');
+                    }
+                }
+            });
+        });
     </script>
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #3E5443;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <header>
-    <div class="navbar">
-        <ul>
-            <li><a href="adminDashboard.php">HOME</a></li>
-            <li><a href="customerList.php">CUSTOMER</a></li>
-            <li><a href="itemList.php">ITEM</a></li>
-            <li class="logo"><img src="image/logo.png" alt="logo"></li>
-            <li class="right"><a href="contactUsAdmin.php">CONTACT US</a></li>
-            <li class="right">
-                <?php if ($username == 'S001') : ?>
-                    <a href="addStaff.php" class="add-staff-link">
-                        <i aria-hidden="true"></i>
-                        ADD STAFF
+        <div class="navbar">
+            <ul>
+                <li><a href="adminDashboard.php">HOME</a></li>
+                <li><a href="customerList.php">CUSTOMER</a></li>
+                <li><a href="itemList.php">ITEM</a></li>
+                <li class="logo"><img src="image/logo.png" alt="logo"></li>
+                <li class="right"><a href="contactUsAdmin.php">CONTACT US</a></li>
+                <li class="right">
+                    <?php if ($username == 'S001') : ?>
+                        <a href="addStaff.php" class="add-staff-link">
+                            <i aria-hidden="true"></i>
+                            ADD STAFF
+                        </a>
+                    <?php endif; ?>
+                </li>
+                <li class="right profile-dropdown">
+                    <a href="javascript:void(0);">
+                        <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
                     </a>
-                <?php endif; ?>
-            </li>
-            <li class="right profile-dropdown">
-                <a href="javascript:void(0);">
-                    <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
-                </a>
-                <div class="dropdown-content">
-                    <a href="staffAccountSetting.php">Profile</a>
-                    <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+                    <div class="dropdown-content">
+                        <a href="staffAccountSetting.php">Profile</a>
+                        <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </header>
     <main>
         <div class="profile-container">
@@ -143,7 +241,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
             if (!empty($error)) { echo "<p style='color: red;'>$error</p>"; }
             if (!empty($success_message)) { echo "<p style='color: green;'>$success_message</p>"; }
             ?>
-            <form method="post" action="">
+            <form method="post" action="" onsubmit="confirmSaveChanges(event)">
                 <table class="profile-details">
                     <tr>
                         <td class="label-column"><strong>Name</strong>:</td>
@@ -173,7 +271,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
             if (!empty($password_error)) { echo "<p style='color: red;'>$password_error</p>"; }
             if (!empty($password_success)) { echo "<p style='color: green;'>$password_success</p>"; }
             ?>
-            <form method="post" action="">
+            <form method="post" action="" onsubmit="confirmPasswordChange(event)">
                 <table class="password-details">
                     <tr>
                         <td class="label-column"><strong>New Password:</strong></td>
