@@ -6,12 +6,40 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true || $_SESSION
 }
 $username = $_SESSION["username"];
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Item List</title>
     <link rel="stylesheet" type="text/css" href="css/itemList2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #3E5443;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
     <script>
         function confirmLogout() {
             Swal.fire({
@@ -34,6 +62,43 @@ $username = $_SESSION["username"];
                     setTimeout(() => {
                         window.location.href = 'logout.php';
                     }, 1000);
+                }
+            });
+        }
+
+        function confirmDelete(itemId) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your item has been deleted.',
+                        'success'
+                    );
+                    setTimeout(() => {
+                        window.location.href = 'deleteItem.php?item_id=' + itemId;
+                    }, 1000);
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your item is safe :)',
+                        'error'
+                    );
                 }
             });
         }
@@ -210,15 +275,10 @@ $username = $_SESSION["username"];
             }
         }
 
-        function confirmDelete(itemId) {
-            if (confirm("Are you sure you want to delete this item?")) {
-                window.location.href = 'deleteItem.php?item_id=' + itemId;
-            }
-        }
-
         document.addEventListener("DOMContentLoaded", () => {
             paginateTable();
         });
     </script>
 </body>
 </html>
+

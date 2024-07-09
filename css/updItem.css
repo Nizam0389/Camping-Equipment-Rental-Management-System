@@ -62,7 +62,7 @@ body {
 .navbar li.right img {
     border-radius: 50%;
     padding: 5px;
-    height: 30px;
+    height : 30px;
     width: auto;
 }
 
@@ -111,11 +111,21 @@ body {
 
 .container {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .form-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 form {
@@ -147,7 +157,6 @@ button:hover {
 }
 
 .image-preview {
-    /* margin-left: 20px; */
     text-align: center;
 }
 

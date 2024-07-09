@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   if (selectedValue) {
                       window.location.href = selectedValue;
                   } else {
-                      alert("Please select a bank.");
+
                   }
               } else {
                   alert('Failed to save payment details: ' + data.message);
@@ -162,33 +162,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span>Total</span>
                     <span id="total-price">RM 0.00</span>
                 </div>
-                <h4>Online Banking</h4>
                 <form>
-                    <label class="radio-container">
-                        <input type="radio" name="bank" value="https://www.maybank2u.com.my/mbb/m2u/common/M2ULogin.do?action=Login" required>
-                        <img src="image/bank/maybank.png" alt="Maybank">
-                    </label><br>
-                    <label class="radio-container">
-                        <input type="radio" name="bank" value="https://www.bankislam.biz/rib/" required>
-                        <img src="image/bank/bank-islam.png" alt="Bank Islam">
-                    </label><br>
-                    <label class="radio-container">
-                        <input type="radio" name="bank" value="https://www.cimbclicks.com.my/clicks/" required>
-                        <img src="image/bank/cimb.png" alt="CIMB">
-                    </label><br>
-                    <label class="radio-container">
-                        <input type="radio" name="bank" value="https://onlinebanking.rhbgroup.com/my/login" required>
-                        <img src="image/bank/rhb.png" alt="RHB">
-                    </label><br>
-                    <label class="radio-container">
-                        <input type="radio" name="bank" value="https://www.pbebank.com/" required>
-                        <img src="image/bank/public-bank.png" alt="Public Bank">
-                    </label><br>
-                    <label class="radio-container">
-                        <input type="radio" name="bank" value="https://www.ambank.com.my/eng/online-banking/faq-get-started-Log-In-to-AmOnline" required>
-                        <img src="image/bank/ambank.png" alt="AmBank">
-                    </label><br>
-                    <button type="button" class="pay-button" style="background-color: #34A853;">Pay Now</button>
+                    <button type="button" class="pay-button" style="background-color: #34A853;">CONFIRM BOOK</button>
                 </form>
             </div>
         </div>

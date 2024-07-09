@@ -102,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 window.onload = function() {
                     Swal.fire({
                         position: 'center',
-                        icon: 'erro',
+                        icon: 'error',
                         title: 'Something went wrong!',
                         showConfirmButton: false,
                         timer: 1500
@@ -157,7 +157,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="tel" name="phone_no" placeholder="Phone No." value="<?php echo $phone_no; ?>" required>
                 <input type="text" name="name" placeholder="Name" value="<?php echo $name; ?>" required>
                 <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>" required>
-                <p>Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our <a href="#">privacy policy</a>.</p>
                 <button type="submit" class="register-btn">REGISTER</button>
             </form>
             <br>

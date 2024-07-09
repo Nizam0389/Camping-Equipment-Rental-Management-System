@@ -16,14 +16,59 @@ $username = $_SESSION["username"];
     <link rel="stylesheet" href="css/report.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         function confirmLogout() {
-            var result = confirm("Do you want to log out?");
-            if (result) {
-                window.location.href = 'logout.php';
-            }
+            Swal.fire({
+                title: 'Are you sure?',
+                text: 'You will be logged out',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, logout!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Logging Out!',
+                        text: 'You are being logged out.',
+                        icon: 'info',
+                        showConfirmButton: false,
+                        allowOutsideClick: false
+                    });
+                    setTimeout(() => {
+                        window.location.href = 'logout.php';
+                    }, 1000);
+                }
+            });
         }
     </script>
+    <style>
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #3E5443;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -57,7 +102,10 @@ $username = $_SESSION["username"];
         <div class="report-buttons">
             <a href="reportCustomerList.php" class="report-button">Customer List</a>
             <a href="reportStaffList.php" class="report-button">Staff List</a>
-            <a href="reportMonthlyrent.php" class="report-button">Monthly rent Report</a>
+            <a href="reportMonthlyrent.php" class="report-button">Monthly Rent Report</a>
+            <a href="salesPerYear.php" class="report-button">Sales Per Year</a>
+            <a href="salesPerCategory.php" class="report-button">Sales Per Category</a>
+            <a href="salesSummary.php" class="report-button">Sales Summary</a>
         </div>
     </div>
 </body>

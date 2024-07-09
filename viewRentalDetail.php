@@ -9,7 +9,7 @@ $username = $_SESSION["username"];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>rental Details</title>
+    <title>Rental Details</title>
     <link rel="stylesheet" type="text/css" href="css/viewrentaldetail.css">
     <script>
         function confirmLogout() {
@@ -48,7 +48,7 @@ $username = $_SESSION["username"];
         </ul>
     </div>
     <div class="main-content">
-        <h2 class="title-page">- rentAL DETAILS -</h2>
+        <h2 class="title-page">- RENTAL DETAILS -</h2>
         <div class="header-info">
             <?php
             include 'dbConnect.php';
@@ -74,12 +74,12 @@ $username = $_SESSION["username"];
             }
             ?>
             <div class="left-info">
-                <p>rent ID: <?php echo $rentId; ?></p>
+                <p>Rent ID: <?php echo $rentId; ?></p>
                 <p>Customer ID: <?php echo $custId; ?></p>
                 <p>Customer Name: <?php echo $custName; ?></p>
             </div>
             <div class="right-info">
-                <p>rent Date: <?php echo $rentDate; ?></p>
+                <p>Rent Date: <?php echo $rentDate; ?></p>
                 <p>Return Date: <?php echo $returnDate; ?></p>
             </div>
         </div>
@@ -91,7 +91,6 @@ $username = $_SESSION["username"];
                     <th>Item Name</th>
                     <th>Item Type</th>
                     <th>Quantity</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -112,7 +111,6 @@ $username = $_SESSION["username"];
                                 <td>" . $row["item_name"] . "</td>
                                 <td>" . $row["item_type"] . "</td>
                                 <td>" . $row["RD_quantity"] . "</td>
-                                <td><button onclick=\"viewReceipt('" . $row["item_id"] . "')\">View Receipt</button></td>
                               </tr>";
                     }
                     mysqli_stmt_close($stmt);
@@ -126,14 +124,6 @@ $username = $_SESSION["username"];
                 <button onclick="confirmReturn()">Confirm Return</button>
             <?php endif; ?>
             <button onclick="printReport()">Print</button>
-        </div>
-    </div>
-
-    <!-- Modal for viewing receipt -->
-    <div id="receiptModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="receiptImage" src="" alt="Receipt Image">
         </div>
     </div>
 
@@ -156,44 +146,6 @@ $username = $_SESSION["username"];
 
         function printReport() {
             window.print();
-        }
-
-        function viewReceipt(itemId) {
-            var xhr = new XMLHttpRequest();
-            xhr.open("GET", "getReceipt.php?rent_id=<?php echo $rentId; ?>&item_id=" + itemId, true);
-            xhr.onload = function () {
-                if (xhr.status === 200) {
-                    var data = JSON.parse(xhr.responseText);
-                    if (data.status === 'success') {
-                        document.getElementById("receiptImage").src = data.payment_image_url;
-                        var modal = document.getElementById("receiptModal");
-                        modal.style.display = "block";
-                    } else {
-                        alert("Receipt not found.");
-                    }
-                } else {
-                    alert("Error retrieving receipt. Please try again.");
-                }
-            };
-            xhr.send();
-        }
-
-        // Get the modal
-        var modal = document.getElementById("receiptModal");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
         }
     </script>
 </body>
