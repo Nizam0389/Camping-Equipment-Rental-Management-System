@@ -81,16 +81,16 @@ $username = $_SESSION["username"];
             <table class="customer-table">
                 <thead>
                     <tr>
-                        <th>rent ID</th>
-                        <th>Customer ID</th>
-                        <th>Customer Name</th>
-                        <th>rent Date</th>
-                        <th>Return Date</th>
-                        <th>Total Fee</th>
-                        <th>Actions</th>
+                        <th class="col-rent-id">Rent ID</th>
+                        <th class="col-cust-id">Customer ID</th>
+                        <th class="col-name">Customer Name</th>
+                        <th class="col-rent-date">Rent Date</th>
+                        <th class="col-return-date">Return Date</th>
+                        <th class="col-total-fee">Total Fee</th>
+                        <th class="col-actions">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="customer-table-body">
                     <?php
                     include 'dbConnect.php';
 
@@ -103,13 +103,13 @@ $username = $_SESSION["username"];
                     if ($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
                             echo "<tr data-status='" . $row["rent_status"] . "'>
-                                    <td>" . $row["rent_id"]. "</td>
-                                    <td>" . $row["cust_id"]. "</td>
-                                    <td>" . $row["name"]. "</td>
-                                    <td>" . $row["rent_date"]. "</td>
-                                    <td>" . $row["return_date"]. "</td>
-                                    <td>" . $row["total_fee"]. "</td>
-                                    <td><button onclick=\"window.location.href='viewrentaldetail.php?rent_id=" . $row["rent_id"] . "&status=" . $row["rent_status"] . "'\">View Details</button></td>
+                                    <td class='col-rent-id'>" . $row["rent_id"]. "</td>
+                                    <td class='col-cust-id'>" . $row["cust_id"]. "</td>
+                                    <td class='col-name'>" . $row["name"]. "</td>
+                                    <td class='col-rent-date'>" . $row["rent_date"]. "</td>
+                                    <td class='col-return-date'>" . $row["return_date"]. "</td>
+                                    <td class='col-total-fee'>" . $row["total_fee"]. "</td>
+                                    <td class='col-actions'><button class='view-button' onclick=\"window.location.href='viewrentaldetail.php?rent_id=" . $row["rent_id"] . "&status=" . $row["rent_status"] . "'\">View Details</button></td>
                                   </tr>";
                         }
                     } else {
@@ -119,26 +119,65 @@ $username = $_SESSION["username"];
                     ?>
                 </tbody>
             </table>
+            <div class="pagination">
+                <button id="prevPage" onclick="prevPage()">Prev</button>
+                <span id="pageIndicator"></span>
+                <button id="nextPage" onclick="nextPage()">Next</button>
+            </div>
         </div>
     </div>
 
     <script>
-        function searchAndFilter() {
-            var searchBar = document.getElementById("search-bar").value.toLowerCase();
-            var rentStatusFilter = document.getElementById("rent-status-filter").value;
-            var table = document.querySelector(".customer-table tbody");
-            var rows = table.getElementsByTagName("tr");
+        let currentPage = 1;
+        const rowsPerPage = 9;
 
-            for (var i = 0; i < rows.length; i++) {
-                var customerName = rows[i].getElementsByTagName("td")[2].innerText.toLowerCase();
-                var rentStatus = rows[i].getAttribute("data-status");
-                if (customerName.includes(searchBar) && (rentStatusFilter === "" || rentStatus === rentStatusFilter)) {
-                    rows[i].style.display = "";
-                } else {
-                    rows[i].style.display = "none";
-                }
-            }
+        function paginateTable() {
+            const table = document.querySelector(".customer-table tbody");
+            const rows = Array.from(table.getElementsByTagName("tr"));
+            const totalRows = rows.length;
+
+            rows.forEach((row, index) => {
+                row.style.display = (index >= (currentPage - 1) * rowsPerPage && index < currentPage * rowsPerPage) ? "" : "none";
+            });
+
+            document.getElementById("prevPage").disabled = currentPage === 1;
+            document.getElementById("nextPage").disabled = currentPage * rowsPerPage >= totalRows;
+            document.getElementById("pageIndicator").textContent = `Page ${currentPage}`;
         }
+
+        function nextPage() {
+            currentPage++;
+            paginateTable();
+        }
+
+        function prevPage() {
+            currentPage--;
+            paginateTable();
+        }
+
+        function searchAndFilter() {
+            const searchBar = document.getElementById("search-bar").value.toLowerCase();
+            const rentStatusFilter = document.getElementById("rent-status-filter").value;
+            const table = document.querySelector(".customer-table tbody");
+            const rows = Array.from(table.getElementsByTagName("tr"));
+            let filteredRows = rows;
+
+            filteredRows = rows.filter(row => {
+                const customerName = row.getElementsByTagName("td")[2].innerText.toLowerCase();
+                const rentStatus = row.getAttribute("data-status");
+                return customerName.includes(searchBar) && (rentStatusFilter === "" || rentStatus === rentStatusFilter);
+            });
+
+            rows.forEach(row => row.style.display = "none");
+            filteredRows.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage).forEach(row => row.style.display = "");
+
+            document.getElementById("prevPage").disabled = currentPage === 1;
+            document.getElementById("nextPage").disabled = currentPage * rowsPerPage >= filteredRows.length;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            paginateTable();
+        });
     </script>
 </body>
 </html>
