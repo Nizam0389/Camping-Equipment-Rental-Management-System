@@ -18,53 +18,10 @@ $contact = mysqli_fetch_assoc($result);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <link rel="stylesheet" type="text/css" href="css/contactUs.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-        function confirmLogout() {
-            Swal.fire({
-                title: 'Are you sure?',
-                text: 'You will be logged out',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, logout!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire({
-                        title: 'Logging Out!',
-                        text: 'You are being logged out.',
-                        icon: 'info',
-                        showConfirmButton: false,
-                        allowOutsideClick: false
-                    });
-                    setTimeout(() => {
-                        window.location.href = 'logout.php';
-                    }, 1000);
-                }
-            });
-        }
-    </script>
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <ul>
-                <li><a href="homepage.php">HOMEPAGE</a></li>
-                <li><a href="category.php">RENTAL</a></li>
-                <li class="logo"><img src="image/logo.png" alt="logo"></li>
-                <li class="right"><a href="contactus.php">CONTACT US</a></li>
-                <li class="right profile-dropdown">
-                <a href="javascript:void(0);">
-                    <img src="image/profilebg.png" alt="Profile" style="height:20%; width:30px;">
-                </a>
-                <div class="dropdown-content">
-                    <a href="customerAccountSetting.php">Profile</a>
-                    <a href="javascript:void(0);" onclick="confirmLogout()">Logout</a>
-                </div>
-            </li>
-                </ul>
-        </div>
+        <?php include 'navbar.php'; ?>
     </header>
     <main>
         <div class="contact-section">
