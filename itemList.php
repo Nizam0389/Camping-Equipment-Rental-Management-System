@@ -92,7 +92,7 @@ $username = $_SESSION["username"];
                         <th class="col-action">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="item-table-body">
                     <?php
                     include 'dbConnect.php';
 
@@ -108,9 +108,9 @@ $username = $_SESSION["username"];
                                     <td>" . $row["item_fee"]. "</td>
                                     <td class='col-quantity'>" . $row["item_quantity"]. "</td>
                                     <td class='col-action'>
-                                        <button onclick=\"viewImage('" . $row["item_image_url"] . "')\">View Image</button>
-                                        <button onclick=\"window.location.href='updItem.php?item_id=" . $row["item_id"] . "'\">Update</button>
-                                        <button onclick=\"confirmDelete('" . $row["item_id"] . "')\">Delete</button>
+                                        <button class='view-button' onclick=\"viewImage('" . $row["item_image_url"] . "')\">View Image</button>
+                                        <button class='update-button' onclick=\"window.location.href='updItem.php?item_id=" . $row["item_id"] . "'\">Update</button>
+                                        <button class='delete-button' onclick=\"confirmDelete('" . $row["item_id"] . "')\">Delete</button>
                                     </td>
                                   </tr>";
                         }
@@ -121,6 +121,11 @@ $username = $_SESSION["username"];
                     ?>
                 </tbody>
             </table>
+            <div class="pagination">
+                <button id="prevPage" onclick="prevPage()">Prev</button>
+                <span id="pageIndicator"></span>
+                <button id="nextPage" onclick="nextPage()">Next</button>
+            </div>
         </div>
     </div>
 
@@ -133,18 +138,65 @@ $username = $_SESSION["username"];
     </div>
 
     <script>
+        let currentPage = 1;
+        const rowsPerPage = 9;
+
+        function paginateTable() {
+            const table = document.querySelector(".item-table tbody");
+            const rows = Array.from(table.getElementsByTagName("tr"));
+            const totalRows = rows.length;
+
+            rows.forEach((row, index) => {
+                row.style.display = (index >= (currentPage - 1) * rowsPerPage && index < currentPage * rowsPerPage) ? "" : "none";
+            });
+
+            document.getElementById("prevPage").disabled = currentPage === 1;
+            document.getElementById("nextPage").disabled = currentPage * rowsPerPage >= totalRows;
+            document.getElementById("pageIndicator").textContent = `Page ${currentPage}`;
+        }
+
+        function nextPage() {
+            currentPage++;
+            paginateTable();
+        }
+
+        function prevPage() {
+            currentPage--;
+            paginateTable();
+        }
+
+        function searchAndFilter() {
+            const searchBar = document.getElementById("search-bar").value.toLowerCase();
+            const filterType = document.getElementById("filter-type").value.toLowerCase();
+            const table = document.querySelector(".item-table tbody");
+            const rows = Array.from(table.getElementsByTagName("tr"));
+            let filteredRows = rows;
+
+            filteredRows = rows.filter(row => {
+                const itemName = row.getElementsByTagName("td")[1].innerText.toLowerCase();
+                const itemType = row.getElementsByTagName("td")[2].innerText.toLowerCase();
+                return itemName.includes(searchBar) && (filterType === "" || itemType === filterType);
+            });
+
+            rows.forEach(row => row.style.display = "none");
+            filteredRows.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage).forEach(row => row.style.display = "");
+
+            document.getElementById("prevPage").disabled = currentPage === 1;
+            document.getElementById("nextPage").disabled = currentPage * rowsPerPage >= filteredRows.length;
+        }
+
         function viewImage(url) {
-            var modal = document.getElementById("imageModal");
-            var img = document.getElementById("itemImage");
+            const modal = document.getElementById("imageModal");
+            const img = document.getElementById("itemImage");
             img.src = url;
             modal.style.display = "block";
         }
 
         // Get the modal
-        var modal = document.getElementById("imageModal");
+        const modal = document.getElementById("imageModal");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        const span = document.getElementsByClassName("close")[0];
 
         // When the user clicks on <span> (x), close the modal
         span.onclick = function() {
@@ -164,22 +216,9 @@ $username = $_SESSION["username"];
             }
         }
 
-        function searchAndFilter() {
-            var searchBar = document.getElementById("search-bar").value.toLowerCase();
-            var filterType = document.getElementById("filter-type").value.toLowerCase();
-            var table = document.querySelector(".item-table tbody");
-            var rows = table.getElementsByTagName("tr");
-
-            for (var i = 0; i < rows.length; i++) {
-                var itemName = rows[i].getElementsByTagName("td")[1].innerText.toLowerCase();
-                var itemType = rows[i].getElementsByTagName("td")[2].innerText.toLowerCase();
-                if (itemName.includes(searchBar) && (filterType === "" || itemType === filterType)) {
-                    rows[i].style.display = "";
-                } else {
-                    rows[i].style.display = "none";
-                }
-            }
-        }
+        document.addEventListener("DOMContentLoaded", () => {
+            paginateTable();
+        });
     </script>
 </body>
 </html>
