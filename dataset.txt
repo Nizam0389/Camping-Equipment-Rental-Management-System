@@ -1,45 +1,48 @@
 -- customer
+-- Insert sample data into the customer table
 INSERT INTO `customer` (`name`, `username`, `password`, `email`, `phone_no`, `address`) VALUES
-('Ahmad Najmi', 'ahmadnajmi', '200820e3227815ed1756a6b531e7e0d2', 'ahmad.najmi@gmail.com', '0123456789', 'No 1, Jalan ABC, Kuala Lumpur'),
-('Lim Wei Sheng', 'limweisheng', '200820e3227815ed1756a6b531e7e0d2', 'lim.weisheng@gmail.com', '0123456790', 'No 2, Jalan DEF, Petaling Jaya'),
-('John Smith', 'johnsmith', '200820e3227815ed1756a6b531e7e0d2', 'john.smith@gmail.com', '0123456791', '123 Main St, New York'),
-('Nur Aisyah', 'nuraisyah', '200820e3227815ed1756a6b531e7e0d2', 'nur.aisyah@gmail.com', '0123456792', 'No 3, Jalan GHI, Shah Alam'),
-('Tan Mei Ling', 'tanmeiling', '200820e3227815ed1756a6b531e7e0d2', 'tan.meiling@gmail.com', '0123456793', 'No 4, Jalan JKL, Georgetown'),
-('Emily Johnson', 'emilyjohnson', '200820e3227815ed1756a6b531e7e0d2', 'emily.johnson@gmail.com', '0123456794', '456 Elm St, Los Angeles'),
-('Syafiq Hakimi', 'syafiqhakimi', '200820e3227815ed1756a6b531e7e0d2', 'syafiq.hakimi@gmail.com', '0123456795', 'No 5, Jalan MNO, Ipoh'),
-('Lee Jia Jun', 'leejiajun', '200820e3227815ed1756a6b531e7e0d2', 'lee.jiajun@gmail.com', '0123456796', 'No 6, Jalan PQR, Johor Bahru'),
-('Michael Brown', 'michaelbrown', '200820e3227815ed1756a6b531e7e0d2', 'michael.brown@gmail.com', '0123456797', '789 Oak St, Chicago'),
-('Aminah Abdullah', 'aminahabdllah', '200820e3227815ed1756a6b531e7e0d2', 'aminah.abdullah@gmail.com', '0123456798', 'No 7, Jalan STU, Kota Bharu'),
-('Wong Siew Ling', 'wongsiewling', '200820e3227815ed1756a6b531e7e0d2', 'wong.siewling@gmail.com', '0123456799', 'No 8, Jalan VWX, Melaka'),
-('Jessica Davis', 'jessicadavis', '200820e3227815ed1756a6b531e7e0d2', 'jessica.davis@gmail.com', '0123456700', '101 Maple St, Houston'),
-('Hafizuddin', 'hafizuddin', '200820e3227815ed1756a6b531e7e0d2', 'hafizuddin@gmail.com', '0123456701', 'No 9, Jalan YZ, Seremban'),
-('Chan Kok Wei', 'chankokwei', '200820e3227815ed1756a6b531e7e0d2', 'chan.kokwei@gmail.com', '0123456702', 'No 10, Jalan ABC, Alor Setar'),
-('David Wilson', 'davidwilson', '200820e3227815ed1756a6b531e7e0d2', 'david.wilson@gmail.com', '0123456703', '102 Pine St, Phoenix'),
-('Zainab Osman', 'zainabosman', '200820e3227815ed1756a6b531e7e0d2', 'zainab.osman@gmail.com', '0123456704', 'No 11, Jalan DEF, Kuala Terengganu'),
-('Lau Chee Meng', 'laucheemeng', '200820e3227815ed1756a6b531e7e0d2', 'lau.cheemeng@gmail.com', '0123456705', 'No 12, Jalan GHI, Kota Kinabalu'),
-('Susan Miller', 'susanmiller', '200820e3227815ed1756a6b531e7e0d2', 'susan.miller@gmail.com', '0123456706', '103 Cedar St, Philadelphia'),
-('Faisal Rahman', 'faisalrahman', '200820e3227815ed1756a6b531e7e0d2', 'faisal.rahman@gmail.com', '0123456707', 'No 13, Jalan JKL, Kuching'),
-('Goh Siew Yin', 'gohsiewyin', '200820e3227815ed1756a6b531e7e0d2', 'goh.siewyin@gmail.com', '0123456708', 'No 14, Jalan MNO, Miri'),
-('Brian Taylor', 'briantaylor', '200820e3227815ed1756a6b531e7e0d2', 'brian.taylor@gmail.com', '0123456709', '104 Birch St, San Antonio'),
-('Farah Hidayah', 'farahhidayah', '200820e3227815ed1756a6b531e7e0d2', 'farah.hidayah@gmail.com', '0123456710', 'No 15, Jalan PQR, Bintulu'),
-('Lim Chee Wah', 'limcheewah', '200820e3227815ed1756a6b531e7e0d2', 'lim.cheewah@gmail.com', '0123456711', 'No 16, Jalan STU, Sandakan'),
-('Anna White', 'annawhite', '200820e3227815ed1756a6b531e7e0d2', 'anna.white@gmail.com', '0123456712', '105 Spruce St, Dallas'),
-('Haziq Zulkifli', 'haziqzulkifli', '200820e3227815ed1756a6b531e7e0d2', 'haziq.zulkifli@gmail.com', '0123456713', 'No 17, Jalan VWX, Tawau'),
-('Chong Wei Jie', 'chongweijie', '200820e3227815ed1756a6b531e7e0d2', 'chong.weijie@gmail.com', '0123456714', 'No 18, Jalan YZ, Lahad Datu'),
-('Chris Lee', 'chrislee', '200820e3227815ed1756a6b531e7e0d2', 'chris.lee@gmail.com', '0123456715', '106 Fir St, Austin'),
-('Nurul Iman', 'nuruliman', '200820e3227815ed1756a6b531e7e0d2', 'nurul.iman@gmail.com', '0123456716', 'No 19, Jalan ABC, Sepang'),
-('Teoh Ee Ling', 'teoheeling', '200820e3227815ed1756a6b531e7e0d2', 'teoh.eeling@gmail.com', '0123456717', 'No 20, Jalan DEF, Klang'),
-('Joshua Harris', 'joshuaharris', '200820e3227815ed1756a6b531e7e0d2', 'joshua.harris@gmail.com', '0123456718', '107 Redwood St, San Diego');
+('Ahmad Zaki', 'ahmadz', '200820e3227815ed1756a6b531e7e0d2', 'ahmadz@gmail.com', '0123456789', 'No. 1, Jalan Sultan Mahmud, 20000 Kuala Terengganu, Terengganu'),
+('Lim Wei Sheng', 'limws', '200820e3227815ed1756a6b531e7e0d2', 'limws@gmail.com', '0123456790', 'No. 2, Jalan Tun Razak, 50400 Kuala Lumpur'),
+('Ravi Kumar', 'ravik', '200820e3227815ed1756a6b531e7e0d2', 'ravik@gmail.com', '0123456791', 'No. 3, Jalan Kampung Cina, 20100 Kuala Terengganu, Terengganu'),
+('Nurul Izzati', 'nuruliz', '200820e3227815ed1756a6b531e7e0d2', 'nuruliz@gmail.com', '0123456792', 'No. 4, Jalan Bukit Bintang, 55100 Kuala Lumpur'),
+('Tan Chee Keong', 'tanchk', '200820e3227815ed1756a6b531e7e0d2', 'tanchk@gmail.com', '0123456793', 'No. 5, Jalan Sultan Ismail, 50250 Kuala Lumpur'),
+('Aisyah Binti Hassan', 'aisyahh', '200820e3227815ed1756a6b531e7e0d2', 'aisyahh@gmail.com', '0123456794', 'No. 6, Jalan Raja Laut, 50350 Kuala Lumpur'),
+('Gurpreet Singh', 'gurpreets', '200820e3227815ed1756a6b531e7e0d2', 'gurpreets@gmail.com', '0123456795', 'No. 7, Jalan Ampang, 50450 Kuala Lumpur'),
+('Siti Nurhaliza', 'sitin', '200820e3227815ed1756a6b531e7e0d2', 'sitin@gmail.com', '0123456796', 'No. 8, Jalan Cheras, 56000 Kuala Lumpur'),
+('Mohd Faiz', 'faiz', '200820e3227815ed1756a6b531e7e0d2', 'faiz@gmail.com', '0123456797', 'No. 9, Jalan Ipoh, 51200 Kuala Lumpur'),
+('Lina Binti Lokman', 'linal', '200820e3227815ed1756a6b531e7e0d2', 'linal@gmail.com', '0123456798', 'No. 10, Jalan Duta, 50480 Kuala Lumpur'),
+('Chong Wei', 'chongw', '200820e3227815ed1756a6b531e7e0d2', 'chongw@gmail.com', '0123456799', 'No. 11, Jalan Sultan Yahya Petra, 15200 Kota Bharu, Kelantan'),
+('Faris', 'faris', '200820e3227815ed1756a6b531e7e0d2', 'faris@gmail.com', '0123456700', 'No. 12, Jalan Sultan Ibrahim, 15050 Kota Bharu, Kelantan'),
+('Rina Binti Rahman', 'rinar', '200820e3227815ed1756a6b531e7e0d2', 'rinar@gmail.com', '0123456701', 'No. 13, Jalan Langgar, 05460 Alor Setar, Kedah'),
+('Arun Kumar', 'arunk', '200820e3227815ed1756a6b531e7e0d2', 'arunk@gmail.com', '0123456702', 'No. 14, Jalan Teluk Wanjah, 05200 Alor Setar, Kedah'),
+('Hamzah', 'hamzah', '200820e3227815ed1756a6b531e7e0d2', 'hamzah@gmail.com', '0123456703', 'No. 15, Jalan Kota, 34000 Taiping, Perak'),
+('Lai Fong', 'laif', '200820e3227815ed1756a6b531e7e0d2', 'laif@gmail.com', '0123456704', 'No. 16, Jalan Stesen, 30000 Ipoh, Perak'),
+('Shanti Devi', 'shantid', '200820e3227815ed1756a6b531e7e0d2', 'shantid@gmail.com', '0123456705', 'No. 17, Jalan Raja Musa Aziz, 30300 Ipoh, Perak'),
+('Aziz', 'aziz', '200820e3227815ed1756a6b531e7e0d2', 'aziz@gmail.com', '0123456706', 'No. 18, Jalan Masjid, 41900 Klang, Selangor'),
+('Cheah Kai', 'cheahk', '200820e3227815ed1756a6b531e7e0d2', 'cheahk@gmail.com', '0123456707', 'No. 19, Jalan Tengku Kelana, 41000 Klang, Selangor'),
+('Hana Binti Haris', 'hanah', '200820e3227815ed1756a6b531e7e0d2', 'hanah@gmail.com', '0123456708', 'No. 20, Jalan Sultan, 50000 Kuala Lumpur, Kuala Lumpur'),
+('Farah Hanim', 'farahh', '200820e3227815ed1756a6b531e7e0d2', 'farahh@gmail.com', '0123456709', 'No. 21, Jalan Padungan, 93100 Kuching, Sarawak'),
+('Lim Wei Jian', 'limwj', '200820e3227815ed1756a6b531e7e0d2', 'limwj@gmail.com', '0123456710', 'No. 22, Jalan Satok, 93400 Kuching, Sarawak'),
+('Sofia', 'sofia', '200820e3227815ed1756a6b531e7e0d2', 'sofia@gmail.com', '0123456711', 'No. 23, Jalan Pending, 93450 Kuching, Sarawak'),
+('Raju', 'raju', '200820e3227815ed1756a6b531e7e0d2', 'raju@gmail.com', '0123456712', 'No. 24, Jalan Gaya, 88000 Kota Kinabalu, Sabah'),
+('Imran Bin Ismail', 'imrani', '200820e3227815ed1756a6b531e7e0d2', 'imrani@gmail.com', '0123456713', 'No. 25, Jalan Tun Fuad Stephen, 88100 Kota Kinabalu, Sabah'),
+('Maryam Binti Musa', 'maryamm', '200820e3227815ed1756a6b531e7e0d2', 'maryamm@gmail.com', '0123456714', 'No. 26, Jalan Penampang, 89500 Kota Kinabalu, Sabah'),
+('Najmi', 'najmi', '200820e3227815ed1756a6b531e7e0d2', 'najmi@gmail.com', '0123456715', 'No. 27, Jalan Sultan Zainal Abidin, 20200 Kuala Terengganu, Terengganu'),
+('Zainal', 'zainal', '200820e3227815ed1756a6b531e7e0d2', 'zainal@gmail.com', '0123456716', 'No. 28, Jalan Tok Lam, 20100 Kuala Terengganu, Terengganu'),
+('Tan Mei Ling', 'tanml', '200820e3227815ed1756a6b531e7e0d2', 'tanml@gmail.com', '0123456717', 'No. 29, Jalan Sultan Mahmud, 20000 Kuala Terengganu, Terengganu'),
+('Fikri Bin Fauzi', 'fikrif', '200820e3227815ed1756a6b531e7e0d2', 'fikrif@gmail.com', '0123456718', 'No. 30, Jalan Bandar, 21000 Kuala Terengganu, Terengganu');
 
 
--- staff
+
+-- Insert sample data into the staff table
 INSERT INTO `staff` (`name`, `username`, `password`, `email`, `phone_no`, `address`) VALUES
-('Admin', 'S001', '200820e3227815ed1756a6b531e7e0d2', 'admin@gmail.com', '0111111111', 'Admin'),
-('Ali Bin Hassan', 'staff1', '200820e3227815ed1756a6b531e7e0d2', 'ali.hassan@gmail.com', '0123456781', 'No 1, Jalan XYZ, Kuala Lumpur'),
-('Chong Li Wei', 'staff2', '200820e3227815ed1756a6b531e7e0d2', 'chong.liwei@gmail.com', '0123456782', 'No 2, Jalan UVW, Petaling Jaya'),
-('Sarah Johnson', 'staff3', '200820e3227815ed1756a6b531e7e0d2', 'sarah.johnson@gmail.com', '0123456783', '123 Maple St, New York'),
-('Fatimah Binti Ali', 'staff4', '200820e3227815ed1756a6b531e7e0d2', 'fatimah.ali@gmail.com', '0123456784', 'No 3, Jalan RST, Shah Alam'),
-('Lim Mei Yeng', 'staff5', '200820e3227815ed1756a6b531e7e0d2', 'lim.meiyeng@gmail.com', '0123456785', '456 Elm St, Los Angeles');
+('Admin User', 'S001', '200820e3227815ed1756a6b531e7e0d2', 'admin@campingrental.com', '0123456000', 'No. 1, Jalan Sultan Mahmud, 20000 Kuala Terengganu, Terengganu'),
+('Ahmad Razali', 'ahmadr', '200820e3227815ed1756a6b531e7e0d2', 'ahmadr@gmail.com', '0123456001', 'No. 2, Jalan Tun Razak, 50400 Kuala Lumpur'),
+('Lee Wei Ling', 'leewl', '200820e3227815ed1756a6b531e7e0d2', 'leewl@gmail.com', '0123456002', 'No. 3, Jalan Sultan Ismail, 50250 Kuala Lumpur'),
+('Aishah Binti Karim', 'aishahk', '200820e3227815ed1756a6b531e7e0d2', 'aishahk@gmail.com', '0123456003', 'No. 4, Jalan Raja Laut, 50350 Kuala Lumpur'),
+('Ravi Chandran', 'ravic', '200820e3227815ed1756a6b531e7e0d2', 'ravic@gmail.com', '0123456004', 'No. 5, Jalan Ipoh, 51200 Kuala Lumpur'),
+('Nurul Syafiqah', 'nuruls', '200820e3227815ed1756a6b531e7e0d2', 'nuruls@gmail.com', '0123456005', 'No. 6, Jalan Duta, 50480 Kuala Lumpur');
+
 
 -- item
 INSERT INTO `Item` (`item_name`, `item_type`, `item_fee`, `item_quantity`, `item_image_url`) VALUES
